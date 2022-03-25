@@ -44,7 +44,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.projeto_final_unb"
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21  //antes tava flutter.minSdkVersion, mas tirei p plugin flutter_launcher_icons funcionar
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
