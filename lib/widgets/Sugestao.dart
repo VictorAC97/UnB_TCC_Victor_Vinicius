@@ -3,16 +3,16 @@ import 'package:projeto_final_unb/models/Usuario.dart';
 
 class Sugestao extends StatefulWidget {
   int? limiteSelecoes;
-  Usuario? user;
+  List<String>? listaUser;
   List<String>? listaSugestoes;
   String? titulo;
 
   Sugestao(
       {Key? key,
-      required this.user,
       required this.listaSugestoes,
       required this.limiteSelecoes,
-      required this.titulo})
+      required this.titulo,
+      required this.listaUser})
       : super(key: key);
 
   @override
@@ -21,13 +21,15 @@ class Sugestao extends StatefulWidget {
 
 class _SugestaoState extends State<Sugestao> {
   List<String> _selectedItems = [];
+
   bool? checked = false;
   TextEditingController _controller = TextEditingController();
 
   void _itemChange(String itemValue, bool isSelected) {
     setState(() {
       if (isSelected) {
-        if (_selectedItems.length < widget.limiteSelecoes!)
+        if (_selectedItems.length <
+            widget.limiteSelecoes!) //controle de quantidade selecionada
           _selectedItems.add(itemValue);
         print(_selectedItems);
       } else {
@@ -39,6 +41,9 @@ class _SugestaoState extends State<Sugestao> {
 
   @override
   Widget build(BuildContext context) {
+    //mantendo os itens do usuario caso ele queira edita-los
+    if (widget.listaUser != null) _selectedItems = widget.listaUser!;
+
     return AlertDialog(
       title: Text(widget.titulo!),
       content: SingleChildScrollView(
@@ -46,7 +51,13 @@ class _SugestaoState extends State<Sugestao> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text("${_selectedItems.length} / ${widget.limiteSelecoes}"),
+              if ((_selectedItems.length < widget.limiteSelecoes!))
+                Text("${_selectedItems.length} / ${widget.limiteSelecoes}")
+              else
+                Text(
+                  "${_selectedItems.length} / ${widget.limiteSelecoes}",
+                  style: TextStyle(color: Colors.red),
+                ),
               if (_selectedItems != null)
                 Wrap(
                     children: _selectedItems
@@ -64,6 +75,12 @@ class _SugestaoState extends State<Sugestao> {
               ListBody(
                 children: widget.listaSugestoes!
                     .map((item) => CheckboxListTile(
+                          secondary: IconButton(
+                            tooltip: "Visualizar exemplo",
+                            onPressed: () {},
+                            icon: Icon(Icons.help),
+                          ),
+                          activeColor: Colors.black,
                           title: Text(item),
                           value: _selectedItems.contains(item),
                           controlAffinity: ListTileControlAffinity.leading,
@@ -94,17 +111,37 @@ class _SugestaoState extends State<Sugestao> {
       actions: [
         TextButton(
           child: Text(
+            "Limpar",
+            style: TextStyle(color: Colors.black),
+          ),
+          onPressed: () {
+            setState(() {
+              widget.listaUser = [];
+            });
+          },
+        ),
+        Padding(padding: EdgeInsets.all(20)),
+        TextButton(
+          child: Text(
             "Cancelar",
             style: TextStyle(color: Colors.black),
           ),
-          onPressed: () => Navigator.pop(context),
-        ),
-        ElevatedButton(
-          style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.black)),
-          child: Text("Finalizar"),
           onPressed: () => Navigator.pop(context, _selectedItems),
         ),
+        if (_selectedItems.length < widget.limiteSelecoes!)
+          ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.black)),
+            child: Text("Finalizar"),
+            onPressed: () => Navigator.pop(context, _selectedItems),
+          )
+        else
+          ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.green)),
+            child: Text("Finalizar"),
+            onPressed: () => Navigator.pop(context, _selectedItems),
+          )
       ],
     );
   }

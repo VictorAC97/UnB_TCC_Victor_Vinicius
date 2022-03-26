@@ -4,6 +4,8 @@ List<String> sugestaoSexo = [
 ];
 
 List<String> sugestaoPersonalidade = [
+  "HOMEM",
+  "MULHER",
   "UMA PESSOA JOVEM",
   "UMA PESSOA ADULTA",
   "UMA PESSOA TRANQUILA",

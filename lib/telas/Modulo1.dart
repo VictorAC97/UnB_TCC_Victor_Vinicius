@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:projeto_final_unb/models/Usuario.dart';
+import 'package:projeto_final_unb/widgets/BlocoSugestoes.dart';
 import 'package:projeto_final_unb/widgets/Sugestao.dart';
-import '../Sugestoes/Suggestions.dart';
+import '../utilities/Suggestions.dart';
 import '../widgets/Anexo.dart';
 import 'package:image/image.dart' as img;
+import '../utilities/monthsInYear.dart';
 
 class Modulo1 extends StatefulWidget {
   Usuario? user;
@@ -17,6 +19,9 @@ class Modulo1 extends StatefulWidget {
 
 class _Modulo1State extends State<Modulo1> {
   TextEditingController _controller = TextEditingController();
+  TextEditingController _controllerIdade = TextEditingController();
+  TextEditingController _controllerPeso = TextEditingController();
+  TextEditingController _controllerAltura = TextEditingController();
   final picker = ImagePicker();
   XFile? imagem;
 
@@ -44,6 +49,8 @@ class _Modulo1State extends State<Modulo1> {
     }
   }
 
+  Widget _divider() => Divider(thickness: 1.0);
+
   //conversor de Xfile para File
   File convertToFile(XFile xFile) => File(xFile.path);
 
@@ -53,7 +60,7 @@ class _Modulo1State extends State<Modulo1> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text("MÓDULO 1 - Criação de perfil"),
+        title: Text("MÓDULO 1 - Criação de Perfil Pessoal"),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -100,6 +107,9 @@ class _Modulo1State extends State<Modulo1> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                    padding: EdgeInsets.only(top: 5),
+                    child: Text("CRIANDO O TEXTO BIBLIOGRÁFICO...")),
                 Divider(
                   thickness: 1.0,
                 ),
@@ -119,23 +129,77 @@ class _Modulo1State extends State<Modulo1> {
                     });
                   },
                 ),
-                Divider(
-                  thickness: 1.0,
+                _divider(),
+                if (widget.user!.idade != null)
+                  Text(
+                    "TENHO ${widget.user!.idade} ANOS",
+                    style: TextStyle(fontSize: 18),
+                  )
+                else
+                  Text(
+                    "TENHO __ ANOS.",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                TextField(
+                  controller: _controllerIdade,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(label: Text("Informe sua idade")),
+                  onSubmitted: (newValue) {
+                    setState(() {
+                      widget.user!.idade = newValue;
+                      _controllerIdade.text = "";
+                    });
+                  },
                 ),
+                _divider(),
+                if (widget.user!.dataNasc != null)
+                  Text(
+                    "EU NASCI DO DIA ${widget.user!.dataNasc!.day} DO MÊS DE ${mesesDoAno[widget.user!.dataNasc!.month]} DO ANO DE ${widget.user!.dataNasc!.year}",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 8),
+                    child: Column(
+                      children: [
+                        if (widget.user!.dataNasc == null)
+                          Text(
+                            "DATA DE NASCIMENTO: ",
+                            style: TextStyle(fontSize: 18),
+                          )
+                        else
+                          Text(
+                            "DATA DE NASCIMENTO: ${widget.user!.dataNasc!.day}/${widget.user!.dataNasc!.month}/${widget.user!.dataNasc!.year}",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ElevatedButton.icon(
+                          icon: Icon(Icons.calendar_today_outlined),
+                          label: Text("Adicionar"),
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStateProperty.all(Colors.black)),
+                          onPressed: () async {
+                            widget.user!.dataNasc = await showDatePicker(
+                                locale: Locale('pt', 'BR'),
+                                context: context,
+                                initialEntryMode: DatePickerEntryMode.calendar,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(1900),
+                                lastDate: DateTime.now());
+
+                            setState(() {});
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                _divider(),
                 Text(
-                  "EU SOU: ",
+                  "MINHA ALTURA É __ METRO(S) E __ CENTÍMETROS",
                   style: TextStyle(fontSize: 18),
                 ),
-
-                if (widget.user!.listaEuSou != null)
-                  Wrap(
-                    children: widget.user!.listaEuSou!
-                        .map((item) => Chip(
-                              label: Text(item),
-                            ))
-                        .toList(),
-                  ),
-
                 Align(
                   alignment: Alignment.center,
                   child: ElevatedButton.icon(
@@ -145,22 +209,49 @@ class _Modulo1State extends State<Modulo1> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.black)),
                     onPressed: () async {
-                      widget.user!.listaEuSou = await showDialog(
-                        context: context,
-                        builder: (context) => Sugestao(
-                            user: widget.user,
-                            listaSugestoes: sugestaoPersonalidade,
-                            limiteSelecoes: 5,
-                            titulo: "EU SOU:"),
-                      );
-                      setState(() {});
+                      widget.user!.peso = await showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                title: Text("Informar Altura"),
+                                content: SingleChildScrollView(
+                                  child: Column(
+                                    children: [
+                                      TextField(
+                                        controller: _controllerAltura,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          TextButton(
+                                            child: Text("Cancelar"),
+                                            onPressed: () {},
+                                          ),
+                                          ElevatedButton(
+                                            child: Text("Confirmar"),
+                                            onPressed: () {},
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ));
                     },
                   ),
                 ),
+                _divider(),
+                Text("TENHO ___ QUILOS E ___ GRAMAS DE PESO ",
+                    style: TextStyle(fontSize: 18)),
+                _divider(),
 
-                Divider(
-                  thickness: 1.0,
+                BlocoSugestoes(
+                  user: widget.user,
+                  limiteSelecoes: 5,
                 ),
+                _divider(),
+
+                _divider(),
               ],
             ),
           ]),
@@ -172,17 +263,17 @@ class _Modulo1State extends State<Modulo1> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              onPressed: () {},
               icon: Icon(Icons.close, color: Colors.red),
               iconSize: 35,
+              onPressed: () {},
             ),
             IconButton(
-              onPressed: () {},
               icon: Icon(
                 Icons.check,
                 color: Colors.green,
               ),
               iconSize: 35,
+              onPressed: () {},
             ),
           ],
         ),

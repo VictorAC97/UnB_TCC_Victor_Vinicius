@@ -15,14 +15,12 @@ class _Modulo2State extends State<Modulo2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Módulo 2 - "),
+        centerTitle: true,
+        backgroundColor: Colors.black,
+        title: Text("MÓDULO 2 - Significado dos Emojis"),
       ),
       body: Column(
-        children: [
-          Anexo(largura: 200, altura: 200, picture: widget.user!.fotoPerfil),
-          Padding(padding: EdgeInsets.all(16)),
-          Text("Nome: ${widget.user!.nome}"),
-        ],
+        children: [],
       ),
     );
   }
