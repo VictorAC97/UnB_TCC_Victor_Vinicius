@@ -7,8 +7,10 @@ class Usuario {
   //criar um metodo de preenchimento automatico a partir de dataAtual - dataNasc
   String? idade;
   File? fotoPerfil;
-  double? altura;
-  double? peso;
+  int? alturaMetro;
+  int? alturaCentimetro;
+  int? pesoQuilos;
+  int? pesoGramas;
   List<String>? listaCorOlhos;
   List<String>? listaEuSou;
   List<String>? listaMinhaComidaPreferida;
@@ -24,8 +26,10 @@ class Usuario {
     this.nome,
     this.dataNasc,
     this.idade,
-    this.altura,
-    this.peso,
+    this.alturaMetro,
+    this.alturaCentimetro,
+    this.pesoQuilos,
+    this.pesoGramas,
     this.fotoPerfil,
     this.listaCorOlhos,
     this.listaEuSou,

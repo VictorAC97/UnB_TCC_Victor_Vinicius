@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/Sugestoes/Suggestions.dart';
+import 'package:projeto_final_unb/utilities/Suggestions.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/widgets/Sugestao.dart';
 

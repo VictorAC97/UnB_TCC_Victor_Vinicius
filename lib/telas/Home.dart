@@ -45,8 +45,8 @@ class _HomeState extends State<Home> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.black),
                       ),
-                      onPressed: () {
-                        Navigator.push(
+                      onPressed: () async {
+                        usuario = await Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Modulo1(user: usuario)));

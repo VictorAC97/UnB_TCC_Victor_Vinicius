@@ -1,7 +1,10 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:projeto_final_unb/models/Usuario.dart';
+import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
 import 'package:projeto_final_unb/widgets/BlocoSugestoes.dart';
 import 'package:projeto_final_unb/widgets/Sugestao.dart';
 import '../utilities/Suggestions.dart';
@@ -18,10 +21,36 @@ class Modulo1 extends StatefulWidget {
 }
 
 class _Modulo1State extends State<Modulo1> {
-  TextEditingController _controller = TextEditingController();
-  TextEditingController _controllerIdade = TextEditingController();
-  TextEditingController _controllerPeso = TextEditingController();
-  TextEditingController _controllerAltura = TextEditingController();
+  late TextEditingController _controller;
+  late TextEditingController _controllerIdade;
+  late TextEditingController _controllerAlturaMetros;
+  late TextEditingController _controllerAlturaCentimetros;
+  late TextEditingController _controllerPesoQuilos;
+  late TextEditingController _controllerPesoGramas;
+
+  @override
+  void initState() {
+    _controller = TextEditingController();
+    _controllerIdade = TextEditingController();
+    _controllerAlturaMetros = TextEditingController();
+    _controllerAlturaCentimetros = TextEditingController();
+    _controllerPesoQuilos = TextEditingController();
+    _controllerPesoGramas = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller.dispose();
+    _controllerIdade.dispose();
+    _controllerAlturaMetros.dispose();
+    _controllerAlturaCentimetros.dispose();
+    _controllerPesoQuilos.dispose();
+    _controllerPesoGramas.dispose();
+  }
+
   final picker = ImagePicker();
   XFile? imagem;
 
@@ -60,7 +89,7 @@ class _Modulo1State extends State<Modulo1> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text("MÓDULO 1 - Criação de Perfil Pessoal"),
+        title: Text("MÓDULO 1 - Criação de Perfil"),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -72,7 +101,10 @@ class _Modulo1State extends State<Modulo1> {
 
             if (widget.user!.fotoPerfil != null)
               Anexo(
-                  altura: 200, largura: 200, picture: widget.user!.fotoPerfil),
+                altura: 200,
+                largura: 200,
+                picture: widget.user!.fotoPerfil,
+              ),
 
             ElevatedButton.icon(
               icon: Icon(Icons.photo_camera),
@@ -105,11 +137,11 @@ class _Modulo1State extends State<Modulo1> {
               onPressed: () => getFileFromGallery(),
             ), //Construção do texto bibliografico
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                    padding: EdgeInsets.only(top: 5),
-                    child: Text("CRIANDO O TEXTO BIBLIOGRÁFICO...")),
+                    padding: EdgeInsets.only(top: 12),
+                    child: Text("CONSTRUINDO O TEXTO BIBLIOGRÁFICO")),
                 Divider(
                   thickness: 1.0,
                 ),
@@ -132,29 +164,33 @@ class _Modulo1State extends State<Modulo1> {
                 _divider(),
                 if (widget.user!.idade != null)
                   Text(
-                    "TENHO ${widget.user!.idade} ANOS",
+                    "TENHO ${widget.user!.idade} ANOS.",
                     style: TextStyle(fontSize: 18),
                   )
                 else
                   Text(
-                    "TENHO __ ANOS.",
+                    "TENHO   ANOS.",
                     style: TextStyle(fontSize: 18),
                   ),
-                TextField(
-                  controller: _controllerIdade,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(label: Text("Informe sua idade")),
-                  onSubmitted: (newValue) {
-                    setState(() {
-                      widget.user!.idade = newValue;
-                      _controllerIdade.text = "";
-                    });
-                  },
+                ConstrainedBox(
+                  constraints: BoxConstraints.tight(Size(110, 50)),
+                  child: TextField(
+                    controller: _controllerIdade,
+                    keyboardType: TextInputType.number,
+                    decoration:
+                        InputDecoration(label: Text("Informe sua idade")),
+                    onSubmitted: (newValue) {
+                      setState(() {
+                        widget.user!.idade = newValue;
+                        _controllerIdade.clear();
+                      });
+                    },
+                  ),
                 ),
                 _divider(),
                 if (widget.user!.dataNasc != null)
                   Text(
-                    "EU NASCI DO DIA ${widget.user!.dataNasc!.day} DO MÊS DE ${mesesDoAno[widget.user!.dataNasc!.month]} DO ANO DE ${widget.user!.dataNasc!.year}",
+                    "EU NASCI DO DIA ${widget.user!.dataNasc!.day} DO MÊS DE ${mesesDoAno[widget.user!.dataNasc!.month]} DO ANO DE ${widget.user!.dataNasc!.year}.",
                     style: TextStyle(fontSize: 18),
                   ),
                 Align(
@@ -196,53 +232,91 @@ class _Modulo1State extends State<Modulo1> {
                   ),
                 ),
                 _divider(),
-                Text(
-                  "MINHA ALTURA É __ METRO(S) E __ CENTÍMETROS",
-                  style: TextStyle(fontSize: 18),
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: ElevatedButton.icon(
-                    icon: Icon(Icons.add),
-                    label: Text("Adicionar"),
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.black)),
-                    onPressed: () async {
-                      widget.user!.peso = await showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                                title: Text("Informar Altura"),
-                                content: SingleChildScrollView(
-                                  child: Column(
-                                    children: [
-                                      TextField(
-                                        controller: _controllerAltura,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          TextButton(
-                                            child: Text("Cancelar"),
-                                            onPressed: () {},
-                                          ),
-                                          ElevatedButton(
-                                            child: Text("Confirmar"),
-                                            onPressed: () {},
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ));
-                    },
+                if (widget.user!.alturaMetro != null &&
+                    widget.user!.alturaCentimetro != null)
+                  Text(
+                    "MINHA ALTURA É ${widget.user!.alturaMetro} METRO(S) E ${widget.user!.alturaCentimetro} CENTÍMETROS",
+                    style: TextStyle(fontSize: 18),
+                  )
+                else
+                  Text(
+                    "MINHA ALTURA É  METRO(S) E  CENTÍMETROS",
+                    style: TextStyle(fontSize: 18),
                   ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(70, 60)),
+                      child: TextField(
+                        controller: _controllerAlturaMetros,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(label: Text("metros")),
+                        onChanged: (newValue) {
+                          widget.user!.alturaMetro = int.parse(newValue);
+                          setState(() {});
+                        },
+                      ),
+                    ),
+                    ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(70, 60)),
+                      child: TextField(
+                        controller: _controllerAlturaCentimetros,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(label: Text("centimetros")),
+                        onChanged: (newValue) {
+                          widget.user!.alturaCentimetro = int.parse(newValue);
+                          setState(() {});
+                        },
+                      ),
+                    ),
+                  ],
                 ),
+
                 _divider(),
-                Text("TENHO ___ QUILOS E ___ GRAMAS DE PESO ",
-                    style: TextStyle(fontSize: 18)),
+                if (widget.user!.pesoQuilos != null &&
+                    widget.user!.pesoGramas != null)
+                  Text(
+                    "TENHO ${widget.user!.pesoQuilos} QUILOS E ${widget.user!.pesoGramas} GRAMAS DE PESO",
+                    style: TextStyle(fontSize: 18),
+                  )
+                else
+                  Text(
+                    "TENHO  QUILOS E  GRAMAS DE PESO ",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(60, 60)),
+                      child: TextField(
+                        controller: _controllerPesoQuilos,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(label: Text("quilos")),
+                        onChanged: (newValue) {
+                          widget.user!.pesoQuilos = int.parse(newValue);
+                          setState(() {});
+                        },
+                      ),
+                    ),
+                    ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(50, 60)),
+                      child: TextField(
+                        controller: _controllerPesoGramas,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(label: Text("gramas")),
+                        onChanged: (newValue) {
+                          widget.user!.pesoGramas = int.parse(newValue);
+                          setState(() {
+                            //_controllerAlturaCentimetros.clear();
+                            //_controllerAlturaMetros.clear();
+                          });
+                        },
+                      ),
+                    ),
+                  ],
+                ),
                 _divider(),
 
                 BlocoSugestoes(
@@ -265,16 +339,17 @@ class _Modulo1State extends State<Modulo1> {
             IconButton(
               icon: Icon(Icons.close, color: Colors.red),
               iconSize: 35,
-              onPressed: () {},
+              onPressed: () {
+                //Navigator.pop(context);
+              },
             ),
             IconButton(
-              icon: Icon(
-                Icons.check,
-                color: Colors.green,
-              ),
-              iconSize: 35,
-              onPressed: () {},
-            ),
+                icon: Icon(
+                  Icons.check,
+                  color: Colors.green,
+                ),
+                iconSize: 35,
+                onPressed: () {}),
           ],
         ),
       ),
@@ -286,7 +361,12 @@ class _Modulo1State extends State<Modulo1> {
           Icons.remove_red_eye_outlined,
           size: 40,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => VisualizarPerfil(user: widget.user)));
+        },
       ),
     );
   }
