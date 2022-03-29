@@ -99,7 +99,7 @@ List<String> sugestaoGostoDe = [
 
 List<String> sugestaoNaoGostoDe = [
   "ACORDAR CEDO",
-  "PESSOAS MAU EDUCADAS",
+  "PESSOAS MAL EDUCADAS",
   "SOM ALTO",
   "DORMIR TARDE",
   "CHUVA",

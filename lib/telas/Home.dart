@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
+import 'package:projeto_final_unb/telas/Modulo1.dart';
 import 'package:projeto_final_unb/telas/Modulo2.dart';
-import 'Modulo1.dart';
+import 'TelaCriacaoTexto.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -26,7 +27,6 @@ class _HomeState extends State<Home> {
                 "assets/logos/logoRedesSociais2.png",
                 width: 450,
               ),
-              //Padding(padding: EdgeInsets.all(32)),
               Container(
                 padding: EdgeInsets.only(top: 32, left: 70, right: 70),
                 child: Column(
@@ -45,8 +45,8 @@ class _HomeState extends State<Home> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.black),
                       ),
-                      onPressed: () async {
-                        usuario = await Navigator.push(
+                      onPressed: () {
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Modulo1(user: usuario)));

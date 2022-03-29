@@ -10,7 +10,7 @@ class Anexo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(24),
+      padding: EdgeInsets.all(12),
       child: Center(
         child: SizedBox(
           width: largura,

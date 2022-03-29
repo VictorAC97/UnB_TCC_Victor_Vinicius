@@ -21,6 +21,8 @@ class Usuario {
   List<String>? listaSigno;
   List<String>? listaLocalTrabalho;
   List<String>? listaLocalEnsino;
+  List<String>? listaHobbies;
+  String? textoBiografico;
 
   Usuario({
     this.nome,
@@ -41,5 +43,7 @@ class Usuario {
     this.listaSigno,
     this.listaLocalEnsino,
     this.listaLocalTrabalho,
+    this.listaHobbies,
+    this.textoBiografico,
   });
 }
