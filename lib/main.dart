@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:projeto_final_unb/telas/Home.dart';
 import 'package:projeto_final_unb/telas/Modulo1.dart';
 import 'package:projeto_final_unb/telas/TelaCriacaoTexto.dart';
+import '../widgets/theme.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -11,12 +12,8 @@ void main() {
       GlobalWidgetsLocalizations.delegate
     ],
     supportedLocales: [const Locale('pt', 'BR')],
-    initialRoute: "/home",
+    home: Home(),
     debugShowCheckedModeBanner: false,
-    routes: {
-      //"/": (context) => SplashScreen(),
-      "/home": (context) => Home(),
-      "/modulo1": (context) => Modulo1(),
-    },
+    //theme: basicTheme(),
   ));
 }

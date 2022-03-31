@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
 import 'dart:io';
+
+import 'package:projeto_final_unb/models/Emprego.dart';
+import 'package:projeto_final_unb/models/Endereco.dart';
 
 class Usuario {
   String? nome;
@@ -19,10 +21,14 @@ class Usuario {
   List<String>? listaNaoGostoDe;
   List<String>? listaCorPreferida;
   List<String>? listaSigno;
-  List<String>? listaLocalTrabalho;
-  List<String>? listaLocalEnsino;
   List<String>? listaHobbies;
+  String? listaRelacionamento;
+  String? escolaridade;
+  String? telefone;
   String? textoBiografico;
+  Endereco? endereco;
+  Emprego? dadosEmprego;
+  bool? isPublic;
 
   Usuario({
     this.nome,
@@ -41,9 +47,13 @@ class Usuario {
     this.listaGostoDe,
     this.listaNaoGostoDe,
     this.listaSigno,
-    this.listaLocalEnsino,
-    this.listaLocalTrabalho,
+    this.escolaridade,
+    this.listaRelacionamento,
     this.listaHobbies,
     this.textoBiografico,
+    this.isPublic,
+    this.telefone,
+    this.endereco,
+    this.dadosEmprego,
   });
 }

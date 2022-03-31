@@ -1,8 +1,3 @@
-List<String> sugestaoSexo = [
-  "MASCULINO",
-  "FEMININO",
-];
-
 List<String> sugestaoPersonalidade = [
   "HOMEM",
   "MULHER",
@@ -146,4 +141,62 @@ List<String> sugestaoSigno = [
   "CÂNCER",
   "GÊMEOS",
   "CAPRICÓRNIO",
+];
+
+List<String> sugestaoEscolaridade = [
+  "ENSINO FUNDAMETAL",
+  "ENSINO MÉDIO",
+  "FACULDADE",
+  "EDUCAÇÃO AO LONGO DA VIDA",
+];
+
+List<String> sugestaoAtividades = [
+  "ARTESANATO",
+  "PINTURA",
+  "DANÇA",
+  "ARTES",
+  "MÚSICA",
+  "ESPORTE",
+  "JARDINAGEM",
+  "HORTA",
+  "CULINÁRIA",
+  "JOGOS",
+  "ALFABETIZAÇÃO",
+];
+
+List<String> sugestaoRelacionamento = [
+  "SOLTEIRO",
+  "NAMORANDO (RELACIONAMENTO SÉRIO)",
+  "CASADO",
+  "NOIVO",
+  "VIÚVO",
+];
+
+List<String> sugestaoHobbies = [
+  "ARTESANATO",
+  "DANÇAR",
+  "OUVIR MÚSICA",
+  "FAZER TEATRO",
+  "FAZER DOBRADURAS (ORIGAMI)",
+  "TOCAR INSTRUMENTO MUSICAL",
+  "JARDINAGEM",
+  "CULINÁRIA",
+  "JOGOS",
+  "LEITURA",
+  "ASSISTIR FILME",
+  "FOTOGRAFIA",
+  "ENCONTRAR AMIGOS",
+  "FAZER PALAVRA CRUZADA",
+  "PASSEAR COM CACHORRO",
+  "VIAJAR",
+  "FAZER QUEBRA CABEÇA",
+  "PESCARIA",
+  "ACAMPAR",
+  "FAZER TRILHA",
+  "COLECIONAR COISAS",
+];
+
+List<String> sugestaoPrivacidade = [
+  "PÚBLICO",
+  "PRIVADO",
 ];

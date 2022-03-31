@@ -4,7 +4,7 @@ import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/widgets/Sugestao.dart';
 
 class BlocoSugestoes extends StatefulWidget {
-  Usuario? user;
+  late Usuario? user;
   int? limiteSelecoes;
 
   BlocoSugestoes({

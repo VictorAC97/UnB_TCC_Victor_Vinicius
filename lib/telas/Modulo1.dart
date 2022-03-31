@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/telas/TelaCriacaoTexto.dart';
+import 'package:projeto_final_unb/telas/TelaDadosPublicosPrivados.dart';
+import 'package:projeto_final_unb/telas/TelaObterFoto.dart';
 import 'package:projeto_final_unb/telas/TelaObterFoto.dart';
 import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
+import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
+
+import 'TelaObterFoto.dart';
 
 class Modulo1 extends StatefulWidget {
   Usuario? user;
@@ -34,15 +39,14 @@ class _Modulo1State extends State<Modulo1> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text("MÓDULO 1 - Criação de Perfil"),
+        title: Text("MÓDULO 1 - Edição de Perfil"),
       ),
       body: PageView(
         controller: _pageController,
         children: [
-          TelaObterFoto(
-            user: widget.user,
-          ),
+          TelaObterFoto(user: widget.user),
           TelaCriacaoTexto(user: widget.user),
+          TelaDadosPublicosPrivados(user: widget.user),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
