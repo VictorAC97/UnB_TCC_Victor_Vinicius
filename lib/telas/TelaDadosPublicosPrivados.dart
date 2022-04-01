@@ -8,6 +8,7 @@ import 'package:projeto_final_unb/widgets/InfoEndereco.dart';
 import 'package:projeto_final_unb/widgets/InfoEstudo.dart';
 import 'package:projeto_final_unb/widgets/InfoTrabalho.dart';
 import 'package:projeto_final_unb/widgets/Sugestao.dart';
+import '../widgets/InfoRelacionamento.dart';
 
 class TelaDadosPublicosPrivados extends StatefulWidget {
   Usuario? user;
@@ -84,9 +85,12 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
             ),
             Wrap(
               children: [
-                Chip(label: Text("Empresa: ${_emprego.empresa}")),
-                Chip(label: Text("Cargo: ${_emprego.cargo}")),
-                Chip(label: Text("Cidade: ${_emprego.cidade}")),
+                if (_emprego.empresa != "")
+                  Chip(label: Text("Empresa: ${_emprego.empresa}")),
+                if (_emprego.cargo != "")
+                  Chip(label: Text("Cargo: ${_emprego.cargo}")),
+                if (_emprego.cidade != "")
+                  Chip(label: Text("Cidade: ${_emprego.cidade}")),
               ],
             ),
             ElevatedButton.icon(
@@ -112,21 +116,25 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               "ONDE ESTUDO",
               style: TextStyle(fontSize: 18),
             ),
-            if (widget.user!.escolaridade != null)
+            if (widget.user!.listaEscolaridade != null)
               Wrap(
-                children: [
-                  Chip(label: Text("${widget.user!.escolaridade}")),
-                ],
-              ),
+                  children: widget.user!.listaEscolaridade!
+                      .map((e) => Chip(
+                            label: Text(e),
+                          ))
+                      .toList()),
             ElevatedButton.icon(
               icon: Icon(Icons.add),
               label: Text("Adicionar"),
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.black)),
               onPressed: () async {
-                widget.user!.escolaridade = await showDialog(
+                widget.user!.listaEscolaridade = await showDialog(
                   context: context,
-                  builder: (context) => InfoEstudo(),
+                  builder: (context) => InfoEstudo(
+                    listaUser: widget.user!.listaEscolaridade,
+                    isPublic: widget.user!.isPublic,
+                  ),
                 );
                 setState(() {});
               },
@@ -136,13 +144,8 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               "MORO EM",
               style: TextStyle(fontSize: 18),
             ),
-            Wrap(
-              children: [
-                Chip(
-                  label: Text("${_endereco.moroEm}"),
-                ),
-              ],
-            ),
+            if (_endereco.moroEm != "")
+              Chip(label: Text("${_endereco.moroEm}")),
             ElevatedButton.icon(
               icon: Icon(Icons.add),
               label: Text("Adicionar"),
@@ -177,6 +180,25 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
             Text(
               "STATUS DE RELACIONAMENTO",
               style: TextStyle(fontSize: 18),
+            ),
+            if (widget.user!.relacionamento != null &&
+                widget.user!.relacionamento != "")
+              Chip(label: Text(widget.user!.relacionamento.toString())),
+            ElevatedButton.icon(
+              icon: Icon(Icons.add),
+              label: Text("Adicionar"),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.black)),
+              onPressed: () async {
+                widget.user!.relacionamento = await showDialog(
+                  context: context,
+                  builder: (context) => InfoRelacionamento(
+                    relacionamentoUser: widget.user!.relacionamento,
+                    isPublic: widget.user!.isPublic,
+                  ),
+                );
+                setState(() {});
+              },
             ),
             _divider(),
             if (widget.user!.telefone != null)
