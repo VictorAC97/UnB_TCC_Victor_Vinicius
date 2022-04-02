@@ -73,10 +73,9 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
             TextField(
               controller: _controller,
               decoration: InputDecoration(label: Text("Informe seu nome")),
-              onSubmitted: (newValue) {
+              onChanged: (newValue) {
                 setState(() {
                   widget.user!.nome = newValue.toUpperCase();
-                  _controller.text = "";
                 });
               },
             ),
@@ -97,10 +96,9 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                 controller: _controllerIdade,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(label: Text("Informe sua idade")),
-                onSubmitted: (newValue) {
+                onChanged: (newValue) {
                   setState(() {
                     widget.user!.idade = newValue;
-                    _controllerIdade.clear();
                   });
                 },
               ),
@@ -108,7 +106,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
             _divider(),
             if (widget.user!.dataNasc != null)
               Text(
-                "EU NASCI DO DIA ${widget.user!.dataNasc!.day} DO MÊS DE ${mesesDoAno[widget.user!.dataNasc!.month]} DO ANO DE ${widget.user!.dataNasc!.year}.",
+                "EU NASCI NO DIA ${widget.user!.dataNasc!.day} DO MÊS DE ${mesesDoAno[widget.user!.dataNasc!.month]} DO ANO DE ${widget.user!.dataNasc!.year}.",
                 style: TextStyle(fontSize: 18),
               ),
             Align(

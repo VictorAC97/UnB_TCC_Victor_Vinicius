@@ -65,7 +65,6 @@ class _InfoEstudoState extends State<InfoEstudo> {
       },
       child: AlertDialog(
         contentPadding: EdgeInsets.all(0),
-        //actionsPadding: EdgeInsets.all(12),
         title: Column(
           children: [
             Text("ONDE ESTUDO"),
@@ -83,53 +82,25 @@ class _InfoEstudoState extends State<InfoEstudo> {
                             },
                           ))
                       .toList()),
-            //por um radio list aqui COM as escolaridades possiveis
-            ListBody(
-              children: listaEscolaridade
-                  .map((e) => CheckboxListTile(
-                      title: Text(e),
-                      value: _selectedItems.contains(e),
-                      onChanged: (isChecked) {
-                        if (_selectedItems.contains(isChecked) == false) {
-                          setState(() {
-                            _itemChange(e, isChecked!);
-                            print(isChecked);
-                          });
-                        }
-                      }))
-                  .toList(),
-            ),
-            //Text("ATIVIDADES"),
           ],
         ),
-        /*    //CONFIRMAR DEPOIS COM A PROFESSORA SE PRECISA DESSA LISTA DE ATIVIDADES NA MESMA TELA
         content: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ListBody(
-                  children: listaSugestoes
-                      .map((item) => CheckboxListTile(
-                            secondary: IconButton(
-                              tooltip: "Visualizar exemplo",
-                              onPressed: () {},
-                              icon: Icon(Icons.help),
-                            ),
-                            activeColor: Colors.black,
-                            title: Text(item),
-                            value: _selectedItems.contains(item),
-                            controlAffinity: ListTileControlAffinity.leading,
-                            onChanged: (isChecked) {
-                              _itemChange(item, isChecked!);
-                            },
-                          ))
-                      .toList(),
-                ),
-              ],
-            ),
+          child: ListBody(
+            children: listaEscolaridade
+                .map((e) => CheckboxListTile(
+                    title: Text(e),
+                    value: _selectedItems.contains(e),
+                    onChanged: (isChecked) {
+                      if (_selectedItems.contains(isChecked) == false) {
+                        setState(() {
+                          _itemChange(e, isChecked!);
+                          print(isChecked);
+                        });
+                      }
+                    }))
+                .toList(),
           ),
-        ),*/
+        ),
         actions: [
           if (widget.isPublic == true)
             Padding(

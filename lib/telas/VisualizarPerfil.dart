@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
+import 'package:projeto_final_unb/telas/Perfil.dart';
+import 'package:projeto_final_unb/telas/PerfilPrivado.dart';
+import 'package:projeto_final_unb/widgets/Anexo.dart';
+import 'package:projeto_final_unb/widgets/GenerateUserText.dart';
 
 class VisualizarPerfil extends StatelessWidget {
   Usuario? user;
@@ -7,28 +11,23 @@ class VisualizarPerfil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PageController _controllerPage = PageController();
-
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        centerTitle: true,
-        title: Text(
-          "Visualizar Perfil",
+    return PageView(
+      children: [
+        if (user!.isPublic == true)
+          Perfil(
+            user: user,
+          )
+        else
+          PerfilPrivado(
+            user: user,
+          ),
+        Container(
+          color: Colors.red,
         ),
-      ),
-      body: PageView(
-        controller: _controllerPage,
-        children: [
-          Container(
-            color: Colors.amber,
-          ),
-          Container(
-            color: Colors.blue,
-          ),
-          Container(color: Colors.red),
-        ],
-      ),
+        Container(
+          color: Colors.green,
+        ),
+      ],
     );
   }
 }

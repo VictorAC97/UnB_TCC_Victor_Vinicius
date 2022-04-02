@@ -15,8 +15,8 @@ class Anexo extends StatelessWidget {
         child: SizedBox(
           width: largura,
           height: altura,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
+          child: ClipOval(
+            //borderRadius: BorderRadius.circular(12),
             child: Image.file(
               picture!,
               fit: BoxFit.cover,
