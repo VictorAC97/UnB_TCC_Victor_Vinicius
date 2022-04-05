@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: 128, bottom: 128),
+        padding: EdgeInsets.only(top: 170, bottom: 128),
         child: Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
                 width: 450,
               ),
               Container(
-                padding: EdgeInsets.only(top: 32, left: 70, right: 70),
+                padding: EdgeInsets.only(top: 48, left: 70, right: 70),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -86,11 +86,11 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
             Wrap(
               children: [
                 if (_emprego.empresa != "")
-                  Chip(label: Text("Empresa: ${_emprego.empresa}")),
+                  Chip(label: Text("EMPRESA: ${_emprego.empresa}")),
                 if (_emprego.cargo != "")
-                  Chip(label: Text("Cargo: ${_emprego.cargo}")),
+                  Chip(label: Text("CARGO: ${_emprego.cargo}")),
                 if (_emprego.cidade != "")
-                  Chip(label: Text("Cidade: ${_emprego.cidade}")),
+                  Chip(label: Text("CIDADE: ${_emprego.cidade}")),
               ],
             ),
             ElevatedButton.icon(
@@ -171,9 +171,9 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
             ),
             Wrap(
               children: [
-                Chip(label: Text("Cidade: ${_endereco.cidade}")),
-                Chip(label: Text("Estado: ${_endereco.estado}")),
-                Chip(label: Text("País: ${_endereco.pais}")),
+                Chip(label: Text("CIDADE: ${_endereco.cidade}")),
+                Chip(label: Text("ESTADO: ${_endereco.estado}")),
+                Chip(label: Text("PAÍS: ${_endereco.pais}")),
               ],
             ),
             _divider(),

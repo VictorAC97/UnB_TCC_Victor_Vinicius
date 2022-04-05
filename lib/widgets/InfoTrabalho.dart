@@ -59,35 +59,35 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
               children: [
                 Wrap(
                   children: [
-                    Chip(label: Text("Empresa: ${_emprego.empresa}")),
-                    Chip(label: Text("Cargo: ${_emprego.cargo}")),
-                    Chip(label: Text("Cidade: ${_emprego.cidade}")),
+                    Chip(label: Text("EMPRESA: ${_emprego.empresa}")),
+                    Chip(label: Text("CARGO: ${_emprego.cargo}")),
+                    Chip(label: Text("CIDADE: ${_emprego.cidade}")),
                   ],
                 ),
                 TextField(
                   controller: _controllerEmpresa,
-                  decoration: InputDecoration(label: Text("Empresa")),
+                  decoration: InputDecoration(label: Text("EMPRESA")),
                   onChanged: (value) {
                     setState(() {
-                      _emprego.empresa = value;
+                      _emprego.empresa = value.toUpperCase();
                     });
                   },
                 ),
                 TextField(
                   controller: _controllerCargo,
-                  decoration: InputDecoration(label: Text("Cargo")),
+                  decoration: InputDecoration(label: Text("CARGO")),
                   onChanged: (value) {
                     setState(() {
-                      _emprego.cargo = value;
+                      _emprego.cargo = value.toUpperCase();
                     });
                   },
                 ),
                 TextField(
                   controller: _controllerCidade,
-                  decoration: InputDecoration(label: Text("Cidade")),
+                  decoration: InputDecoration(label: Text("CIDADE")),
                   onChanged: (value) {
                     setState(() {
-                      _emprego.cidade = value;
+                      _emprego.cidade = value.toUpperCase();
                     });
                   },
                 ),

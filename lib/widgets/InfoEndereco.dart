@@ -52,7 +52,7 @@ class _InfoEnderecoState extends State<InfoEndereco> {
         return true;
       },
       child: AlertDialog(
-        contentPadding: EdgeInsets.all(12),
+        contentPadding: EdgeInsets.all(10),
         title: Text("MORO EM"),
         content: SingleChildScrollView(
           child: Container(
@@ -62,45 +62,52 @@ class _InfoEnderecoState extends State<InfoEndereco> {
               children: [
                 Wrap(
                   children: [
-                    Chip(label: Text("Moro em: ${_endereco.moroEm}")),
-                    Chip(label: Text("Cidade: ${_endereco.cidade}")),
-                    Chip(label: Text("Estado: ${_endereco.estado}")),
-                    Chip(label: Text("País: ${_endereco.pais}")),
+                    Chip(label: Text("MORO EM: ${_endereco.moroEm}")),
+                    Chip(label: Text("CIDADE: ${_endereco.cidade}")),
+                    Chip(label: Text("ESTADO: ${_endereco.estado}")),
+                    Chip(label: Text("PAÍS: ${_endereco.pais}")),
                   ],
                 ),
                 TextField(
                   controller: _controllerMoroEm,
-                  decoration: InputDecoration(label: Text("Moro em")),
+                  decoration:
+                      InputDecoration(label: Text("MORO ATUALMENTE EM")),
                   onChanged: (value) {
                     setState(() {
-                      _endereco.moroEm = value;
+                      _endereco.moroEm = value.toUpperCase();
                     });
                   },
                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: Text("SOU NATURAL DE")),
+                ),
                 TextField(
                   controller: _controllerCidade,
-                  decoration: InputDecoration(label: Text("Cidade")),
+                  decoration: InputDecoration(label: Text("CIDADE")),
                   onChanged: (value) {
                     setState(() {
-                      _endereco.cidade = value;
+                      _endereco.cidade = value.toUpperCase();
                     });
                   },
                 ),
                 TextField(
                   controller: _controllerEstado,
-                  decoration: InputDecoration(label: Text("Estado")),
+                  decoration: InputDecoration(label: Text("ESTADO")),
                   onChanged: (value) {
                     setState(() {
-                      _endereco.estado = value;
+                      _endereco.estado = value.toUpperCase();
                     });
                   },
                 ),
                 TextField(
                   controller: _controllerPais,
-                  decoration: InputDecoration(label: Text("Pais")),
+                  decoration: InputDecoration(label: Text("PAÍS")),
                   onChanged: (value) {
                     setState(() {
-                      _endereco.pais = value;
+                      _endereco.pais = value.toUpperCase();
                     });
                   },
                 ),
