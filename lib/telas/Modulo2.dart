@@ -1,5 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
+import 'package:projeto_final_unb/telas/TelaComentar.dart';
+import 'package:projeto_final_unb/telas/TelaCompartilhar.dart';
+import 'package:projeto_final_unb/telas/TelaCurtir.dart';
 import '../widgets/Anexo.dart';
 
 class Modulo2 extends StatefulWidget {
@@ -19,8 +23,12 @@ class _Modulo2State extends State<Modulo2> {
         backgroundColor: Colors.black,
         title: Text("MÓDULO 2 - Significado dos Emojis"),
       ),
-      body: Column(
-        children: [],
+      body: PageView(
+        children: [
+          TelaCurtir(),
+          TelaComentar(),
+          TelaCompartilhar(),
+        ],
       ),
     );
   }
