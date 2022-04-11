@@ -79,6 +79,8 @@ flutter:
   assets:
     - assets/logos/logoRedesSociais.png
     - assets/logos/logoRedesSociais2.png
+    - assets/images/emojis/
+    - assets/images/imagensCurtir/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
