@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MyBlinkingButton extends StatefulWidget {
-  MyBlinkingButton({Key? key}) : super(key: key);
+  Function()? onPressed;
+  Widget? label;
+  Widget? icon;
+  MyBlinkingButton({Key? key, this.onPressed, this.label, this.icon})
+      : super(key: key);
 
   @override
   State<MyBlinkingButton> createState() => _MyBlinkingButtonState();
@@ -23,10 +27,10 @@ class _MyBlinkingButtonState extends State<MyBlinkingButton>
   Widget build(BuildContext context) {
     return FadeTransition(
       opacity: _animationController,
-      child: ElevatedButton.icon(
-        onPressed: () {},
-        icon: Icon(Icons.thumb_up),
-        label: Text("Teste"),
+      child: TextButton.icon(
+        onPressed: widget.onPressed,
+        icon: widget.icon!,
+        label: widget.label!,
       ),
     );
   }

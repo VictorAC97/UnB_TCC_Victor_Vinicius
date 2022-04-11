@@ -27,19 +27,17 @@ class _CurtirFotoState extends State<CurtirFoto> {
               ),
               Padding(
                 padding: EdgeInsets.all(10),
-                child: TextButton.icon(
-                    onPressed: () {
-                      setState(() {
-                        visivel = !visivel;
-                      });
-                    },
-                    icon: Icon(Icons.thumb_up),
-                    label: Text(
-                      "Curtir",
-                    )),
+                child: MyBlinkingButton(
+                  label: Text("Curtir"),
+                  icon: Icon(Icons.thumb_up),
+                  onPressed: () {
+                    setState(() {
+                      visivel = !visivel;
+                    });
+                  },
+                ),
               ),
               if (visivel == true) GerarEmojis(),
-              MyBlinkingButton(),
             ],
           ),
         ));
