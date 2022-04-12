@@ -21,12 +21,6 @@ class VisualizarPerfil extends StatelessWidget {
           PerfilPrivado(
             user: user,
           ),
-        Container(
-          color: Colors.red,
-        ),
-        Container(
-          color: Colors.green,
-        ),
       ],
     );
   }

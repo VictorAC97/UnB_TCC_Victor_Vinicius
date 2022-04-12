@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/widgets/CurtirFoto.dart';
+import 'package:projeto_final_unb/telas/TelaCurtirFoto.dart';
 
 class TelaCurtir extends StatefulWidget {
   TelaCurtir({Key? key}) : super(key: key);
@@ -26,6 +26,8 @@ class _TelaCurtirState extends State<TelaCurtir> {
                 },
                 icon: Icon(Icons.thumb_up),
                 label: Text("Curtir"),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.black)),
               ),
             );
           },

@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MyBlinkingButton extends StatefulWidget {
-  Function()? onPressed;
-  Widget? label;
-  Widget? icon;
-  ButtonStyle? style;
-  MyBlinkingButton(
-      {Key? key, this.onPressed, this.label, this.icon, this.style})
-      : super(key: key);
+class MyBlinkingImage extends StatefulWidget {
+  String? path;
+  MyBlinkingImage({Key? key, this.path}) : super(key: key);
 
   @override
-  State<MyBlinkingButton> createState() => _MyBlinkingButtonState();
+  State<MyBlinkingImage> createState() => _MyBlinkingImageState();
 }
 
-class _MyBlinkingButtonState extends State<MyBlinkingButton>
+class _MyBlinkingImageState extends State<MyBlinkingImage>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
 
@@ -29,12 +24,7 @@ class _MyBlinkingButtonState extends State<MyBlinkingButton>
   Widget build(BuildContext context) {
     return FadeTransition(
       opacity: _animationController,
-      child: TextButton.icon(
-        onPressed: widget.onPressed,
-        icon: widget.icon!,
-        label: widget.label!,
-        style: widget.style!,
-      ),
+      child: Image.asset(widget.path!),
     );
   }
 
