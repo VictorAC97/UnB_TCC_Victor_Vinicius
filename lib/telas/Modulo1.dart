@@ -80,10 +80,13 @@ class _Modulo1State extends State<Modulo1> {
           size: 40,
         ),
         onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => VisualizarPerfil(user: widget.user)));
+          widget.user!.listaHobbies == null
+              ? () {}
+              : Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          VisualizarPerfil(user: widget.user)));
         },
       ),
     );
