@@ -21,8 +21,13 @@ class _TelaCurtirState extends State<TelaCurtir> {
               title: Text("Foto ${index + 1}"),
               trailing: ElevatedButton.icon(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CurtirFoto()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CurtirFoto(
+                                image: "funny.jpg",
+                                emoji: "caraDandoRisada.png",
+                              )));
                 },
                 icon: Icon(Icons.thumb_up),
                 label: Text("Curtir"),

@@ -4,7 +4,9 @@ import 'package:projeto_final_unb/widgets/MyBlinkingButton.dart';
 import '../widgets/GerarEmojis.dart';
 
 class CurtirFoto extends StatefulWidget {
-  const CurtirFoto({Key? key}) : super(key: key);
+  String? image;
+  String? emoji;
+  CurtirFoto({Key? key, this.image, this.emoji}) : super(key: key);
 
   @override
   State<CurtirFoto> createState() => _CurtirFotoState();
@@ -32,7 +34,7 @@ class _CurtirFotoState extends State<CurtirFoto> {
               children: [
                 GestureDetector(
                   child: Image.asset(
-                    "assets/images/imagensCurtir/funny.jpg",
+                    "assets/images/imagensCurtir/${widget.image}",
                   ),
                   onTap: () {
                     setState(() {
@@ -111,14 +113,12 @@ class _CurtirFotoState extends State<CurtirFoto> {
                     color: _corFundo,
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  duration: Duration(seconds: 2),
+                  duration: Duration(seconds: 1),
                   height: isVisible(visivel),
                   curve: Curves.bounceOut,
                   child: SingleChildScrollView(
                     child: GerarEmojis(
-                      emojiErrado1: "caraDePensativo",
-                      emojiErrado2: "caraIrritado",
-                      emojiCorreto: "caraDandoRisada",
+                      emojiCorreto: widget.emoji,
                     ),
                   ),
                 ),
