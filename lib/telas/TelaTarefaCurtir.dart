@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/telas/TelaCurtirFoto.dart';
 
-class TelaCurtir extends StatefulWidget {
-  TelaCurtir({Key? key}) : super(key: key);
+class TelaTarefaCurtir extends StatefulWidget {
+  TelaTarefaCurtir({Key? key}) : super(key: key);
 
   @override
-  State<TelaCurtir> createState() => _TelaCurtirState();
+  State<TelaTarefaCurtir> createState() => _TelaTarefaCurtirState();
 }
 
-class _TelaCurtirState extends State<TelaCurtir> {
+class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

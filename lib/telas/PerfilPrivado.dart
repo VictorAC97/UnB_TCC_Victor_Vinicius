@@ -34,7 +34,10 @@ class PerfilPrivado extends StatelessWidget {
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
                     )),
-                Anexo(largura: 200, altura: 200, picture: user!.fotoPerfil),
+                user!.fotoPerfil != null
+                    ? Anexo(
+                        largura: 200, altura: 200, picture: user!.fotoPerfil)
+                    : _semFoto(),
                 Padding(
                   padding: EdgeInsets.all(16),
                 ),
@@ -56,3 +59,16 @@ class PerfilPrivado extends StatelessWidget {
     );
   }
 }
+
+Widget _semFoto() => Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: CircleAvatar(
+        backgroundColor: Colors.grey,
+        foregroundColor: Colors.white,
+        radius: 100,
+        child: Icon(
+          Icons.person,
+          size: 150,
+        ),
+      ),
+    );

@@ -64,10 +64,8 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
             Divider(
               thickness: 1.0,
             ),
-            //Contatenacao de strings entre FIXA e input sugerido ou do usuario
-            //input sera feito em uma widget dropdown multiselect com checkboxes
             Text(
-              "MEU NOME É: ${widget.user!.nome}",
+              "MEU NOME É ${widget.user!.nome}",
               style: TextStyle(fontSize: 18),
             ),
             TextField(
@@ -82,12 +80,12 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
             _divider(),
             if (widget.user!.idade != null)
               Text(
-                "TENHO ${widget.user!.idade} ANOS.",
+                "TENHO ${widget.user!.idade} ANOS",
                 style: TextStyle(fontSize: 18),
               )
             else
               Text(
-                "TENHO   ANOS.",
+                "TENHO   ANOS",
                 style: TextStyle(fontSize: 18),
               ),
             ConstrainedBox(
@@ -150,14 +148,11 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
             if (widget.user!.alturaMetro != null &&
                 widget.user!.alturaCentimetro != null)
               Text(
-                "MINHA ALTURA É ${widget.user!.alturaMetro} METRO(S) E ${widget.user!.alturaCentimetro} CENTÍMETROS",
-                style: TextStyle(fontSize: 18),
-              )
+                  "MINHA ALTURA É ${widget.user!.alturaMetro} METRO(S) E ${widget.user!.alturaCentimetro} CENTÍMETROS",
+                  style: TextStyle(fontSize: 18))
             else
-              Text(
-                "MINHA ALTURA É  METRO(S) E  CENTÍMETROS",
-                style: TextStyle(fontSize: 18),
-              ),
+              Text("MINHA ALTURA É  METRO(S) E  CENTÍMETROS",
+                  style: TextStyle(fontSize: 18)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -168,7 +163,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(label: Text("metros")),
                     onChanged: (newValue) {
-                      widget.user!.alturaMetro = int.parse(newValue);
+                      widget.user!.alturaMetro = newValue;
                       setState(() {});
                     },
                   ),
@@ -180,7 +175,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(label: Text("centimetros")),
                     onChanged: (newValue) {
-                      widget.user!.alturaCentimetro = int.parse(newValue);
+                      widget.user!.alturaCentimetro = newValue;
                       setState(() {});
                     },
                   ),
@@ -209,7 +204,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(label: Text("quilos")),
                     onChanged: (newValue) {
-                      widget.user!.pesoQuilos = int.parse(newValue);
+                      widget.user!.pesoQuilos = newValue;
                       setState(() {});
                     },
                   ),
@@ -221,7 +216,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(label: Text("gramas")),
                     onChanged: (newValue) {
-                      widget.user!.pesoGramas = int.parse(newValue);
+                      widget.user!.pesoGramas = newValue;
                       setState(() {});
                     },
                   ),

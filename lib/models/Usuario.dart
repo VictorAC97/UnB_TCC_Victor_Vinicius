@@ -9,10 +9,10 @@ class Usuario {
   //criar um metodo de preenchimento automatico a partir de dataAtual - dataNasc
   String? idade;
   File? fotoPerfil;
-  int? alturaMetro;
-  int? alturaCentimetro;
-  int? pesoQuilos;
-  int? pesoGramas;
+  String? alturaMetro;
+  String? alturaCentimetro;
+  String? pesoQuilos;
+  String? pesoGramas;
   List<String>? listaCorOlhos;
   List<String>? listaEuSou;
   List<String>? listaMinhaComidaPreferida;

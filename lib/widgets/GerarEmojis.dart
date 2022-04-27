@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingImage.dart';
 import '../utilities/emojisList.dart';
+import '../telas/TelaCurtirFoto.dart';
+import '../widgets/asset_player_widget.dart';
 
 class GerarEmojis extends StatefulWidget {
   final String? emojiCorreto;
@@ -42,7 +44,7 @@ class _GerarEmojisState extends State<GerarEmojis> {
 
   @override
   void initState() {
-    emojis = [];
+    //emojis = [];
     getEmojis();
     randomizePositions(emojis);
     super.initState();
@@ -53,12 +55,21 @@ class _GerarEmojisState extends State<GerarEmojis> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: emojis
-          .map((emoji) => GestureDetector(
+          .map((emoji) => InkWell(
+                splashColor: Colors.blue,
                 onTap: emoji != widget.emojiCorreto
                     ? () {
                         setState(() {
                           tentativas++;
                         });
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            duration: Duration(seconds: 2),
+                            backgroundColor: Colors.red,
+                            content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text('RESPOSTA INCORRETA!'),
+                                ])));
                       }
                     : () {
                         showDialog(
@@ -66,9 +77,16 @@ class _GerarEmojisState extends State<GerarEmojis> {
                           builder: (context) {
                             return AlertDialog(
                               title: const Text("PARABÉNS!"),
-                              content: const Text("VOCÊ ACERTOU"),
+                              content: AssetPlayerWidget(
+                                  videoPath:
+                                      "assets/videos/Organizar_DeuCertoVcAcertou1.3gp"),
+                              //const Text("VOCÊ ACERTOU"),
                               actions: [
                                 ElevatedButton(
+                                    style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Colors.black)),
                                     onPressed: () {
                                       setState(() {
                                         tentativas = 0;

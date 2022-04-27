@@ -40,6 +40,7 @@ class _DefinirPrivacidadeState extends State<DefinirPrivacidade> {
           child: Column(
             children: [
               RadioListTile<bool>(
+                  activeColor: Colors.black,
                   controlAffinity: ListTileControlAffinity.trailing,
                   title: Row(
                     children: [
@@ -60,6 +61,7 @@ class _DefinirPrivacidadeState extends State<DefinirPrivacidade> {
                     });
                   }),
               RadioListTile<bool>(
+                  activeColor: Colors.black,
                   controlAffinity: ListTileControlAffinity.trailing,
                   title: Row(
                     children: [

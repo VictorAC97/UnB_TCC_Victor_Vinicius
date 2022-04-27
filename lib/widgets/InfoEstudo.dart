@@ -88,6 +88,7 @@ class _InfoEstudoState extends State<InfoEstudo> {
           child: ListBody(
             children: listaEscolaridade
                 .map((e) => CheckboxListTile(
+                    activeColor: Colors.black,
                     title: Text(e),
                     value: _selectedItems.contains(e),
                     onChanged: (isChecked) {

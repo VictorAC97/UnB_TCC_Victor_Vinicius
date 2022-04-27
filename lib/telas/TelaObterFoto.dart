@@ -54,10 +54,29 @@ class _TelaObterFotoState extends State<TelaObterFoto> {
             if (widget.user!.fotoPerfil != null)
               Column(
                 children: [
-                  Anexo(
-                    altura: 300,
-                    largura: 300,
-                    picture: widget.user!.fotoPerfil,
+                  GestureDetector(
+                    child: Anexo(
+                      altura: 300,
+                      largura: 300,
+                      picture: widget.user!.fotoPerfil,
+                    ),
+                    onDoubleTap: () {
+                      setState(() {
+                        widget.user!.fotoPerfil = null;
+                      });
+                    },
+                  ),
+                  OutlinedButton.icon(
+                    onPressed: () {
+                      setState(() {
+                        widget.user!.fotoPerfil = null;
+                      });
+                    },
+                    icon: Icon(Icons.delete_outline),
+                    label: Text("DELETAR FOTO"),
+                    style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.grey)),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

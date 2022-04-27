@@ -57,6 +57,7 @@ class _InfoRelacionamentoState extends State<InfoRelacionamento> {
           child: ListBody(
             children: listaSugestoes
                 .map((e) => CheckboxListTile(
+                    activeColor: Colors.black,
                     title: Text(e),
                     value: widget.relacionamentoUser == e,
                     onChanged: (isChecked) {

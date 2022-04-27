@@ -14,7 +14,7 @@ class Perfil extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white12,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.black,
           ),
@@ -23,20 +23,23 @@ class Perfil extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Stack(
             children: [
               Column(
                 children: [
-                  Text("Perfil",
+                  const Text("Perfil",
                       style: TextStyle(
                         fontSize: 35,
                         letterSpacing: 1.5,
                         color: Colors.black,
                         fontWeight: FontWeight.w600,
                       )),
-                  Anexo(largura: 200, altura: 200, picture: user!.fotoPerfil),
-                  Padding(
+                  user!.fotoPerfil != null
+                      ? Anexo(
+                          largura: 200, altura: 200, picture: user!.fotoPerfil)
+                      : _semFoto(),
+                  const Padding(
                     padding: EdgeInsets.all(16),
                     child: Text("SOBRE MIM",
                         style: TextStyle(
@@ -47,80 +50,66 @@ class Perfil extends StatelessWidget {
                         )),
                   ),
                   Container(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: GenerateUserText(
                       user: user,
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 20,
                         fontStyle: FontStyle.italic,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
                   ),
-                  Divider(thickness: 1),
-                  Text("MEU TRABALHO",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                      )),
-                  Padding(padding: EdgeInsets.all(2)),
-                  Text(
-                    "Eu trabalho na empresa ${user!.dadosEmprego!.empresa}, como ${user!.dadosEmprego!.cargo} em ${user!.dadosEmprego!.cidade}."
-                        .toUpperCase(),
-                  ),
-                  Divider(thickness: 1),
-                  Text("ESCOLARIDADE",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                      )),
-                  Padding(padding: EdgeInsets.all(2)),
-                  Text(user!.listaEscolaridade!.join(", ")),
-                  Divider(thickness: 1),
-                  Text("LOCALIDADE",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                      )),
-                  Padding(padding: EdgeInsets.all(2)),
-                  Text(
-                    "MORO EM ${user!.endereco!.moroEm!}.",
-                  ),
-                  Padding(padding: EdgeInsets.all(4)),
-                  Text("SOU DA CIDADE: ${user!.endereco!.cidade}"),
-                  Text("ESTADO: ${user!.endereco!.estado}"),
-                  Text("PAÍS: ${user!.endereco!.pais}"),
-                  Divider(thickness: 1),
-                  Text("STATUS DE RELACIONAMENTO",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                      )),
-                  Padding(padding: EdgeInsets.all(2)),
-                  Text("${user!.relacionamento}"),
-                  Divider(thickness: 1),
-                  Text("TELEFONE",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                      )),
-                  Padding(padding: EdgeInsets.all(2)),
-                  Text("${user!.telefone}"),
-                  Divider(thickness: 1),
-                  Text("MEUS HOBBIES",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                      )),
-                  Padding(padding: EdgeInsets.all(2)),
-                  Text("${user!.listaHobbies!.join(", ")}"),
-                  Divider(thickness: 1),
+                  const Divider(thickness: 1),
+                  Text("MEU TRABALHO", style: _estiloTitulo()),
+                  const Padding(padding: EdgeInsets.all(2)),
+                  user!.dadosEmprego!.empresa != null
+                      ? Text(
+                          "Eu trabalho na empresa ${user!.dadosEmprego!.empresa}, como ${user!.dadosEmprego!.cargo} em ${user!.dadosEmprego!.cidade}."
+                              .toUpperCase(),
+                        )
+                      : Text("-"),
+                  const Divider(thickness: 1),
+                  Text("ESCOLARIDADE", style: _estiloTitulo()),
+                  const Padding(padding: EdgeInsets.all(2)),
+                  user!.listaEscolaridade == null
+                      ? Text("-")
+                      : Text(user!.listaEscolaridade!.join(", ")),
+                  const Divider(thickness: 1),
+                  Text("LOCALIDADE", style: _estiloTitulo()),
+                  const Padding(padding: EdgeInsets.all(2)),
+                  user!.endereco!.moroEm != null
+                      ? Text("MORO EM ${user!.endereco!.moroEm!}.")
+                      : Text("-"),
+                  const Padding(padding: EdgeInsets.all(4)),
+                  user!.endereco!.pais != "" &&
+                          user!.endereco!.cidade != "" &&
+                          user!.endereco!.estado != ""
+                      ? Column(children: [
+                          Text("SOU DA CIDADE: ${user!.endereco!.cidade}"),
+                          Text("ESTADO: ${user!.endereco!.estado}"),
+                          Text("PAÍS: ${user!.endereco!.pais}"),
+                        ])
+                      : Text("-"),
+                  const Divider(thickness: 1),
+                  Text("STATUS DE RELACIONAMENTO", style: _estiloTitulo()),
+                  const Padding(padding: EdgeInsets.all(2)),
+                  user!.relacionamento == null
+                      ? Text("-")
+                      : Text("${user!.relacionamento}"),
+                  const Divider(thickness: 1),
+                  Text("TELEFONE", style: _estiloTitulo()),
+                  const Padding(padding: EdgeInsets.all(2)),
+                  user!.telefone == null
+                      ? Text("-")
+                      : Text("${user!.telefone}"),
+                  const Divider(thickness: 1),
+                  Text("MEUS HOBBIES", style: _estiloTitulo()),
+                  const Padding(padding: EdgeInsets.all(2)),
+                  user!.listaHobbies == null
+                      ? Text("-")
+                      : Text("${user!.listaHobbies!.join(", ")}"),
+                  const Divider(thickness: 1),
                 ],
               ),
             ],
@@ -130,3 +119,22 @@ class Perfil extends StatelessWidget {
     );
   }
 }
+
+TextStyle? _estiloTitulo() => TextStyle(
+      fontSize: 20,
+      color: Colors.black,
+      fontWeight: FontWeight.w600,
+    );
+
+Widget _semFoto() => Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: CircleAvatar(
+        backgroundColor: Colors.grey,
+        foregroundColor: Colors.white,
+        radius: 100,
+        child: Icon(
+          Icons.person,
+          size: 150,
+        ),
+      ),
+    );
