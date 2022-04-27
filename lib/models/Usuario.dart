@@ -26,7 +26,7 @@ class Usuario {
   List<String>? listaEscolaridade;
   String? relacionamento;
   String? telefone;
-  String? textoBiografico;
+  //String? textoBiografico;
   Endereco? endereco;
   Emprego? dadosEmprego;
   bool? isPublic;
@@ -51,7 +51,7 @@ class Usuario {
     this.listaEscolaridade,
     this.relacionamento,
     this.listaHobbies,
-    this.textoBiografico,
+    //this.textoBiografico,
     this.isPublic,
     this.telefone,
     this.endereco,

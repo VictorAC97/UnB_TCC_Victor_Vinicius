@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/models/Emprego.dart';
+import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/telas/Modulo1.dart';
 import 'package:projeto_final_unb/telas/Modulo2.dart';
@@ -12,7 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Usuario usuario = Usuario(nome: " ");
+  Usuario usuario = _novoUsuario();
 
   @override
   Widget build(BuildContext context) {
@@ -105,4 +107,31 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+
+_novoUsuario() {
+  return Usuario(
+    nome: "",
+    dataNasc: DateTime.now(),
+    idade: "",
+    alturaMetro: "",
+    alturaCentimetro: "",
+    pesoQuilos: "",
+    pesoGramas: "",
+    relacionamento: "",
+    isPublic: true,
+    telefone: "",
+    listaCorOlhos: List.empty(growable: true),
+    listaEuSou: List.empty(growable: true),
+    listaCorPreferida: List.empty(growable: true),
+    listaMinhaCorPele: List.empty(growable: true),
+    listaGostoDe: List.empty(growable: true),
+    listaNaoGostoDe: List.empty(growable: true),
+    listaSigno: List.empty(growable: true),
+    listaEscolaridade: List.empty(growable: true),
+    listaMinhaComidaPreferida: List.empty(growable: true),
+    listaHobbies: List.empty(growable: true),
+    endereco: Endereco(cidade: "", estado: "", pais: ""),
+    dadosEmprego: Emprego(cargo: "", empresa: "", cidade: ""),
+  );
 }

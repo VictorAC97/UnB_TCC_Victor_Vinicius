@@ -63,52 +63,44 @@ class Perfil extends StatelessWidget {
                   const Divider(thickness: 1),
                   Text("MEU TRABALHO", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  user!.dadosEmprego!.empresa != null
-                      ? Text(
-                          "Eu trabalho na empresa ${user!.dadosEmprego!.empresa}, como ${user!.dadosEmprego!.cargo} em ${user!.dadosEmprego!.cidade}."
-                              .toUpperCase(),
-                        )
-                      : Text("-"),
+                  if (user!.dadosEmprego!.empresa != "")
+                    Text(
+                      "Eu trabalho na empresa ${user!.dadosEmprego!.empresa}, como ${user!.dadosEmprego!.cargo} em ${user!.dadosEmprego!.cidade}."
+                          .toUpperCase(),
+                    ),
                   const Divider(thickness: 1),
                   Text("ESCOLARIDADE", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  user!.listaEscolaridade == null
-                      ? Text("-")
-                      : Text(user!.listaEscolaridade!.join(", ")),
+                  if (user!.listaEscolaridade != "")
+                    Text(user!.listaEscolaridade!.join(", ")),
                   const Divider(thickness: 1),
                   Text("LOCALIDADE", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  user!.endereco!.moroEm != null
-                      ? Text("MORO EM ${user!.endereco!.moroEm!}.")
-                      : Text("-"),
+                  if (user!.endereco!.moroEm != null)
+                    Text("MORO EM ${user!.endereco!.moroEm!}."),
                   const Padding(padding: EdgeInsets.all(4)),
-                  user!.endereco!.pais != "" &&
-                          user!.endereco!.cidade != "" &&
-                          user!.endereco!.estado != ""
-                      ? Column(children: [
-                          Text("SOU DA CIDADE: ${user!.endereco!.cidade}"),
-                          Text("ESTADO: ${user!.endereco!.estado}"),
-                          Text("PAÍS: ${user!.endereco!.pais}"),
-                        ])
-                      : Text("-"),
+                  if (user!.endereco!.pais != "" &&
+                      user!.endereco!.cidade != "" &&
+                      user!.endereco!.estado != "")
+                    Column(children: [
+                      Text("SOU DA CIDADE: ${user!.endereco!.cidade}"),
+                      Text("ESTADO: ${user!.endereco!.estado}"),
+                      Text("PAÍS: ${user!.endereco!.pais}"),
+                    ]),
                   const Divider(thickness: 1),
                   Text("STATUS DE RELACIONAMENTO", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  user!.relacionamento == null
-                      ? Text("-")
-                      : Text("${user!.relacionamento}"),
+                  if (user!.relacionamento != "")
+                    Text("${user!.relacionamento}"),
                   const Divider(thickness: 1),
                   Text("TELEFONE", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  user!.telefone == null
-                      ? Text("-")
-                      : Text("${user!.telefone}"),
+                  if (user!.telefone != " ") Text("${user!.telefone}"),
                   const Divider(thickness: 1),
                   Text("MEUS HOBBIES", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  user!.listaHobbies == null
-                      ? Text("-")
-                      : Text("${user!.listaHobbies!.join(", ")}"),
+                  if (user!.listaHobbies != null)
+                    Text("${user!.listaHobbies!.join(", ")}"),
                   const Divider(thickness: 1),
                 ],
               ),

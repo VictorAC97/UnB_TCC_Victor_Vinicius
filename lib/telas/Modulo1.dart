@@ -3,10 +3,7 @@ import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/telas/TelaCriacaoTexto.dart';
 import 'package:projeto_final_unb/telas/TelaDadosPublicosPrivados.dart';
 import 'package:projeto_final_unb/telas/TelaObterFoto.dart';
-import 'package:projeto_final_unb/telas/TelaObterFoto.dart';
 import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
-import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
-
 import 'TelaObterFoto.dart';
 
 class Modulo1 extends StatefulWidget {
