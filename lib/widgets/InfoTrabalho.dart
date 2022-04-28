@@ -24,7 +24,6 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
     _controllerEmpresa = TextEditingController();
     _controllerCargo = TextEditingController();
     _controllerCidade = TextEditingController();
-    _emprego = Emprego(cargo: "", empresa: "", cidade: "");
     super.initState();
   }
 
@@ -38,8 +37,9 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
 
   @override
   Widget build(BuildContext context) {
-    //mantendo os itens do usuario caso ele queira edita-los
-    if (widget.empregoUser != null) _emprego = widget.empregoUser!;
+    widget.empregoUser != null
+        ? _emprego = widget.empregoUser!
+        : _emprego = Emprego(cargo: "", empresa: "", cidade: "");
 
     return WillPopScope(
       onWillPop: () async {
@@ -143,4 +143,10 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
       ),
     );
   }
+}
+
+_fillTextFields() {
+  _controllerCargo.text = _emprego.cargo!;
+  _controllerEmpresa.text = _emprego.empresa!;
+  _controllerCidade.text = _emprego.cidade!;
 }

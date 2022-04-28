@@ -131,7 +131,7 @@ _novoUsuario() {
     listaEscolaridade: List.empty(growable: true),
     listaMinhaComidaPreferida: List.empty(growable: true),
     listaHobbies: List.empty(growable: true),
-    endereco: Endereco(cidade: "", estado: "", pais: ""),
+    endereco: Endereco(moroEm: "", cidade: "", estado: "", pais: ""),
     dadosEmprego: Emprego(cargo: "", empresa: "", cidade: ""),
   );
 }

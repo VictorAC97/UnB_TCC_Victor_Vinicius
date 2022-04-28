@@ -201,7 +201,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               },
             ),
             _divider(),
-            if (widget.user!.telefone != null)
+            if (widget.user!.telefone != "")
               Chip(label: Text(widget.user!.telefone!)),
             Text(
               "TELEFONE",

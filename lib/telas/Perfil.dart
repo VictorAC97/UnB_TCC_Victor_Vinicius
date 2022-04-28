@@ -76,7 +76,7 @@ class Perfil extends StatelessWidget {
                   const Divider(thickness: 1),
                   Text("LOCALIDADE", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  if (user!.endereco!.moroEm != null)
+                  if (user!.endereco!.moroEm != "")
                     Text("MORO EM ${user!.endereco!.moroEm!}."),
                   const Padding(padding: EdgeInsets.all(4)),
                   if (user!.endereco!.pais != "" &&
@@ -90,7 +90,7 @@ class Perfil extends StatelessWidget {
                   const Divider(thickness: 1),
                   Text("STATUS DE RELACIONAMENTO", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  if (user!.relacionamento != "")
+                  if (user!.relacionamento != null)
                     Text("${user!.relacionamento}"),
                   const Divider(thickness: 1),
                   Text("TELEFONE", style: _estiloTitulo()),

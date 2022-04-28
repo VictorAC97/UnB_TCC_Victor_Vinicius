@@ -26,7 +26,6 @@ class _InfoEnderecoState extends State<InfoEndereco> {
     _controllerCidade = TextEditingController();
     _controllerEstado = TextEditingController();
     _controllerPais = TextEditingController();
-    _endereco = Endereco(moroEm: "", cidade: "", estado: "", pais: "");
     super.initState();
   }
 
@@ -41,8 +40,9 @@ class _InfoEnderecoState extends State<InfoEndereco> {
 
   @override
   Widget build(BuildContext context) {
-    //mantendo os itens do usuario caso ele queira edita-los
-    if (widget.enderecoUser != null) _endereco = widget.enderecoUser!;
+    widget.enderecoUser != null
+        ? _endereco = widget.enderecoUser!
+        : _endereco = Endereco(moroEm: "", cidade: "", estado: "", pais: "");
 
     return WillPopScope(
       onWillPop: () async {
@@ -165,4 +165,11 @@ class _InfoEnderecoState extends State<InfoEndereco> {
       ),
     );
   }
+}
+
+_fillTextFields() {
+  _controllerMoroEm.text = _endereco.moroEm!;
+  _controllerCidade.text = _endereco.cidade!;
+  _controllerEstado.text = _endereco.estado!;
+  _controllerPais.text = _endereco.pais!;
 }
