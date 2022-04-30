@@ -4,16 +4,10 @@ import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/telas/Modulo1.dart';
 import 'package:projeto_final_unb/telas/Modulo2.dart';
-import 'TelaCriacaoTexto.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
 
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   Usuario usuario = _novoUsuario();
 
   @override
