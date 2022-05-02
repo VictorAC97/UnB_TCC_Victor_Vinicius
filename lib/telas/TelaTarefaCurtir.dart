@@ -21,7 +21,7 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
             //var infoFotoEemoji = fotoEemoji[index];
 
             return ListTile(
-              title: Text("Foto ${index + 1}"),
+              title: Text("FOTO ${index + 1}: ${fotoEemoji[index]["tarefa"]}"),
               trailing: ElevatedButton.icon(
                 onPressed: () {
                   Navigator.push(
