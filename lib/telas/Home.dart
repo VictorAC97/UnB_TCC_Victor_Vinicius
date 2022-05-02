@@ -4,6 +4,8 @@ import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/telas/Modulo1.dart';
 import 'package:projeto_final_unb/telas/Modulo2.dart';
+import 'package:projeto_final_unb/telas/TelaConfiguracoes.dart';
+import 'package:projeto_final_unb/telas/TelaDuvidas.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
@@ -14,7 +16,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: 170, bottom: 128),
+        padding: EdgeInsets.only(top: 160, bottom: 128),
         child: Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -24,7 +26,7 @@ class Home extends StatelessWidget {
                 width: 450,
               ),
               Container(
-                padding: EdgeInsets.only(top: 48, left: 70, right: 70),
+                padding: EdgeInsets.only(top: 48, left: 72, right: 72),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -83,7 +85,23 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {},
-                    )
+                    ),
+                    Padding(padding: EdgeInsets.all(8)),
+                    OutlinedButton(
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Text(
+                          "CONFIGURAÇÕES",
+                          style: TextStyle(fontSize: 18, color: Colors.black),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TelaConfiguracoes()));
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -93,7 +111,10 @@ class Home extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => TelaDuvidas()));
+        },
         child: Icon(
           Icons.help_outline,
           size: 40,

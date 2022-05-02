@@ -169,7 +169,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                   ),
                 ),
                 ConstrainedBox(
-                  constraints: BoxConstraints.tight(Size(70, 60)),
+                  constraints: BoxConstraints.tight(Size(90, 60)),
                   child: TextField(
                     controller: _controllerAlturaCentimetros,
                     keyboardType: TextInputType.number,

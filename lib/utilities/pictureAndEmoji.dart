@@ -5,7 +5,7 @@ List<Map<String, String>> fotoEemoji = [
     "tarefa": "ENGRAÇADO",
   },
   {
-    "foto": "funny2.jpeg",
+    "foto": "funny3.jpg",
     "emoji": "caraDandoRisada.png",
     "tarefa": "ENGRAÇADO",
   },

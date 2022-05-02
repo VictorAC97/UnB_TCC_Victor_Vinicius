@@ -29,8 +29,16 @@ class _Modulo1State extends State<Modulo1> {
     super.dispose();
   }
 
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
+    List<Widget> pages = [
+      TelaObterFoto(user: widget.user),
+      TelaCriacaoTexto(user: widget.user),
+      TelaDadosPublicosPrivados(user: widget.user),
+      VisualizarPerfil(user: widget.user),
+    ];
     return Scaffold(
       //extendBody: true,
       appBar: AppBar(
@@ -38,51 +46,52 @@ class _Modulo1State extends State<Modulo1> {
         backgroundColor: Colors.black,
         title: Text("MÓDULO 1 - Edição de Perfil"),
       ),
-      body: PageView(
-        controller: _pageController,
-        children: [
-          TelaObterFoto(user: widget.user),
-          TelaCriacaoTexto(user: widget.user),
-          TelaDadosPublicosPrivados(user: widget.user),
-        ],
+      body: Center(
+        child: pages[_currentIndex],
       ),
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              icon: Icon(Icons.close, color: Colors.red),
-              iconSize: 35,
-              onPressed: () {
-                Navigator.pop(context);
-              },
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+            indicatorColor: Colors.grey.withOpacity(0.3)),
+        child: NavigationBar(
+          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+          height: 64,
+          selectedIndex: _currentIndex,
+          onDestinationSelected: (int newIndex) {
+            setState(() {
+              _currentIndex = newIndex;
+            });
+          },
+          destinations: const [
+            NavigationDestination(
+              selectedIcon: Icon(Icons.photo_camera_outlined),
+              icon: Icon(Icons.photo_camera),
+              label: "FOTO",
             ),
-            IconButton(
-                icon: Icon(
-                  Icons.check,
-                  color: Colors.green,
-                ),
-                iconSize: 35,
-                onPressed: () {}),
+            NavigationDestination(
+              selectedIcon: Icon(Icons.text_snippet_outlined),
+              icon: Icon(Icons.text_snippet),
+              label: "TEXTO",
+            ),
+            NavigationDestination(
+              selectedIcon: Icon(Icons.privacy_tip_outlined),
+              icon: Icon(Icons.privacy_tip),
+              label: "DADOS",
+            ),
+            NavigationDestination(
+              selectedIcon: Icon(Icons.person_outlined),
+              icon: Icon(Icons.person),
+              label: "PERFIL",
+            ),
           ],
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        tooltip: "Visualizar o perfil",
-        backgroundColor: Colors.black,
-        child: Icon(
-          Icons.person,
-          size: 40,
-        ),
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => VisualizarPerfil(user: widget.user)));
-        },
       ),
     );
   }
 }
+
+const TextStyle _textStyle = TextStyle(
+  fontSize: 40,
+  fontWeight: FontWeight.bold,
+  letterSpacing: 2,
+  fontStyle: FontStyle.italic,
+);

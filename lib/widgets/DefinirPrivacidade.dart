@@ -10,10 +10,9 @@ class DefinirPrivacidade extends StatefulWidget {
   State<DefinirPrivacidade> createState() => _DefinirPrivacidadeState();
 }
 
-bool? isPublic;
-
 class _DefinirPrivacidadeState extends State<DefinirPrivacidade> {
   bool saved = false;
+  late bool? isPublic = widget.user!.isPublic!;
 
   @override
   Widget build(BuildContext context) {

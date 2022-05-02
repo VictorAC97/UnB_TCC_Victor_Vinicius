@@ -10,20 +10,9 @@ class Perfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white12,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Colors.black,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(16),
           child: Stack(
             children: [
               Column(
@@ -50,15 +39,36 @@ class Perfil extends StatelessWidget {
                         )),
                   ),
                   Container(
-                    padding: const EdgeInsets.all(12),
-                    child: GenerateUserText(
-                      user: user,
-                      textStyle: const TextStyle(
-                        fontSize: 20,
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
+                    child: user!.nome == "" ||
+                            user!.idade == "" ||
+                            user!.alturaMetro == "" ||
+                            user!.alturaCentimetro == "" ||
+                            user!.pesoQuilos == "" ||
+                            user!.pesoGramas == "" ||
+                            user!.listaEuSou!.isEmpty == true
+                        ? Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "AGUARDANDO INFORMAÇÕES OBRIGATÓRIAS. . .",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FontStyle.italic),
+                                ),
+                              ),
+                              SizedBox(
+                                  width: 270, child: LinearProgressIndicator()),
+                            ],
+                          )
+                        : GenerateUserText(
+                            user: user,
+                            textStyle: const TextStyle(
+                              fontSize: 20,
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
                   ),
                   const Divider(thickness: 1),
                   Text("MEU TRABALHO", style: _estiloTitulo()),
