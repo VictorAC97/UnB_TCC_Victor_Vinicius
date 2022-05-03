@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/widgets/Anexo.dart';
-import 'package:projeto_final_unb/widgets/GenerateUserText.dart';
+import 'package:projeto_final_unb/widgets/generate_user_text.dart';
 
 class Perfil extends StatelessWidget {
   Usuario? user;

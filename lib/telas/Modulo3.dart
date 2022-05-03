@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/models/Usuario.dart';
 
 class Modulo3 extends StatefulWidget {
-  const Modulo3({Key? key}) : super(key: key);
+  Usuario? user;
+  Modulo3({Key? key, this.user}) : super(key: key);
 
   @override
   State<Modulo3> createState() => _Modulo3State();

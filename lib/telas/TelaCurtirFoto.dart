@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingButton.dart';
 
-import '../widgets/GerarEmojis.dart';
+import '../widgets/gerar_emojis.dart';
 
 class CurtirFoto extends StatefulWidget {
   String? image;

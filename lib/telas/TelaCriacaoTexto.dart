@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/telas/TelaObterFoto.dart';
 import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
-import 'package:projeto_final_unb/widgets/BlocoSugestoes.dart';
+import 'package:projeto_final_unb/widgets/bloco_sugestoes.dart';
 import '../widgets/Anexo.dart';
 import '../utilities/monthsInYear.dart';
 
@@ -70,7 +70,8 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
             ),
             TextField(
               controller: _controller,
-              decoration: InputDecoration(label: Text("Informe seu nome")),
+              decoration:
+                  InputDecoration(label: Text("Informe seu nome completo")),
               onChanged: (newValue) {
                 setState(() {
                   widget.user!.nome = newValue.toUpperCase();

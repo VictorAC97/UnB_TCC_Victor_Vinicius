@@ -4,6 +4,7 @@ import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/telas/Modulo1.dart';
 import 'package:projeto_final_unb/telas/Modulo2.dart';
+import 'package:projeto_final_unb/telas/Modulo3.dart';
 import 'package:projeto_final_unb/telas/TelaConfiguracoes.dart';
 import 'package:projeto_final_unb/telas/TelaDuvidas.dart';
 
@@ -68,8 +69,9 @@ class Home extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        Modulo2(user: usuario)));
+                                    builder: (context) => Modulo2(
+                                          user: usuario,
+                                        )));
                           },
                         )),
                     ElevatedButton(
@@ -84,7 +86,12 @@ class Home extends StatelessWidget {
                           style: TextStyle(fontSize: 18),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Modulo3(user: usuario)));
+                      },
                     ),
                     Padding(padding: EdgeInsets.all(8)),
                     OutlinedButton(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/widgets/DefinirPrivacidade.dart';
+import 'package:projeto_final_unb/widgets/definicao_privacidade.dart';
 
 class InfoEndereco extends StatefulWidget {
   bool? isPublic;

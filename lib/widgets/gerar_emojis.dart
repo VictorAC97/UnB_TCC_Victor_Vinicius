@@ -1,6 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingImage.dart';
+import 'package:projeto_final_unb/widgets/app_settings.dart';
+import 'package:projeto_final_unb/widgets/feedback_foto_curtida.dart';
 import '../utilities/emojisList.dart';
 import '../telas/TelaCurtirFoto.dart';
 import '../widgets/asset_player_widget.dart';
@@ -44,7 +46,6 @@ class _GerarEmojisState extends State<GerarEmojis> {
 
   @override
   void initState() {
-    //emojis = [];
     getEmojis();
     randomizePositions(emojis);
     super.initState();
@@ -52,6 +53,8 @@ class _GerarEmojisState extends State<GerarEmojis> {
 
   @override
   Widget build(BuildContext context) {
+    AppSettings appSettings = AppSettings();
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: emojis
@@ -75,26 +78,8 @@ class _GerarEmojisState extends State<GerarEmojis> {
                         showDialog(
                           context: context,
                           builder: (context) {
-                            return AlertDialog(
-                              title: const Text("PARABÉNS!"),
-                              content: AssetPlayerWidget(
-                                  videoPath:
-                                      "assets/videos/Organizar_DeuCertoVcAcertou1.3gp"),
-                              //const Text("VOCÊ ACERTOU"),
-                              actions: [
-                                ElevatedButton(
-                                    style: ButtonStyle(
-                                        backgroundColor:
-                                            MaterialStateProperty.all(
-                                                Colors.black)),
-                                    onPressed: () {
-                                      setState(() {
-                                        tentativas = 0;
-                                      });
-                                      Navigator.pop(context);
-                                    },
-                                    child: const Text("OK")),
-                              ],
+                            return FeedBackFotoCurtida(
+                              appSettings: appSettings,
                             );
                           },
                         );

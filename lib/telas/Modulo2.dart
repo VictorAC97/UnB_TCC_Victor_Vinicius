@@ -1,10 +1,9 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/telas/TelaTarefaComentar.dart';
 import 'package:projeto_final_unb/telas/TelaTarefaCompartilhar.dart';
 import 'package:projeto_final_unb/telas/TelaTarefaCurtir.dart';
-import '../widgets/Anexo.dart';
+import 'package:projeto_final_unb/widgets/app_settings.dart';
 
 class Modulo2 extends StatefulWidget {
   Usuario? user;

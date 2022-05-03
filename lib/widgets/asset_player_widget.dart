@@ -31,8 +31,6 @@ class _AssetPlayerWidgetState extends State<AssetPlayerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final isMuted = _controller.value.volume == 0;
-
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -46,10 +44,10 @@ class _AssetPlayerWidgetState extends State<AssetPlayerWidget> {
                 backgroundColor: Colors.grey,
                 child: IconButton(
                   icon: Icon(
-                    isMuted ? Icons.volume_off : Icons.volume_up,
+                    Icons.play_arrow,
                     color: Colors.white,
                   ),
-                  onPressed: () => _controller.setVolume(isMuted ? 1 : 0),
+                  onPressed: () => _controller.play(),
                 ),
               ),
             ),
