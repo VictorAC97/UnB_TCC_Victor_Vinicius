@@ -4,22 +4,22 @@ import 'package:projeto_final_unb/widgets/asset_player_widget.dart';
 import '../utilities/videos_list_names.dart';
 
 class TelaConfiguracoes extends StatefulWidget {
+  AppSettings appSettings;
   TelaConfiguracoes({
     Key? key,
+    required this.appSettings,
   }) : super(key: key);
 
   @override
   State<TelaConfiguracoes> createState() => _TelaConfiguracoesState();
 }
 
-AppSettings appSettings = AppSettings();
-
 class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
   bool isSelected = false;
   bool isMuted = false;
-  var _infoVideo = appSettings.infoVideo;
   @override
   Widget build(BuildContext context) {
+    var _infoVideo = widget.appSettings.infoVideo;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -49,7 +49,7 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                         onChanged: (item) {
                           setState(() {
                             _infoVideo['fileName'] = item;
-                            appSettings.setInfoVideo(item.toString());
+                            widget.appSettings.setInfoVideo(item.toString());
                           });
                         },
                         secondary: IconButton(
