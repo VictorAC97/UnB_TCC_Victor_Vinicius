@@ -16,7 +16,6 @@ class TelaConfiguracoes extends StatefulWidget {
 
 class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
   bool isSelected = false;
-  bool isMuted = false;
   @override
   Widget build(BuildContext context) {
     var _infoVideo = widget.appSettings.infoVideo;
@@ -25,6 +24,15 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
           backgroundColor: Colors.black,
           title: Text("CONFIGURAÇÕES"),
           centerTitle: true,
+          leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                widget.appSettings.setInfoVideo(_infoVideo['fileName']);
+                Navigator.pop(context);
+              }),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -43,13 +51,14 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                         title: Text(
                           item['titulo'].toString(),
                         ),
+                        subtitle: Text(item['ator'].toString()),
                         value: item['fileName'].toString(),
                         groupValue: _infoVideo['fileName'].toString(),
                         activeColor: Colors.black,
                         onChanged: (item) {
                           setState(() {
                             _infoVideo['fileName'] = item;
-                            widget.appSettings.setInfoVideo(item.toString());
+                            //widget.appSettings.setInfoVideo(item.toString());
                           });
                         },
                         secondary: IconButton(

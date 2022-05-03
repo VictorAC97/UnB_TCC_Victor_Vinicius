@@ -40,7 +40,6 @@ class _Modulo1State extends State<Modulo1> {
       VisualizarPerfil(user: widget.user),
     ];
     return Scaffold(
-      //extendBody: true,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,

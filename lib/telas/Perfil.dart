@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/widgets/Anexo.dart';
 import 'package:projeto_final_unb/widgets/generate_user_text.dart';
+import '../utilities/invalid_date.dart';
 
 class Perfil extends StatelessWidget {
   Usuario? user;
@@ -12,7 +13,7 @@ class Perfil extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(32),
           child: Stack(
             children: [
               Column(
@@ -41,6 +42,7 @@ class Perfil extends StatelessWidget {
                   Container(
                     child: user!.nome == "" ||
                             user!.idade == "" ||
+                            isInvalidDate(user!.dataNasc!) == true ||
                             user!.alturaMetro == "" ||
                             user!.alturaCentimetro == "" ||
                             user!.pesoQuilos == "" ||
@@ -56,6 +58,10 @@ class Perfil extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       fontStyle: FontStyle.italic),
                                 ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 8.0),
+                                child: listarPendencias(),
                               ),
                               SizedBox(
                                   width: 270, child: LinearProgressIndicator()),
@@ -74,10 +80,11 @@ class Perfil extends StatelessWidget {
                   Text("MEU TRABALHO", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
                   if (user!.dadosEmprego!.empresa != "")
-                    Text(
-                      "Eu trabalho na empresa ${user!.dadosEmprego!.empresa}, como ${user!.dadosEmprego!.cargo} em ${user!.dadosEmprego!.cidade}."
-                          .toUpperCase(),
-                    ),
+                    Text("${user!.dadosEmprego!.empresa}".toUpperCase()),
+                  if (user!.dadosEmprego!.cargo != "")
+                    Text("${user!.dadosEmprego!.cargo}".toUpperCase()),
+                  if (user!.dadosEmprego!.cidade != "")
+                    Text("${user!.dadosEmprego!.cidade}".toUpperCase()),
                   const Divider(thickness: 1),
                   Text("ESCOLARIDADE", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
@@ -118,6 +125,26 @@ class Perfil extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget listarPendencias() {
+    TextStyle _textStyle = TextStyle(fontSize: 16);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (user!.nome == "") Text("- Nome Completo", style: _textStyle),
+        if (user!.idade == "") Text("- Idade", style: _textStyle),
+        if (isInvalidDate(user!.dataNasc!) == true)
+          Text("- Data de Nascimento", style: _textStyle),
+        if (user!.alturaMetro == "") Text("- Altura Metros", style: _textStyle),
+        if (user!.alturaCentimetro == "")
+          Text("- Altura Centimetros", style: _textStyle),
+        if (user!.pesoQuilos == "") Text("- Peso Quilos", style: _textStyle),
+        if (user!.pesoGramas == "") Text("- Peso Gramas", style: _textStyle),
+        if (user!.listaEuSou!.isEmpty)
+          Text("- Personalidade (Eu sou)", style: _textStyle),
+      ],
     );
   }
 }

@@ -20,7 +20,8 @@ class AppSettings {
   }
 
   _readInfoVideo() {
-    final fileName = _prefs.getString('fileName') ?? "";
+    final fileName =
+        _prefs.getString('fileName') ?? "Organizar_DeuCertoVcAcertou1.3gp";
 
     infoVideo = {
       "fileName": fileName,

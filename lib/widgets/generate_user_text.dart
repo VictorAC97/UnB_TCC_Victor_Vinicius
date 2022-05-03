@@ -23,15 +23,23 @@ class GenerateUserText extends StatelessWidget {
     List<String> texto = [
       "Meu nome é ${user!.nome}, tenho ${user!.idade} anos e nasci no dia ${user!.dataNasc!.day} do mês de ${mesesDoAno[user!.dataNasc!.month]} do ano de ${user!.dataNasc!.year}. Minha altura é ${user!.alturaMetro} metro(s) e ${user!.alturaCentimetro} centimetros e tenho ${user!.pesoQuilos} quilos e ${user!.pesoGramas} gramas de peso. A respeito da minha personalidade, eu sou ${user!.listaEuSou!.join(", ")}."
     ];
-    if (user!.listaMinhaCorPele!.isNotEmpty)
-      texto.add("A cor da minha pele é ${user!.listaMinhaCorPele!.join()}.");
 
-    if (user!.listaCorOlhos!.isNotEmpty)
+    if (user!.listaMinhaCorPele!.isNotEmpty && user!.listaCorOlhos!.isNotEmpty)
+      texto.add(
+          "A cor da minha pele é ${user!.listaMinhaCorPele!.join()} e a cor dos meus olhos é ${user!.listaCorOlhos!.join()}.");
+    else if (user!.listaMinhaCorPele!.isNotEmpty)
+      texto.add("A cor da minha pele é ${user!.listaMinhaCorPele!.join()}.");
+    else if (user!.listaCorOlhos!.isNotEmpty)
       texto.add("A cor dos meus olhos é ${user!.listaCorOlhos!.join()}.");
 
-    if (user!.listaMinhaComidaPreferida!.isNotEmpty)
+    if (user!.listaMinhaComidaPreferida!.isNotEmpty &&
+        user!.listaMinhaComidaPreferida!.length == 1)
       texto.add(
           "A minha comida preferida é ${user!.listaMinhaComidaPreferida!.join(", ")}.");
+    else if (user!.listaMinhaComidaPreferida!.isNotEmpty &&
+        user!.listaMinhaComidaPreferida!.length > 1)
+      texto.add(
+          "As minhas comidas preferidas são ${user!.listaMinhaComidaPreferida!.join(", ")}.");
     if (user!.listaGostoDe!.isNotEmpty && user!.listaNaoGostoDe!.isNotEmpty)
       texto.add(
           "Eu gosto de ${user!.listaGostoDe!.join(", ")} e não gosto de ${user!.listaNaoGostoDe!.join(", ")}.");

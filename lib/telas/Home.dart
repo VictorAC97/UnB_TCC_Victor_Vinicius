@@ -55,28 +55,28 @@ class Home extends StatelessWidget {
                       },
                     ),
                     Padding(
-                        padding: EdgeInsets.only(top: 16, bottom: 16),
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.black),
+                      padding: EdgeInsets.only(top: 16, bottom: 16),
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.black),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Text(
+                            "MÓDULO 2",
+                            style: TextStyle(fontSize: 18),
                           ),
-                          child: Padding(
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              "MÓDULO 2",
-                              style: TextStyle(fontSize: 18),
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Modulo2(
-                                          user: usuario,
-                                        )));
-                          },
-                        )),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Modulo2(user: usuario)));
+                        },
+                      ),
+                    ),
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor:
@@ -121,16 +121,12 @@ class Home extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => TelaDuvidas()));
-        },
-        child: Icon(
-          Icons.help_outline,
-          size: 40,
-        ),
-      ),
+          backgroundColor: Colors.black,
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => TelaDuvidas()));
+          },
+          child: Icon(Icons.help_outline, size: 40)),
     );
   }
 }

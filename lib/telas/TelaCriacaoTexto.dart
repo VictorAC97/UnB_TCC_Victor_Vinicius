@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/telas/TelaObterFoto.dart';
-import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
 import 'package:projeto_final_unb/widgets/bloco_sugestoes.dart';
-import '../widgets/Anexo.dart';
 import '../utilities/monthsInYear.dart';
+import '../utilities/invalid_date.dart';
 
 class TelaCriacaoTexto extends StatefulWidget {
   Usuario? user;
@@ -64,14 +60,27 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
             Divider(
               thickness: 1.0,
             ),
-            Text(
-              "MEU NOME É ${widget.user!.nome}",
-              style: TextStyle(fontSize: 18),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "MEU NOME É ${widget.user!.nome}",
+                style: TextStyle(fontSize: 18),
+              ),
             ),
-            TextField(
+            TextFormField(
               controller: _controller,
-              decoration:
-                  InputDecoration(label: Text("Informe seu nome completo")),
+              decoration: InputDecoration(
+                label: Text("NOME COMPLETO"),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8.0))),
+              ),
+              autovalidateMode: AutovalidateMode.always,
+              validator: (value) {
+                if (widget.user!.nome == "") {
+                  return 'CAMPO OBRIGATÓRIO!';
+                }
+                return null;
+              },
               onChanged: (newValue) {
                 setState(() {
                   widget.user!.nome = newValue.toUpperCase();
@@ -89,12 +98,24 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                 "TENHO   ANOS",
                 style: TextStyle(fontSize: 18),
               ),
+            Padding(padding: EdgeInsets.all(8)),
             ConstrainedBox(
-              constraints: BoxConstraints.tight(Size(110, 50)),
-              child: TextField(
+              constraints: BoxConstraints.tight(Size(152, 96)),
+              child: TextFormField(
                 controller: _controllerIdade,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(label: Text("Informe sua idade")),
+                decoration: InputDecoration(
+                  label: Text("IDADE"),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8.0))),
+                ),
+                autovalidateMode: AutovalidateMode.always,
+                validator: (value) {
+                  if (widget.user!.idade == "") {
+                    return 'CAMPO OBRIGATÓRIO!';
+                  }
+                  return null;
+                },
                 onChanged: (newValue) {
                   setState(() {
                     widget.user!.idade = newValue;
@@ -114,16 +135,14 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                 padding: EdgeInsets.only(top: 8),
                 child: Column(
                   children: [
-                    if (widget.user!.dataNasc == null)
-                      Text(
-                        "DATA DE NASCIMENTO: ",
-                        style: TextStyle(fontSize: 18),
-                      )
-                    else
-                      Text(
-                        "DATA DE NASCIMENTO: ${widget.user!.dataNasc!.day}/${widget.user!.dataNasc!.month}/${widget.user!.dataNasc!.year}",
-                        style: TextStyle(fontSize: 15),
-                      ),
+                    Text(
+                      "DATA DE NASCIMENTO: ${widget.user!.dataNasc!.day}/${widget.user!.dataNasc!.month}/${widget.user!.dataNasc!.year}",
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: isInvalidDate(widget.user!.dataNasc!)
+                              ? Colors.red
+                              : Colors.black),
+                    ),
                     ElevatedButton.icon(
                       icon: Icon(Icons.calendar_today_outlined),
                       label: Text("Adicionar"),
@@ -158,11 +177,18 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ConstrainedBox(
-                  constraints: BoxConstraints.tight(Size(70, 60)),
-                  child: TextField(
+                  constraints: BoxConstraints.tight(Size(96, 96)),
+                  child: TextFormField(
                     controller: _controllerAlturaMetros,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(label: Text("metros")),
+                    decoration: InputDecoration(label: Text("METROS")),
+                    autovalidateMode: AutovalidateMode.always,
+                    validator: (value) {
+                      if (widget.user!.alturaMetro == "") {
+                        return '*';
+                      }
+                      return null;
+                    },
                     onChanged: (newValue) {
                       widget.user!.alturaMetro = newValue;
                       setState(() {});
@@ -170,11 +196,18 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                   ),
                 ),
                 ConstrainedBox(
-                  constraints: BoxConstraints.tight(Size(90, 60)),
-                  child: TextField(
+                  constraints: BoxConstraints.tight(Size(128, 96)),
+                  child: TextFormField(
                     controller: _controllerAlturaCentimetros,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(label: Text("centimetros")),
+                    decoration: InputDecoration(label: Text("CENTIMETROS")),
+                    autovalidateMode: AutovalidateMode.always,
+                    validator: (value) {
+                      if (widget.user!.alturaCentimetro == "") {
+                        return '*';
+                      }
+                      return null;
+                    },
                     onChanged: (newValue) {
                       widget.user!.alturaCentimetro = newValue;
                       setState(() {});
@@ -199,11 +232,18 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ConstrainedBox(
-                  constraints: BoxConstraints.tight(Size(60, 60)),
-                  child: TextField(
+                  constraints: BoxConstraints.tight(Size(96, 96)),
+                  child: TextFormField(
                     controller: _controllerPesoQuilos,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(label: Text("quilos")),
+                    decoration: InputDecoration(label: Text("QUILOS")),
+                    autovalidateMode: AutovalidateMode.always,
+                    validator: (value) {
+                      if (widget.user!.pesoQuilos == "") {
+                        return '*';
+                      }
+                      return null;
+                    },
                     onChanged: (newValue) {
                       widget.user!.pesoQuilos = newValue;
                       setState(() {});
@@ -211,11 +251,18 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                   ),
                 ),
                 ConstrainedBox(
-                  constraints: BoxConstraints.tight(Size(60, 60)),
-                  child: TextField(
+                  constraints: BoxConstraints.tight(Size(96, 96)),
+                  child: TextFormField(
                     controller: _controllerPesoGramas,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(label: Text("gramas")),
+                    decoration: InputDecoration(label: Text("GRAMAS")),
+                    autovalidateMode: AutovalidateMode.always,
+                    validator: (value) {
+                      if (widget.user!.pesoGramas == "") {
+                        return '*';
+                      }
+                      return null;
+                    },
                     onChanged: (newValue) {
                       widget.user!.pesoGramas = newValue;
                       setState(() {});

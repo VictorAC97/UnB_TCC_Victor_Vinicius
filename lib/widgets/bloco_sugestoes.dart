@@ -25,7 +25,11 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
       children: [
         Text(
           "EU SOU: ",
-          style: TextStyle(fontSize: 18),
+          style: TextStyle(
+              fontSize: 18,
+              color: widget.user!.listaEuSou!.isEmpty == true
+                  ? Colors.red
+                  : Colors.black),
         ),
         if (widget.user!.listaEuSou != null)
           Wrap(
@@ -258,7 +262,7 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
                 builder: (context) => Sugestao(
                     listaUser: widget.user!.listaCorPreferida,
                     listaSugestoes: sugestaoCorPreferida,
-                    limiteSelecoes: widget.limiteSelecoes,
+                    limiteSelecoes: 1,
                     titulo: "MINHA COR PREFERIDA É: "),
               );
               setState(() {});
