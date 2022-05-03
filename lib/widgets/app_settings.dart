@@ -20,15 +20,14 @@ class AppSettings {
   }
 
   _readInfoVideo() {
-    final fileName =
-        _prefs.getString('fileName') ?? "Organizar_DeuCertoVcAcertou1.3gp";
+    final fileName = _prefs.getString('fileName') ?? "";
 
     infoVideo = {
       "fileName": fileName,
     };
   }
 
-  setInfoVideo(String videoName, bool muted) async {
+  setInfoVideo(String videoName) async {
     await _prefs.setString('fileName', videoName);
     await _readInfoVideo();
   }

@@ -49,7 +49,7 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                         onChanged: (item) {
                           setState(() {
                             _infoVideo['fileName'] = item;
-                            appSettings.setInfoVideo(item.toString(), isMuted);
+                            appSettings.setInfoVideo(item.toString());
                           });
                         },
                         secondary: IconButton(
