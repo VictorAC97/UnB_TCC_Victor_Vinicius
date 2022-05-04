@@ -9,4 +9,99 @@ List<Map<String, String>> fotoEemoji = [
     "emoji": "caraDandoRisada.png",
     "tarefa": "ENGRAÇADO",
   },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
+  {
+    "foto": "funny3.jpg",
+    "emoji": "caraDandoRisada.png",
+    "tarefa": "ENGRAÇADO",
+  },
 ];

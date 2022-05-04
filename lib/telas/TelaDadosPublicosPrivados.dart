@@ -46,7 +46,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
 
     return SingleChildScrollView(
       child: Container(
-        padding: const EdgeInsets.all(32),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             const Text(

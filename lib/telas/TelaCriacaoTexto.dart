@@ -50,7 +50,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: const EdgeInsets.all(32),
+        padding: const EdgeInsets.all(16),
         alignment: Alignment.center,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,12 +62,9 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
             const Divider(
               thickness: 1.0,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "MEU NOME É ${widget.user!.nome}",
-                style: const TextStyle(fontSize: 18),
-              ),
+            Text(
+              "MEU NOME É ${widget.user!.nome}",
+              style: const TextStyle(fontSize: 18),
             ),
             Align(
               alignment: Alignment.topLeft,

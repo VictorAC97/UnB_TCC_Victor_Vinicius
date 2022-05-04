@@ -13,7 +13,7 @@ class Perfil extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(24),
+          padding: const EdgeInsets.all(16),
           child: Stack(
             children: [
               Column(

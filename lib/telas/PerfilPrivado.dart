@@ -12,7 +12,7 @@ class PerfilPrivado extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(32),
+          padding: const EdgeInsets.all(16),
           child: Stack(
             children: [
               Column(children: [
