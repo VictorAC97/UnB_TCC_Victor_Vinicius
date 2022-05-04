@@ -13,7 +13,7 @@ class _TelaDuvidasState extends State<TelaDuvidas> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("SOBRE O APP"),
+        title: const Text("SOBRE O APP"),
         centerTitle: true,
       ),
       body: Center(),

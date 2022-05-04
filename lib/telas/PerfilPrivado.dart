@@ -12,11 +12,11 @@ class PerfilPrivado extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(32),
+          padding: const EdgeInsets.all(32),
           child: Stack(
             children: [
               Column(children: [
-                Text("Perfil",
+                const Text("Perfil",
                     style: TextStyle(
                       fontSize: 35,
                       letterSpacing: 1.5,
@@ -27,12 +27,12 @@ class PerfilPrivado extends StatelessWidget {
                     ? Anexo(
                         largura: 200, altura: 200, picture: user!.fotoPerfil)
                     : _semFoto(),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.all(16),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Icon(Icons.lock),
                     Text(
                       "Este perfil é privado.",
@@ -49,8 +49,8 @@ class PerfilPrivado extends StatelessWidget {
   }
 }
 
-Widget _semFoto() => Padding(
-      padding: const EdgeInsets.all(12.0),
+Widget _semFoto() => const Padding(
+      padding: EdgeInsets.all(12.0),
       child: CircleAvatar(
         backgroundColor: Colors.grey,
         foregroundColor: Colors.white,

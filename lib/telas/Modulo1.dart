@@ -43,7 +43,7 @@ class _Modulo1State extends State<Modulo1> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text("MÓDULO 1 - Edição de Perfil"),
+        title: const Text("MÓDULO 1 - Edição de Perfil"),
       ),
       body: Center(
         child: pages[_currentIndex],
@@ -87,10 +87,3 @@ class _Modulo1State extends State<Modulo1> {
     );
   }
 }
-
-const TextStyle _textStyle = TextStyle(
-  fontSize: 40,
-  fontWeight: FontWeight.bold,
-  letterSpacing: 2,
-  fontStyle: FontStyle.italic,
-);

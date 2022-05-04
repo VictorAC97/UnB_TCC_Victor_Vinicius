@@ -5,8 +5,7 @@ import 'package:projeto_final_unb/models/Endereco.dart';
 
 class Usuario {
   String? nome;
-  DateTime? dataNasc; //DateTime? _dateTime = DateTime(1997, 12, 28);
-  //criar um metodo de preenchimento automatico a partir de dataAtual - dataNasc
+  DateTime? dataNasc;
   String? idade;
   File? fotoPerfil;
   String? alturaMetro;

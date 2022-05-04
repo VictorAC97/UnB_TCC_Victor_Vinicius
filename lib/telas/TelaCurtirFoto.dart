@@ -13,8 +13,6 @@ class CurtirFoto extends StatefulWidget {
 }
 
 class _CurtirFotoState extends State<CurtirFoto> {
-  Color? _corFundo = Colors.grey[300];
-  double _myHeight = 0;
   bool visivel = false;
   bool wrongTap = false;
   @override
@@ -22,13 +20,13 @@ class _CurtirFotoState extends State<CurtirFoto> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text("CURTIR FOTO"),
+          title: const Text("CURTIR FOTO"),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 32),
+          padding: const EdgeInsets.only(top: 32),
           child: Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -51,8 +49,8 @@ class _CurtirFotoState extends State<CurtirFoto> {
                       style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.all(Colors.black)),
-                      icon: Icon(Icons.comment),
-                      label: Text("Comentar"),
+                      icon: const Icon(Icons.comment),
+                      label: const Text("Comentar"),
                       onPressed: () {
                         setState(() {
                           if (visivel == false) {
@@ -62,11 +60,11 @@ class _CurtirFotoState extends State<CurtirFoto> {
                       },
                     ),
                     Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: wrongTap == true
                           ? MyBlinkingButton(
-                              label: Text("Curtir"),
-                              icon: Icon(Icons.thumb_up),
+                              label: const Text("Curtir"),
+                              icon: const Icon(Icons.thumb_up),
                               style: ButtonStyle(
                                   foregroundColor:
                                       MaterialStateProperty.all(Colors.black)),
@@ -83,8 +81,8 @@ class _CurtirFotoState extends State<CurtirFoto> {
                                       ? MaterialStateProperty.all(Colors.grey)
                                       : MaterialStateProperty.all(
                                           Colors.black)),
-                              icon: Icon(Icons.thumb_up),
-                              label: Text("Curtir"),
+                              icon: const Icon(Icons.thumb_up),
+                              label: const Text("Curtir"),
                               onPressed: () {
                                 setState(() {
                                   visivel = !visivel;
@@ -93,8 +91,8 @@ class _CurtirFotoState extends State<CurtirFoto> {
                             ),
                     ),
                     TextButton.icon(
-                      icon: Icon(Icons.share),
-                      label: Text("Compartilhar"),
+                      icon: const Icon(Icons.share),
+                      label: const Text("Compartilhar"),
                       style: ButtonStyle(
                           foregroundColor:
                               MaterialStateProperty.all(Colors.black)),
@@ -110,10 +108,10 @@ class _CurtirFotoState extends State<CurtirFoto> {
                 ),
                 AnimatedContainer(
                   decoration: BoxDecoration(
-                    color: _corFundo,
+                    color: Colors.grey[300],
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   height: isVisible(visivel),
                   curve: Curves.bounceOut,
                   child: SingleChildScrollView(

@@ -24,7 +24,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
   Endereco _endereco = Endereco(moroEm: "", cidade: "", estado: "", pais: "");
   late TextEditingController _controllerTel;
 
-  Widget _divider() => Divider(thickness: 1.0);
+  Widget _divider() => const Divider(thickness: 1.0);
 
   @override
   void initState() {
@@ -40,29 +40,30 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.user!.dadosEmprego != null)
+    if (widget.user!.dadosEmprego != null) {
       _emprego = widget.user!.dadosEmprego!;
+    }
 
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.all(32),
+        padding: const EdgeInsets.all(32),
         child: Column(
           children: [
-            Text(
+            const Text(
               "DADOS INFORMATIVOS PÚBLICOS OU PRIVADOS",
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             _divider(),
-            Text(
+            const Text(
               "DEFINIÇÃO DE PRIVACIDADE",
               style: TextStyle(fontSize: 18),
             ),
             if (widget.user!.isPublic == true)
-              Chip(
+              const Chip(
                 label: Text("PÚBLICO"),
               ),
             if (widget.user!.isPublic == false)
-              Chip(
+              const Chip(
                 label: Text("PRIVADO"),
               ),
             ElevatedButton.icon(
@@ -75,11 +76,11 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
                         DefinirPrivacidade(user: widget.user));
                 setState(() {});
               },
-              icon: Icon(Icons.privacy_tip_outlined),
-              label: Text("Definir Privacidade"),
+              icon: const Icon(Icons.privacy_tip_outlined),
+              label: const Text("Definir Privacidade"),
             ),
             _divider(),
-            Text(
+            const Text(
               "MEU TRABALHO",
               style: TextStyle(fontSize: 18),
             ),
@@ -94,8 +95,8 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               ],
             ),
             ElevatedButton.icon(
-              icon: Icon(Icons.add),
-              label: Text("Adicionar"),
+              icon: const Icon(Icons.add),
+              label: const Text("Adicionar"),
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.black)),
               onPressed: () async {
@@ -112,7 +113,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               },
             ),
             _divider(),
-            Text(
+            const Text(
               "ONDE ESTUDO",
               style: TextStyle(fontSize: 18),
             ),
@@ -124,8 +125,8 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
                           ))
                       .toList()),
             ElevatedButton.icon(
-              icon: Icon(Icons.add),
-              label: Text("Adicionar"),
+              icon: const Icon(Icons.add),
+              label: const Text("Adicionar"),
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.black)),
               onPressed: () async {
@@ -140,15 +141,15 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               },
             ),
             _divider(),
-            Text(
+            const Text(
               "MORO EM",
               style: TextStyle(fontSize: 18),
             ),
             if (_endereco.moroEm != "")
               Chip(label: Text("${_endereco.moroEm}")),
             ElevatedButton.icon(
-              icon: Icon(Icons.add),
-              label: Text("Adicionar"),
+              icon: const Icon(Icons.add),
+              label: const Text("Adicionar"),
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.black)),
               onPressed: () async {
@@ -165,7 +166,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               },
             ),
             _divider(),
-            Text(
+            const Text(
               "SOU DA CIDADE DE \n ESTADO DE \n PAÍS",
               style: TextStyle(fontSize: 18),
             ),
@@ -177,7 +178,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               ],
             ),
             _divider(),
-            Text(
+            const Text(
               "STATUS DE RELACIONAMENTO",
               style: TextStyle(fontSize: 18),
             ),
@@ -185,8 +186,8 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
                 widget.user!.relacionamento != "")
               Chip(label: Text(widget.user!.relacionamento.toString())),
             ElevatedButton.icon(
-              icon: Icon(Icons.add),
-              label: Text("Adicionar"),
+              icon: const Icon(Icons.add),
+              label: const Text("Adicionar"),
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.black)),
               onPressed: () async {
@@ -203,15 +204,15 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
             _divider(),
             if (widget.user!.telefone != "")
               Chip(label: Text(widget.user!.telefone!)),
-            Text(
+            const Text(
               "TELEFONE",
               style: TextStyle(fontSize: 18),
             ),
             ConstrainedBox(
-              constraints: BoxConstraints.tight(Size(200, 60)),
+              constraints: BoxConstraints.tight(const Size(200, 60)),
               child: TextField(
                 controller: _controllerTel,
-                decoration: InputDecoration(label: Text("Telefone")),
+                decoration: const InputDecoration(label: Text("Telefone")),
                 keyboardType: TextInputType.phone,
                 onChanged: (value) {
                   setState(() {
@@ -221,7 +222,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               ),
             ),
             _divider(),
-            Text(
+            const Text(
               "HOBBIES",
               style: TextStyle(fontSize: 18),
             ),
@@ -234,8 +235,8 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
                     .toList(),
               ),
             ElevatedButton.icon(
-              icon: Icon(Icons.add),
-              label: Text("Adicionar"),
+              icon: const Icon(Icons.add),
+              label: const Text("Adicionar"),
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.black)),
               onPressed: () async {

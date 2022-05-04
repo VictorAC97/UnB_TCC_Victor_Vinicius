@@ -22,10 +22,10 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text("CONFIGURAÇÕES"),
+          title: const Text("CONFIGURAÇÕES"),
           centerTitle: true,
           leading: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: Colors.white,
               ),
@@ -37,8 +37,8 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Text(
                   "OPÇÕES DE VIDEO",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -62,7 +62,7 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                           });
                         },
                         secondary: IconButton(
-                          icon: Icon(Icons.play_arrow),
+                          icon: const Icon(Icons.play_arrow),
                           onPressed: () {
                             showDialog(
                               context: context,

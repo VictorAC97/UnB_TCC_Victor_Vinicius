@@ -13,7 +13,7 @@ class Perfil extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(32),
+          padding: const EdgeInsets.all(24),
           child: Stack(
             children: [
               Column(
@@ -50,8 +50,8 @@ class Perfil extends StatelessWidget {
                             user!.listaEuSou!.isEmpty == true
                         ? Column(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
                                 child: Text(
                                   "AGUARDANDO INFORMAÇÕES OBRIGATÓRIAS. . .",
                                   style: TextStyle(
@@ -63,14 +63,14 @@ class Perfil extends StatelessWidget {
                                 padding: const EdgeInsets.only(bottom: 8.0),
                                 child: listarPendencias(),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                   width: 270, child: LinearProgressIndicator()),
                             ],
                           )
                         : GenerateUserText(
                             user: user,
                             textStyle: const TextStyle(
-                              fontSize: 20,
+                              fontSize: 17,
                               fontStyle: FontStyle.italic,
                               fontWeight: FontWeight.w300,
                             ),
@@ -88,17 +88,17 @@ class Perfil extends StatelessWidget {
                   const Divider(thickness: 1),
                   Text("ESCOLARIDADE", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  if (user!.listaEscolaridade != "")
+                  if (user!.listaEscolaridade!.isNotEmpty)
                     Text(user!.listaEscolaridade!.join(", ")),
                   const Divider(thickness: 1),
                   Text("LOCALIDADE", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  if (user!.endereco!.moroEm != "")
+                  if (user!.endereco!.moroEm!.isNotEmpty)
                     Text("MORO EM ${user!.endereco!.moroEm!}."),
                   const Padding(padding: EdgeInsets.all(4)),
-                  if (user!.endereco!.pais != "" &&
-                      user!.endereco!.cidade != "" &&
-                      user!.endereco!.estado != "")
+                  if (user!.endereco!.pais!.isNotEmpty &&
+                      user!.endereco!.cidade!.isNotEmpty &&
+                      user!.endereco!.estado!.isNotEmpty)
                     Column(children: [
                       Text("SOU DA CIDADE: ${user!.endereco!.cidade}"),
                       Text("ESTADO: ${user!.endereco!.estado}"),
@@ -107,17 +107,17 @@ class Perfil extends StatelessWidget {
                   const Divider(thickness: 1),
                   Text("STATUS DE RELACIONAMENTO", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  if (user!.relacionamento != null)
+                  if (user!.relacionamento!.isNotEmpty)
                     Text("${user!.relacionamento}"),
                   const Divider(thickness: 1),
                   Text("TELEFONE", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  if (user!.telefone != " ") Text("${user!.telefone}"),
+                  if (user!.telefone != "") Text("${user!.telefone}"),
                   const Divider(thickness: 1),
                   Text("MEUS HOBBIES", style: _estiloTitulo()),
                   const Padding(padding: EdgeInsets.all(2)),
-                  if (user!.listaHobbies != null)
-                    Text("${user!.listaHobbies!.join(", ")}"),
+                  if (user!.listaHobbies!.isNotEmpty)
+                    Text(user!.listaHobbies!.join(", ")),
                   const Divider(thickness: 1),
                 ],
               ),
@@ -129,7 +129,7 @@ class Perfil extends StatelessWidget {
   }
 
   Widget listarPendencias() {
-    TextStyle _textStyle = TextStyle(fontSize: 16);
+    TextStyle _textStyle = const TextStyle(fontSize: 16);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -149,14 +149,14 @@ class Perfil extends StatelessWidget {
   }
 }
 
-TextStyle? _estiloTitulo() => TextStyle(
+TextStyle? _estiloTitulo() => const TextStyle(
       fontSize: 20,
       color: Colors.black,
       fontWeight: FontWeight.w600,
     );
 
-Widget _semFoto() => Padding(
-      padding: const EdgeInsets.all(12.0),
+Widget _semFoto() => const Padding(
+      padding: EdgeInsets.all(12.0),
       child: CircleAvatar(
         backgroundColor: Colors.grey,
         foregroundColor: Colors.white,

@@ -20,7 +20,7 @@ class _Modulo2State extends State<Modulo2> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text("MÓDULO 2 - Significado dos Emojis"),
+        title: const Text("MÓDULO 2 - Significado dos Emojis"),
       ),
       body: PageView(
         children: [

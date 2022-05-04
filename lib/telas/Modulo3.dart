@@ -15,7 +15,7 @@ class _Modulo3State extends State<Modulo3> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text("MÓDULO 3 - "),
+        title: const Text("MÓDULO 3 - "),
         centerTitle: true,
       ),
       body: Center(),
