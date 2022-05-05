@@ -62,23 +62,23 @@ class _Modulo1State extends State<Modulo1> {
           },
           destinations: const [
             NavigationDestination(
-              selectedIcon: Icon(Icons.photo_camera_outlined),
-              icon: Icon(Icons.photo_camera),
+              selectedIcon: Icon(Icons.photo_camera),
+              icon: Icon(Icons.photo_camera_outlined),
               label: "FOTO",
             ),
             NavigationDestination(
-              selectedIcon: Icon(Icons.text_snippet_outlined),
-              icon: Icon(Icons.text_snippet),
+              selectedIcon: Icon(Icons.text_snippet),
+              icon: Icon(Icons.text_snippet_outlined),
               label: "TEXTO",
             ),
             NavigationDestination(
-              selectedIcon: Icon(Icons.privacy_tip_outlined),
-              icon: Icon(Icons.privacy_tip),
+              selectedIcon: Icon(Icons.privacy_tip),
+              icon: Icon(Icons.privacy_tip_outlined),
               label: "DADOS",
             ),
             NavigationDestination(
-              selectedIcon: Icon(Icons.person_outlined),
-              icon: Icon(Icons.person),
+              selectedIcon: Icon(Icons.person),
+              icon: Icon(Icons.person_outlined),
               label: "PERFIL",
             ),
           ],

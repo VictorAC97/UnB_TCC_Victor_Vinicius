@@ -46,18 +46,18 @@ class _Modulo2State extends State<Modulo2> {
           },
           destinations: const [
             NavigationDestination(
-              selectedIcon: Icon(Icons.thumb_up_alt_outlined),
-              icon: Icon(Icons.thumb_up),
+              selectedIcon: Icon(Icons.thumb_up),
+              icon: Icon(Icons.thumb_up_alt_outlined),
               label: "CURTIR",
             ),
             NavigationDestination(
-              selectedIcon: Icon(Icons.comment_outlined),
-              icon: Icon(Icons.comment),
+              selectedIcon: Icon(Icons.comment),
+              icon: Icon(Icons.comment_outlined),
               label: "COMENTAR",
             ),
             NavigationDestination(
-              selectedIcon: Icon(Icons.share_outlined),
-              icon: Icon(Icons.share),
+              selectedIcon: Icon(Icons.share),
+              icon: Icon(Icons.share_outlined),
               label: "COMPARTILHAR",
             ),
           ],
