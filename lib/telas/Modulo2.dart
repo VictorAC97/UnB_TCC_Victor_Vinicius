@@ -15,9 +15,9 @@ class Modulo2 extends StatefulWidget {
 int _currentIndex = 0;
 
 List pages = [
-  TelaTarefaCurtir(),
-  TelaTarefaComentar(),
-  TelaTarefaCompartilhar(),
+  const TelaTarefaCurtir(),
+  const TelaTarefaComentar(),
+  const TelaTarefaCompartilhar(),
 ];
 
 class _Modulo2State extends State<Modulo2> {
