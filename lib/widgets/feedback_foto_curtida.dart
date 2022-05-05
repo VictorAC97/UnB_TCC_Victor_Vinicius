@@ -26,7 +26,6 @@ class _FeedBackFotoCurtidaState extends State<FeedBackFotoCurtida> {
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () {
-              int tentativas = 0;
               Navigator.pop(context);
             },
             child: const Text("OK")),

@@ -4,8 +4,6 @@ import 'package:projeto_final_unb/widgets/MyBlinkingImage.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 import 'package:projeto_final_unb/widgets/feedback_foto_curtida.dart';
 import '../utilities/emojisList.dart';
-import '../telas/TelaCurtirFoto.dart';
-import '../widgets/asset_player_widget.dart';
 
 class GerarEmojis extends StatefulWidget {
   final String? emojiCorreto;
@@ -66,11 +64,11 @@ class _GerarEmojisState extends State<GerarEmojis> {
                           tentativas++;
                         });
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            duration: Duration(seconds: 2),
+                            duration: const Duration(seconds: 2),
                             backgroundColor: Colors.red,
                             content: Column(
                                 mainAxisSize: MainAxisSize.min,
-                                children: [
+                                children: const [
                                   Text('RESPOSTA INCORRETA!'),
                                 ])));
                       }

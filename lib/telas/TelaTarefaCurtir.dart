@@ -3,7 +3,7 @@ import 'package:projeto_final_unb/telas/TelaCurtirFoto.dart';
 import '../utilities/pictureAndEmoji.dart';
 
 class TelaTarefaCurtir extends StatefulWidget {
-  TelaTarefaCurtir({Key? key}) : super(key: key);
+  const TelaTarefaCurtir({Key? key}) : super(key: key);
 
   @override
   State<TelaTarefaCurtir> createState() => _TelaTarefaCurtirState();
@@ -15,7 +15,7 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

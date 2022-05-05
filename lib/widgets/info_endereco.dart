@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Endereco.dart';
-import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/widgets/definicao_privacidade.dart';
 
 class InfoEndereco extends StatefulWidget {
   bool? isPublic;
@@ -52,11 +50,11 @@ class _InfoEnderecoState extends State<InfoEndereco> {
         return true;
       },
       child: AlertDialog(
-        contentPadding: EdgeInsets.all(10),
-        title: Text("MORO EM"),
+        contentPadding: const EdgeInsets.all(10),
+        title: const Text("MORO EM"),
         content: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -71,14 +69,14 @@ class _InfoEnderecoState extends State<InfoEndereco> {
                 TextField(
                   controller: _controllerMoroEm,
                   decoration:
-                      InputDecoration(label: Text("MORO ATUALMENTE EM")),
+                      const InputDecoration(label: Text("MORO ATUALMENTE EM")),
                   onChanged: (value) {
                     setState(() {
                       _endereco.moroEm = value.toUpperCase();
                     });
                   },
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(top: 8.0),
                   child: Align(
                       alignment: Alignment.center,
@@ -86,7 +84,7 @@ class _InfoEnderecoState extends State<InfoEndereco> {
                 ),
                 TextField(
                   controller: _controllerCidade,
-                  decoration: InputDecoration(label: Text("CIDADE")),
+                  decoration: const InputDecoration(label: Text("CIDADE")),
                   onChanged: (value) {
                     setState(() {
                       _endereco.cidade = value.toUpperCase();
@@ -95,7 +93,7 @@ class _InfoEnderecoState extends State<InfoEndereco> {
                 ),
                 TextField(
                   controller: _controllerEstado,
-                  decoration: InputDecoration(label: Text("ESTADO")),
+                  decoration: const InputDecoration(label: Text("ESTADO")),
                   onChanged: (value) {
                     setState(() {
                       _endereco.estado = value.toUpperCase();
@@ -104,7 +102,7 @@ class _InfoEnderecoState extends State<InfoEndereco> {
                 ),
                 TextField(
                   controller: _controllerPais,
-                  decoration: InputDecoration(label: Text("PAÍS")),
+                  decoration: const InputDecoration(label: Text("PAÍS")),
                   onChanged: (value) {
                     setState(() {
                       _endereco.pais = value.toUpperCase();
@@ -113,9 +111,9 @@ class _InfoEnderecoState extends State<InfoEndereco> {
                 ),
                 if (widget.isPublic == true)
                   Padding(
-                    padding: EdgeInsets.only(top: 12),
+                    padding: const EdgeInsets.only(top: 12),
                     child: Row(
-                      children: [
+                      children: const [
                         Icon(Icons.public),
                         Text("Público"),
                       ],
@@ -127,7 +125,7 @@ class _InfoEnderecoState extends State<InfoEndereco> {
         ),
         actions: [
           TextButton(
-            child: Text(
+            child: const Text(
               "Limpar",
               style: TextStyle(color: Colors.black),
             ),
@@ -145,7 +143,7 @@ class _InfoEnderecoState extends State<InfoEndereco> {
             },
           ),
           TextButton(
-            child: Text(
+            child: const Text(
               "Cancelar",
               style: TextStyle(color: Colors.black),
             ),
@@ -154,7 +152,7 @@ class _InfoEnderecoState extends State<InfoEndereco> {
             },
           ),
           ElevatedButton(
-            child: Text("Salvar"),
+            child: const Text("Salvar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () {
@@ -165,11 +163,4 @@ class _InfoEnderecoState extends State<InfoEndereco> {
       ),
     );
   }
-}
-
-_fillTextFields() {
-  _controllerMoroEm.text = _endereco.moroEm!;
-  _controllerCidade.text = _endereco.cidade!;
-  _controllerEstado.text = _endereco.estado!;
-  _controllerPais.text = _endereco.pais!;
 }

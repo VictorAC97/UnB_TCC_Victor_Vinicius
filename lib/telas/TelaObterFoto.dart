@@ -72,15 +72,15 @@ class _TelaObterFotoState extends State<TelaObterFoto> {
                         widget.user!.fotoPerfil = null;
                       });
                     },
-                    icon: Icon(Icons.delete_outline),
-                    label: Text("DELETAR FOTO"),
+                    icon: const Icon(Icons.delete_outline),
+                    label: const Text("DELETAR FOTO"),
                     style: ButtonStyle(
                         foregroundColor:
                             MaterialStateProperty.all(Colors.grey)),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Icon(Icons.public),
                       Padding(
                         padding: EdgeInsets.all(12),
@@ -94,25 +94,25 @@ class _TelaObterFotoState extends State<TelaObterFoto> {
                 ],
               ),
             ElevatedButton.icon(
-              icon: Icon(Icons.photo_camera),
-              label: Padding(
+              icon: const Icon(Icons.photo_camera),
+              label: const Padding(
                   padding: EdgeInsets.all(12), child: Text("Tirar uma foto")),
               style: ElevatedButton.styleFrom(
                 primary: Colors.black,
                 elevation: 0,
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 18,
                 ),
               ),
               onPressed: () => getFileFromCamera(),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(12),
               child: Text("ou"),
             ),
             OutlinedButton.icon(
-              icon: Icon(Icons.attach_file),
-              label: Padding(
+              icon: const Icon(Icons.attach_file),
+              label: const Padding(
                   padding: EdgeInsets.all(12),
                   child: Text("Carregar uma foto")),
               style: OutlinedButton.styleFrom(

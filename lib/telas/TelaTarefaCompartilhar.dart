@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TelaTarefaCompartilhar extends StatefulWidget {
-  TelaTarefaCompartilhar({Key? key}) : super(key: key);
+  const TelaTarefaCompartilhar({Key? key}) : super(key: key);
 
   @override
   State<TelaTarefaCompartilhar> createState() => _TelaTarefaCompartilharState();

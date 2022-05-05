@@ -16,7 +16,7 @@ class _TelaDuvidasState extends State<TelaDuvidas> {
         title: const Text("SOBRE O APP"),
         centerTitle: true,
       ),
-      body: Center(),
+      body: const Center(),
     );
   }
 }

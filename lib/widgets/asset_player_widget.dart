@@ -36,21 +36,20 @@ class _AssetPlayerWidgetState extends State<AssetPlayerWidget> {
         mainAxisSize: MainAxisSize.min,
         children: [
           VideoPlayerWidget(controller: _controller),
-          if (_controller != null && _controller.value.isInitialized)
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.grey,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.play_arrow,
-                    color: Colors.white,
-                  ),
-                  onPressed: () => _controller.play(),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: CircleAvatar(
+              radius: 20,
+              backgroundColor: Colors.grey,
+              child: IconButton(
+                icon: const Icon(
+                  Icons.play_arrow,
+                  color: Colors.white,
                 ),
+                onPressed: () => _controller.play(),
               ),
             ),
+          ),
         ],
       ),
     );

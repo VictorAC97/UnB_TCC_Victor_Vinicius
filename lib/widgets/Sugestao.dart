@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/models/Usuario.dart';
 
 class Sugestao extends StatefulWidget {
   int? limiteSelecoes;
@@ -30,13 +29,14 @@ class _SugestaoState extends State<Sugestao> {
   void _itemChange(String itemValue, bool isSelected) {
     setState(() {
       if (isSelected) {
-        if (_selectedItems.length <
-            widget.limiteSelecoes!) //controle de quantidade selecionada
+        if (_selectedItems.length < widget.limiteSelecoes!) {
           _selectedItems.add(itemValue);
-        print(_selectedItems);
+        } //controle de quantidade selecionada
+
+        //print(_selectedItems);
       } else {
         _selectedItems.remove(itemValue);
-        print(_selectedItems);
+        //print(_selectedItems);
       }
     });
   }
@@ -74,7 +74,7 @@ class _SugestaoState extends State<Sugestao> {
                   alignment: Alignment.topLeft,
                   child: Text(
                     "${_selectedItems.length} / ${widget.limiteSelecoes}",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.normal,
                       fontSize: 16,
                     ),
@@ -84,62 +84,59 @@ class _SugestaoState extends State<Sugestao> {
                 alignment: Alignment.topLeft,
                 child: Text(
                   "${_selectedItems.length} / ${widget.limiteSelecoes}",
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.red,
                     fontWeight: FontWeight.normal,
                     fontSize: 16,
                   ),
                 ),
               ),
-            if (_selectedItems != null)
-              Wrap(
-                  children: _selectedItems
-                      .map((item) => Chip(
-                            label: Text(item),
-                            deleteIcon: Icon(Icons.close),
-                            onDeleted: () {
-                              setState(() {
-                                _selectedItems.remove(item);
-                                print(_selectedItems);
-                              });
-                            },
-                          ))
-                      .toList()),
+            Wrap(
+                children: _selectedItems
+                    .map((item) => Chip(
+                          label: Text(item),
+                          deleteIcon: const Icon(Icons.close),
+                          onDeleted: () {
+                            setState(() {
+                              _selectedItems.remove(item);
+                              //print(_selectedItems);
+                            });
+                          },
+                        ))
+                    .toList()),
           ],
         ),
         content: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ListBody(
-                  children: widget.listaSugestoes!
-                      .map((item) => CheckboxListTile(
-                            secondary: IconButton(
-                              tooltip: "Visualizar exemplo",
-                              onPressed: () {},
-                              icon: Icon(Icons.help),
-                            ),
-                            activeColor: Colors.black,
-                            title: Text(item),
-                            value: _selectedItems.contains(item),
-                            controlAffinity: ListTileControlAffinity.leading,
-                            onChanged: (isChecked) {
-                              _itemChange(item, isChecked!);
-                            },
-                          ))
-                      .toList(),
-                ),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ListBody(
+                children: widget.listaSugestoes!
+                    .map((item) => CheckboxListTile(
+                          secondary: IconButton(
+                            tooltip: "Visualizar exemplo",
+                            onPressed: () {},
+                            icon: const Icon(Icons.help),
+                          ),
+                          activeColor: Colors.black,
+                          title: Text(item),
+                          value: _selectedItems.contains(item),
+                          controlAffinity: ListTileControlAffinity.leading,
+                          onChanged: (isChecked) {
+                            _itemChange(item, isChecked!);
+                          },
+                        ))
+                    .toList(),
+              ),
+            ],
           ),
         ),
         actions: [
           if (widget.isPublic == true)
             Padding(
-              padding: EdgeInsets.only(left: 12),
+              padding: const EdgeInsets.only(left: 12),
               child: Row(
-                children: [
+                children: const [
                   Icon(Icons.public),
                   Padding(
                       padding: EdgeInsets.only(left: 8),
@@ -150,24 +147,25 @@ class _SugestaoState extends State<Sugestao> {
           if (_selectedItems.length < widget.limiteSelecoes!)
             TextField(
               controller: _controller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 label: Text("Outro"),
               ),
               onSubmitted: (value) {
-                if (_controller.text != "")
+                if (_controller.text != "") {
                   setState(() {
                     _selectedItems.add(value.toString().toUpperCase());
                     _controller.text = "";
-                    print(_selectedItems);
+                    //print(_selectedItems);
                   });
+                }
               },
             ),
-          Padding(padding: EdgeInsets.only(bottom: 10)),
+          const Padding(padding: EdgeInsets.only(bottom: 10)),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                child: Text(
+                child: const Text(
                   "Limpar",
                   style: TextStyle(color: Colors.black),
                 ),
@@ -177,9 +175,9 @@ class _SugestaoState extends State<Sugestao> {
                   });
                 },
               ),
-              Padding(padding: EdgeInsets.only(right: 20)),
+              const Padding(padding: EdgeInsets.only(right: 20)),
               TextButton(
-                child: Text(
+                child: const Text(
                   "Cancelar",
                   style: TextStyle(color: Colors.black),
                 ),
@@ -189,14 +187,14 @@ class _SugestaoState extends State<Sugestao> {
                 ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.black)),
-                  child: Text("Finalizar"),
+                  child: const Text("Finalizar"),
                   onPressed: () => Navigator.pop(context, _selectedItems),
                 )
               else
                 ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.green)),
-                  child: Text("Finalizar"),
+                  child: const Text("Finalizar"),
                   onPressed: () => Navigator.pop(context, _selectedItems),
                 )
             ],

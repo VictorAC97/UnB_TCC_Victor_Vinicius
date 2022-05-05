@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Emprego.dart';
-import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/widgets/definicao_privacidade.dart';
 
 class InfoTrabalho extends StatefulWidget {
   bool? isPublic;
@@ -49,11 +47,11 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
         return true;
       },
       child: AlertDialog(
-        contentPadding: EdgeInsets.all(12),
-        title: Text("MEU TRABALHO"),
+        contentPadding: const EdgeInsets.all(12),
+        title: const Text("MEU TRABALHO"),
         content: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -66,7 +64,7 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
                 ),
                 TextField(
                   controller: _controllerEmpresa,
-                  decoration: InputDecoration(label: Text("EMPRESA")),
+                  decoration: const InputDecoration(label: Text("EMPRESA")),
                   onChanged: (value) {
                     setState(() {
                       _emprego.empresa = value.toUpperCase();
@@ -75,7 +73,7 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
                 ),
                 TextField(
                   controller: _controllerCargo,
-                  decoration: InputDecoration(label: Text("CARGO")),
+                  decoration: const InputDecoration(label: Text("CARGO")),
                   onChanged: (value) {
                     setState(() {
                       _emprego.cargo = value.toUpperCase();
@@ -84,7 +82,7 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
                 ),
                 TextField(
                   controller: _controllerCidade,
-                  decoration: InputDecoration(label: Text("CIDADE")),
+                  decoration: const InputDecoration(label: Text("CIDADE")),
                   onChanged: (value) {
                     setState(() {
                       _emprego.cidade = value.toUpperCase();
@@ -93,9 +91,9 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
                 ),
                 if (widget.isPublic == true)
                   Padding(
-                    padding: EdgeInsets.only(top: 12),
+                    padding: const EdgeInsets.only(top: 12),
                     child: Row(
-                      children: [
+                      children: const [
                         Icon(Icons.public),
                         Text("Público"),
                       ],
@@ -107,7 +105,7 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
         ),
         actions: [
           TextButton(
-            child: Text(
+            child: const Text(
               "Limpar",
               style: TextStyle(color: Colors.black),
             ),
@@ -123,7 +121,7 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
             },
           ),
           TextButton(
-            child: Text(
+            child: const Text(
               "Cancelar",
               style: TextStyle(color: Colors.black),
             ),
@@ -132,7 +130,7 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
             },
           ),
           ElevatedButton(
-            child: Text("Salvar"),
+            child: const Text("Salvar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () {
@@ -143,10 +141,4 @@ class _InfoTrabalhoState extends State<InfoTrabalho> {
       ),
     );
   }
-}
-
-_fillTextFields() {
-  _controllerCargo.text = _emprego.cargo!;
-  _controllerEmpresa.text = _emprego.empresa!;
-  _controllerCidade.text = _emprego.cidade!;
 }

@@ -14,8 +14,8 @@ class _MyBlinkingImageState extends State<MyBlinkingImage>
 
   @override
   void initState() {
-    _animationController = new AnimationController(
-        vsync: this, duration: Duration(milliseconds: 300));
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
     _animationController.repeat(reverse: true);
     super.initState();
   }

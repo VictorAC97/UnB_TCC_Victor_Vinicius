@@ -42,8 +42,8 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
         Align(
           alignment: Alignment.center,
           child: ElevatedButton.icon(
-            icon: Icon(Icons.add),
-            label: Text("Adicionar"),
+            icon: const Icon(Icons.add),
+            label: const Text("Adicionar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () async {
@@ -59,10 +59,10 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
             },
           ),
         ),
-        Divider(
+        const Divider(
           thickness: 1.0,
         ),
-        Text(
+        const Text(
           "A COR DA MINHA PELE É: ",
           style: TextStyle(fontSize: 18),
         ),
@@ -77,8 +77,8 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
         Align(
           alignment: Alignment.center,
           child: ElevatedButton.icon(
-            icon: Icon(Icons.add),
-            label: Text("Adicionar"),
+            icon: const Icon(Icons.add),
+            label: const Text("Adicionar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () async {
@@ -94,10 +94,10 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
             },
           ),
         ),
-        Divider(
+        const Divider(
           thickness: 1.0,
         ),
-        Text(
+        const Text(
           "A COR DOS MEUS OLHOS É: ",
           style: TextStyle(fontSize: 18),
         ),
@@ -112,8 +112,8 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
         Align(
           alignment: Alignment.center,
           child: ElevatedButton.icon(
-            icon: Icon(Icons.add),
-            label: Text("Adicionar"),
+            icon: const Icon(Icons.add),
+            label: const Text("Adicionar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () async {
@@ -129,10 +129,10 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
             },
           ),
         ),
-        Divider(
+        const Divider(
           thickness: 1.0,
         ),
-        Text(
+        const Text(
           "A MINHA COMIDA PREFERIDA É: ",
           style: TextStyle(fontSize: 18),
         ),
@@ -147,8 +147,8 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
         Align(
           alignment: Alignment.center,
           child: ElevatedButton.icon(
-            icon: Icon(Icons.add),
-            label: Text("Adicionar"),
+            icon: const Icon(Icons.add),
+            label: const Text("Adicionar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () async {
@@ -164,10 +164,10 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
             },
           ),
         ),
-        Divider(
+        const Divider(
           thickness: 1.0,
         ),
-        Text(
+        const Text(
           "EU GOSTO DE: ",
           style: TextStyle(fontSize: 18),
         ),
@@ -182,8 +182,8 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
         Align(
           alignment: Alignment.center,
           child: ElevatedButton.icon(
-            icon: Icon(Icons.add),
-            label: Text("Adicionar"),
+            icon: const Icon(Icons.add),
+            label: const Text("Adicionar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () async {
@@ -199,10 +199,10 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
             },
           ),
         ),
-        Divider(
+        const Divider(
           thickness: 1.0,
         ),
-        Text(
+        const Text(
           "EU NÃO GOSTO DE: ",
           style: TextStyle(fontSize: 18),
         ),
@@ -217,8 +217,8 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
         Align(
           alignment: Alignment.center,
           child: ElevatedButton.icon(
-            icon: Icon(Icons.add),
-            label: Text("Adicionar"),
+            icon: const Icon(Icons.add),
+            label: const Text("Adicionar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () async {
@@ -234,10 +234,10 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
             },
           ),
         ),
-        Divider(
+        const Divider(
           thickness: 1.0,
         ),
-        Text(
+        const Text(
           "MINHA COR PREFERIDA É: ",
           style: TextStyle(fontSize: 18),
         ),
@@ -252,8 +252,8 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
         Align(
           alignment: Alignment.center,
           child: ElevatedButton.icon(
-            icon: Icon(Icons.add),
-            label: Text("Adicionar"),
+            icon: const Icon(Icons.add),
+            label: const Text("Adicionar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () async {
@@ -269,10 +269,10 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
             },
           ),
         ),
-        Divider(
+        const Divider(
           thickness: 1.0,
         ),
-        Text(
+        const Text(
           "MEU SIGNO É: ",
           style: TextStyle(fontSize: 18),
         ),
@@ -287,8 +287,8 @@ class _BlocoSugestoesState extends State<BlocoSugestoes> {
         Align(
           alignment: Alignment.center,
           child: ElevatedButton.icon(
-            icon: Icon(Icons.add),
-            label: Text("Adicionar"),
+            icon: const Icon(Icons.add),
+            label: const Text("Adicionar"),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.black)),
             onPressed: () async {

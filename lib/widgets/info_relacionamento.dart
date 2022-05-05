@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/models/Usuario.dart';
 import '../utilities/Suggestions.dart';
 
 class InfoRelacionamento extends StatefulWidget {
@@ -17,7 +16,6 @@ class InfoRelacionamento extends StatefulWidget {
 }
 
 class _InfoRelacionamentoState extends State<InfoRelacionamento> {
-  List<String> _selectedItems = [];
   bool saved = false;
   bool checked = false;
   bool isSelected = false;
@@ -40,8 +38,9 @@ class _InfoRelacionamentoState extends State<InfoRelacionamento> {
   @override
   Widget build(BuildContext context) {
     //mantendo os itens do usuario caso ele queira edita-los
-    if (widget.relacionamentoUser != "")
+    if (widget.relacionamentoUser != "") {
       _relacionamento = widget.relacionamentoUser;
+    }
 
     return WillPopScope(
       onWillPop: () async {
@@ -51,8 +50,8 @@ class _InfoRelacionamentoState extends State<InfoRelacionamento> {
         return true;
       },
       child: AlertDialog(
-        contentPadding: EdgeInsets.all(0),
-        title: Text("STATUS DE RELACIONAMENTO"),
+        contentPadding: const EdgeInsets.all(0),
+        title: const Text("STATUS DE RELACIONAMENTO"),
         content: SingleChildScrollView(
           child: ListBody(
             children: listaSugestoes
@@ -71,9 +70,9 @@ class _InfoRelacionamentoState extends State<InfoRelacionamento> {
         actions: [
           if (widget.isPublic == true)
             Padding(
-              padding: EdgeInsets.only(left: 12),
+              padding: const EdgeInsets.only(left: 12),
               child: Row(
-                children: [
+                children: const [
                   Icon(Icons.public),
                   Padding(
                       padding: EdgeInsets.only(left: 8),
@@ -85,7 +84,7 @@ class _InfoRelacionamentoState extends State<InfoRelacionamento> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                child: Text(
+                child: const Text(
                   "Limpar",
                   style: TextStyle(color: Colors.black),
                 ),
@@ -96,9 +95,9 @@ class _InfoRelacionamentoState extends State<InfoRelacionamento> {
                   });
                 },
               ),
-              Padding(padding: EdgeInsets.only(right: 20)),
+              const Padding(padding: EdgeInsets.only(right: 20)),
               TextButton(
-                child: Text(
+                child: const Text(
                   "Cancelar",
                   style: TextStyle(color: Colors.black),
                 ),
@@ -107,7 +106,7 @@ class _InfoRelacionamentoState extends State<InfoRelacionamento> {
               ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black)),
-                child: Text("Finalizar"),
+                child: const Text("Finalizar"),
                 onPressed: () => Navigator.pop(context, _relacionamento),
               )
             ],

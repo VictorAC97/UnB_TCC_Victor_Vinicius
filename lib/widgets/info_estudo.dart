@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/models/Usuario.dart';
 import '../utilities/Suggestions.dart';
 
 class InfoEstudo extends StatefulWidget {
@@ -64,24 +63,23 @@ class _InfoEstudoState extends State<InfoEstudo> {
         return true;
       },
       child: AlertDialog(
-        contentPadding: EdgeInsets.all(0),
+        contentPadding: const EdgeInsets.all(0),
         title: Column(
           children: [
-            Text("ONDE ESTUDO"),
-            if (_selectedItems != null)
-              Wrap(
-                  children: _selectedItems
-                      .map((item) => Chip(
-                            label: Text(item),
-                            deleteIcon: Icon(Icons.close),
-                            onDeleted: () {
-                              setState(() {
-                                _selectedItems.remove(item);
-                                print(_selectedItems);
-                              });
-                            },
-                          ))
-                      .toList()),
+            const Text("ONDE ESTUDO"),
+            Wrap(
+                children: _selectedItems
+                    .map((item) => Chip(
+                          label: Text(item),
+                          deleteIcon: const Icon(Icons.close),
+                          onDeleted: () {
+                            setState(() {
+                              _selectedItems.remove(item);
+                              //print(_selectedItems);
+                            });
+                          },
+                        ))
+                    .toList()),
           ],
         ),
         content: SingleChildScrollView(
@@ -92,10 +90,11 @@ class _InfoEstudoState extends State<InfoEstudo> {
                     title: Text(e),
                     value: _selectedItems.contains(e),
                     onChanged: (isChecked) {
+                      // ignore: iterable_contains_unrelated_type
                       if (_selectedItems.contains(isChecked) == false) {
                         setState(() {
                           _itemChange(e, isChecked!);
-                          print(isChecked);
+                          //print(isChecked);
                         });
                       }
                     }))
@@ -105,9 +104,9 @@ class _InfoEstudoState extends State<InfoEstudo> {
         actions: [
           if (widget.isPublic == true)
             Padding(
-              padding: EdgeInsets.only(left: 12),
+              padding: const EdgeInsets.only(left: 12),
               child: Row(
-                children: [
+                children: const [
                   Icon(Icons.public),
                   Padding(
                       padding: EdgeInsets.only(left: 8),
@@ -118,24 +117,24 @@ class _InfoEstudoState extends State<InfoEstudo> {
           //if (_selectedItems.length < 2)
           TextField(
             controller: _controller,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               label: Text("Outro"),
             ),
             onSubmitted: (value) {
-              if (_controller.text != "")
+              if (_controller.text != "") {
                 setState(() {
                   _selectedItems.add(value.toString().toUpperCase());
                   _controller.text = "";
-                  print(_selectedItems);
+                  //print(_selectedItems);
                 });
+              }
             },
           ),
-          //Padding(padding: EdgeInsets.only(bottom: 10)),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                child: Text(
+                child: const Text(
                   "Limpar",
                   style: TextStyle(color: Colors.black),
                 ),
@@ -145,9 +144,9 @@ class _InfoEstudoState extends State<InfoEstudo> {
                   });
                 },
               ),
-              Padding(padding: EdgeInsets.only(right: 20)),
+              const Padding(padding: EdgeInsets.only(right: 20)),
               TextButton(
-                child: Text(
+                child: const Text(
                   "Cancelar",
                   style: TextStyle(color: Colors.black),
                 ),
@@ -156,7 +155,7 @@ class _InfoEstudoState extends State<InfoEstudo> {
               ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black)),
-                child: Text("Finalizar"),
+                child: const Text("Finalizar"),
                 onPressed: () => Navigator.pop(context, _selectedItems),
               )
             ],

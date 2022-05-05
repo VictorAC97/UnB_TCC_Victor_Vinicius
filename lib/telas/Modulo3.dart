@@ -18,7 +18,7 @@ class _Modulo3State extends State<Modulo3> {
         title: const Text("MÓDULO 3 - "),
         centerTitle: true,
       ),
-      body: Center(),
+      body: const Center(),
     );
   }
 }

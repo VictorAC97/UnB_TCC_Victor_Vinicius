@@ -28,13 +28,13 @@ class _DefinirPrivacidadeState extends State<DefinirPrivacidade> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Definir Privacidade"),
+            const Text("Definir Privacidade"),
             IconButton(
                 onPressed: () => Navigator.pop(context, isPublic),
-                icon: Icon(Icons.close_rounded)),
+                icon: const Icon(Icons.close_rounded)),
           ],
         ),
-        content: Container(
+        content: SizedBox(
           height: 170,
           child: Column(
             children: [
@@ -43,14 +43,15 @@ class _DefinirPrivacidadeState extends State<DefinirPrivacidade> {
                   controlAffinity: ListTileControlAffinity.trailing,
                   title: Row(
                     children: [
-                      Padding(
+                      const Padding(
                           padding:
                               EdgeInsets.only(top: 8, bottom: 8, right: 18),
                           child: Icon(Icons.public)),
                       Text(sugestaoPrivacidade[0]),
                     ],
                   ),
-                  subtitle: Text("Qualquer pessoa pode visualizar seu perfil"),
+                  subtitle:
+                      const Text("Qualquer pessoa pode visualizar seu perfil"),
                   value: true,
                   groupValue: isPublic,
                   onChanged: (value) {
@@ -64,14 +65,15 @@ class _DefinirPrivacidadeState extends State<DefinirPrivacidade> {
                   controlAffinity: ListTileControlAffinity.trailing,
                   title: Row(
                     children: [
-                      Padding(
+                      const Padding(
                           padding:
                               EdgeInsets.only(top: 8, bottom: 8, right: 18),
                           child: Icon(Icons.lock)),
                       Text(sugestaoPrivacidade[1]),
                     ],
                   ),
-                  subtitle: Text("Somente você pode visualizar seu perfil"),
+                  subtitle:
+                      const Text("Somente você pode visualizar seu perfil"),
                   value: false,
                   groupValue: isPublic,
                   onChanged: (value) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TelaTarefaComentar extends StatefulWidget {
-  TelaTarefaComentar({Key? key}) : super(key: key);
+  const TelaTarefaComentar({Key? key}) : super(key: key);
 
   @override
   State<TelaTarefaComentar> createState() => _TelaTarefaComentarState();
