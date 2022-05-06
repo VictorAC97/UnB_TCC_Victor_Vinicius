@@ -9,7 +9,7 @@ void main() {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      supportedLocales: const [Locale('pt', 'BR')],
+      //supportedLocales: const [Locale('pt', 'BR')],
       home: Home(),
       debugShowCheckedModeBanner: false,
       //theme:
