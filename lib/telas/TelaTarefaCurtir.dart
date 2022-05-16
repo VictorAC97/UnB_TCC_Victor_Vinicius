@@ -25,7 +25,7 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
               ),
               const Divider(thickness: 1),
               SizedBox(
-                height: 582,
+                height: 650,
                 child: ListView.builder(
                   itemCount: fotoEemoji.length,
                   itemBuilder: (context, index) {

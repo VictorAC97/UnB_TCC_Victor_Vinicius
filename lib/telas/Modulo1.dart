@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/telas/TelaCriacaoTexto.dart';
 import 'package:projeto_final_unb/telas/TelaDadosPublicosPrivados.dart';
+import 'package:projeto_final_unb/telas/TelaInstrucoesModulo1.dart';
 import 'package:projeto_final_unb/telas/TelaObterFoto.dart';
 import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
 import 'TelaObterFoto.dart';
@@ -33,12 +34,6 @@ class _Modulo1State extends State<Modulo1> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> pages = [
-      TelaObterFoto(user: widget.user),
-      TelaCriacaoTexto(user: widget.user),
-      TelaDadosPublicosPrivados(user: widget.user),
-      VisualizarPerfil(user: widget.user),
-    ];
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -46,43 +41,25 @@ class _Modulo1State extends State<Modulo1> {
         title: const Text("MÓDULO 1 - Edição de Perfil"),
       ),
       body: Center(
-        child: pages[_currentIndex],
-      ),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-            indicatorColor: Colors.grey.withOpacity(0.3)),
-        child: NavigationBar(
-          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-          height: 64,
-          selectedIndex: _currentIndex,
-          onDestinationSelected: (int newIndex) {
-            setState(() {
-              _currentIndex = newIndex;
-            });
-          },
-          destinations: const [
-            NavigationDestination(
-              selectedIcon: Icon(Icons.photo_camera),
-              icon: Icon(Icons.photo_camera_outlined),
-              label: "FOTO",
-            ),
-            NavigationDestination(
-              selectedIcon: Icon(Icons.text_snippet),
-              icon: Icon(Icons.text_snippet_outlined),
-              label: "TEXTO",
-            ),
-            NavigationDestination(
-              selectedIcon: Icon(Icons.privacy_tip),
-              icon: Icon(Icons.privacy_tip_outlined),
-              label: "DADOS",
-            ),
-            NavigationDestination(
-              selectedIcon: Icon(Icons.person),
-              icon: Icon(Icons.person_outlined),
-              label: "PERFIL",
-            ),
+        child: PageView(
+          children: [
+            TelaInstrucoesModulo1(),
+            TelaObterFoto(user: widget.user),
+            TelaCriacaoTexto(user: widget.user),
+            TelaDadosPublicosPrivados(user: widget.user),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.black,
+        icon: Icon(Icons.person),
+        label: Text("PERFIL"),
+        onPressed: (() => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: ((context) => VisualizarPerfil(user: widget.user)),
+              ),
+            )),
       ),
     );
   }

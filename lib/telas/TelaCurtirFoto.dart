@@ -6,6 +6,7 @@ import '../widgets/gerar_emojis.dart';
 class CurtirFoto extends StatefulWidget {
   String? image;
   String? emoji;
+
   CurtirFoto({Key? key, this.image, this.emoji}) : super(key: key);
 
   @override

@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/models/Usuario.dart';
+import 'package:projeto_final_unb/telas/Modulo2.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 import 'package:projeto_final_unb/widgets/asset_player_widget.dart';
 import '../utilities/videos_list_names.dart';
 
-class TelaConfiguracoes extends StatefulWidget {
+class TelaConfiguracoesModulo2 extends StatefulWidget {
   AppSettings appSettings;
-  TelaConfiguracoes({
+  Usuario? user;
+  TelaConfiguracoesModulo2({
     Key? key,
     required this.appSettings,
+    required this.user,
   }) : super(key: key);
 
   @override
-  State<TelaConfiguracoes> createState() => _TelaConfiguracoesState();
+  State<TelaConfiguracoesModulo2> createState() =>
+      _TelaConfiguracoesModulo2State();
 }
 
-class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
+class _TelaConfiguracoesModulo2State extends State<TelaConfiguracoesModulo2> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,10 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
             OutlinedButton(
                 onPressed: () {
                   widget.appSettings.setInfoVideo(_infoVideo['fileName']);
-                  Navigator.pop(context);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Modulo2(user: widget.user!)));
                 },
                 child: Text(
                   "SALVAR",
