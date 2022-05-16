@@ -24,18 +24,6 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
           backgroundColor: Colors.black,
           title: const Text("CONFIGURAÇÕES"),
           centerTitle: true,
-          leading: const Text(""),
-          actions: [
-            OutlinedButton(
-                onPressed: () {
-                  widget.appSettings.setInfoVideo(_infoVideo['fileName']);
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  "SALVAR",
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ))
-          ],
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -59,9 +47,9 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                         groupValue: _infoVideo['fileName'].toString(),
                         activeColor: Colors.black,
                         onChanged: (item) {
+                          widget.appSettings.setInfoVideo(item.toString());
                           setState(() {
                             _infoVideo['fileName'] = item;
-                            //widget.appSettings.setInfoVideo(item.toString());
                           });
                         },
                         secondary: IconButton(

@@ -6,7 +6,6 @@ import 'package:projeto_final_unb/telas/Modulo1.dart';
 import 'package:projeto_final_unb/telas/Modulo2.dart';
 import 'package:projeto_final_unb/telas/Modulo3.dart';
 import 'package:projeto_final_unb/telas/TelaConfiguracoes.dart';
-import 'package:projeto_final_unb/telas/TelaConfiguracoesModulo2.dart';
 import 'package:projeto_final_unb/telas/TelaDuvidas.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 
@@ -71,7 +70,7 @@ class Home extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => TelaConfiguracoesModulo2(
+                                builder: (context) => Modulo2(
                                       user: usuario,
                                       appSettings: appSettings,
                                     )));

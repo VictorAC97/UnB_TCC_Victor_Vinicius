@@ -13,6 +13,10 @@ class TelaInstrucoesModulo1 extends StatelessWidget {
           child: Column(
             children: [
               Text("AQUI VIRÃO AS INSTRUÇÕES PARA O MODULO 1."),
+              Padding(padding: EdgeInsets.all(8)),
+              Text(
+                  "Para navegar entre paginas, arraste o dedo para esquerda ou direita."
+                      .toUpperCase()),
             ],
           ),
         ),
