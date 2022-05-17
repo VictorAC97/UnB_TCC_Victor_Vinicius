@@ -12,10 +12,13 @@ class TelaInstrucoesModulo1 extends StatelessWidget {
           padding: const EdgeInsets.all(32.0),
           child: Column(
             children: [
-              Text("AQUI VIRÃO AS INSTRUÇÕES PARA O MODULO 1."),
+              Text("[a definir] \nAQUI VIRÃO AS INSTRUÇÕES PARA O MODULO 1."),
               Padding(padding: EdgeInsets.all(8)),
               Text(
-                  "Para navegar entre paginas, arraste o dedo para esquerda ou direita."
+                  "Para navegar entre paginas, arraste para esquerda ou direita."
+                      .toUpperCase()),
+              Text(
+                  "Para gerenciar as informações do perfil, clique na imagem de perfil."
                       .toUpperCase()),
             ],
           ),

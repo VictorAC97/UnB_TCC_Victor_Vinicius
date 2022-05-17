@@ -43,14 +43,15 @@ class _Modulo1State extends State<Modulo1> {
       body: Center(
         child: PageView(
           children: [
-            TelaInstrucoesModulo1(),
-            TelaObterFoto(user: widget.user),
-            TelaCriacaoTexto(user: widget.user),
-            TelaDadosPublicosPrivados(user: widget.user),
+            const TelaInstrucoesModulo1(),
+            VisualizarPerfil(user: widget.user),
+            //TelaObterFoto(user: widget.user),
+            //TelaCriacaoTexto(user: widget.user),
+            //TelaDadosPublicosPrivados(user: widget.user),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
+      /* floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.black,
         icon: Icon(Icons.person),
         label: Text("PERFIL"),
@@ -61,6 +62,7 @@ class _Modulo1State extends State<Modulo1> {
               ),
             )),
       ),
+      */
     );
   }
 }

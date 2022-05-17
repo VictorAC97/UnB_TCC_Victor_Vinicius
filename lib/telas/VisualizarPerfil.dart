@@ -10,15 +10,18 @@ class VisualizarPerfil extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /*
       appBar: AppBar(
         title: Text("VISUALIZAR MEU PERFIL"),
         backgroundColor: Colors.black,
         centerTitle: true,
       ),
+      */
       body: user!.isPublic == true
           ? Perfil(
               user: user,
             )
+          //talvez sera removido, a depender do feedback da professora. (LOGICA ANTIGA)
           : PerfilPrivado(
               user: user,
             ),

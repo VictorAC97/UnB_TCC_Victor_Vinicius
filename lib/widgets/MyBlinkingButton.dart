@@ -6,7 +6,11 @@ class MyBlinkingButton extends StatefulWidget {
   Widget? icon;
   ButtonStyle? style;
   MyBlinkingButton(
-      {Key? key, this.onPressed, this.label, this.icon, this.style})
+      {Key? key,
+      required this.onPressed,
+      required this.label,
+      required this.icon,
+      required this.style})
       : super(key: key);
 
   @override

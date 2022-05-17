@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
 import 'package:projeto_final_unb/widgets/Anexo.dart';
 import '../models/Usuario.dart';
 
