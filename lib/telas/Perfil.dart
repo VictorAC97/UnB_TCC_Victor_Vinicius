@@ -67,10 +67,14 @@ class _PerfilState extends State<Perfil> {
                             ),
                             Flexible(
                               flex: 1,
-                              child: ElevatedButton(
+                              child: OutlinedButton(
                                   onPressed: () {
                                     Navigator.pop(context, widget.user);
                                   },
+                                  style: ButtonStyle(
+                                      foregroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.black)),
                                   child: Text("RETORNAR")),
                             ),
                           ],

@@ -61,8 +61,11 @@ class _TelaObterFotoState extends State<TelaObterFoto> {
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    Divider(
-                      thickness: 1,
+                    Padding(
+                      padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                      child: Divider(
+                        thickness: 1,
+                      ),
                     )
                   ],
                 ),
@@ -73,7 +76,7 @@ class _TelaObterFotoState extends State<TelaObterFoto> {
                         CircleAvatar(
                           backgroundColor: Colors.grey,
                           foregroundColor: Colors.white,
-                          radius: 150,
+                          radius: 140,
                           child: Icon(
                             Icons.person,
                             size: 200,
@@ -85,8 +88,8 @@ class _TelaObterFotoState extends State<TelaObterFoto> {
                   : Column(
                       children: [
                         Anexo(
-                          altura: 300,
-                          largura: 300,
+                          altura: 280,
+                          largura: 280,
                           picture: widget.user!.fotoPerfil,
                         ),
                         OutlinedButton.icon(
