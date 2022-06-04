@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
 import 'package:projeto_final_unb/widgets/Anexo.dart';
 import '../models/Usuario.dart';
 
@@ -76,10 +75,10 @@ class _TelaObterFotoState extends State<TelaObterFoto> {
                         CircleAvatar(
                           backgroundColor: Colors.grey,
                           foregroundColor: Colors.white,
-                          radius: 140,
+                          radius: 120,
                           child: Icon(
                             Icons.person,
-                            size: 200,
+                            size: 180,
                           ),
                         ),
                         Padding(padding: EdgeInsets.all(47)),
@@ -88,8 +87,8 @@ class _TelaObterFotoState extends State<TelaObterFoto> {
                   : Column(
                       children: [
                         Anexo(
-                          altura: 280,
-                          largura: 280,
+                          altura: 245,
+                          largura: 245,
                           picture: widget.user!.fotoPerfil,
                         ),
                         OutlinedButton.icon(

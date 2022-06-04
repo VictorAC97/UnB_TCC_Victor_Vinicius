@@ -12,8 +12,9 @@ class TelaInstrucoesModulo2 extends StatelessWidget {
           padding: const EdgeInsets.all(32.0),
           child: Column(
             children: [
-              Text("[a definir]\nAQUI VIRÃO AS INSTRUÇÕES PARA O MODULO 2."),
-              Padding(padding: EdgeInsets.all(8)),
+              const Text(
+                  "[a definir]\nAQUI VIRÃO AS INSTRUÇÕES PARA O MODULO 2."),
+              const Padding(padding: EdgeInsets.all(8)),
               Text(
                   "Para navegar entre paginas, arraste para esquerda ou direita."
                       .toUpperCase()),
