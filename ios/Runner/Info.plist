@@ -45,5 +45,11 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>O aplicativo precisa acessar a galeria, ok?</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Para capturar a imagem, é necessário que habilite a camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Podemos acessar o microfone?</string>
 </dict>
 </plist>
