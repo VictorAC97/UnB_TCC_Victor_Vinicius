@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/telas/TelaCriacaoTexto.dart';
-import 'package:projeto_final_unb/telas/TelaDadosPublicosPrivados.dart';
 import 'package:projeto_final_unb/telas/TelaInstrucoesModulo1.dart';
-import 'package:projeto_final_unb/telas/TelaObterFoto.dart';
 import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
-import 'TelaObterFoto.dart';
 
 class Modulo1 extends StatefulWidget {
   Usuario? user;
@@ -30,7 +26,7 @@ class _Modulo1State extends State<Modulo1> {
     super.dispose();
   }
 
-  int _currentIndex = 0;
+  final int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {

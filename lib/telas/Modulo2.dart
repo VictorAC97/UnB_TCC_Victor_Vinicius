@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/telas/TelaConfiguracoes.dart';
 import 'package:projeto_final_unb/telas/TelaConfiguracoesModulo2.dart';
 import 'package:projeto_final_unb/telas/TelaInstrucoesModulo2.dart';
 import 'package:projeto_final_unb/telas/TelaTarefaComentar.dart';
@@ -30,11 +29,11 @@ class _Modulo2State extends State<Modulo2> {
       body: Center(
         child: PageView(
           children: [
-            TelaInstrucoesModulo2(),
+            const TelaInstrucoesModulo2(),
             TelaConfiguracoesModulo2(appSettings: widget.appSettings!),
-            TelaTarefaCurtir(),
-            TelaTarefaComentar(),
-            TelaTarefaCompartilhar(),
+            const TelaTarefaCurtir(),
+            const TelaTarefaComentar(),
+            const TelaTarefaCompartilhar(),
           ],
         ),
       ),
