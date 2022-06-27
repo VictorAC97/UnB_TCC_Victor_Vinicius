@@ -42,26 +42,6 @@ List<String> sugestaoComidaPreferida = [
   "PÃO",
 ];
 
-List<String> sugestaoBebidaPreferida = [
-  "ÁGUA",
-  "CAFÉ",
-  "SUCO",
-  "REFRIGERANTE",
-  "VITAMINA DE FRUTAS",
-  "ENERGÉTICO",
-];
-
-List<String> sugestaoAnimalPreferido = [
-  "GATO",
-  "CACHORRO",
-  "PEIXE",
-  "CAVALO",
-  "COELHO",
-  "PÁSSARO",
-  "TARTARUGA",
-  "DINOSSAURO",
-];
-
 List<String> sugestaoGostoDe = [
   "VIAJAR",
   "LER",
@@ -200,3 +180,8 @@ List<String> sugestaoPrivacidade = [
   "PÚBLICO",
   "PRIVADO",
 ];
+
+Map<String, String> sugestaoPrivacidadeImg = {
+  "PÚBLICO": '/assets/images/sugestoes/sugestaoPrivacidade/publico.png',
+  "PRIVADO": '/assets/images/sugestoes/sugestaoPrivacidade/privado.png',
+};
