@@ -24,15 +24,6 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
           backgroundColor: Colors.black,
           title: const Text("CONFIGURAÇÕES"),
           centerTitle: true,
-          leading: IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                widget.appSettings.setInfoVideo(_infoVideo['fileName']);
-                Navigator.pop(context);
-              }),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -56,9 +47,9 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                         groupValue: _infoVideo['fileName'].toString(),
                         activeColor: Colors.black,
                         onChanged: (item) {
+                          widget.appSettings.setInfoVideo(item.toString());
                           setState(() {
                             _infoVideo['fileName'] = item;
-                            //widget.appSettings.setInfoVideo(item.toString());
                           });
                         },
                         secondary: IconButton(
@@ -67,7 +58,16 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: const Text("DEMONSTRAÇÃO"),
+                                title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Text("DEMONSTRAÇÃO"),
+                                    Text(
+                                      item['titulo'].toString(),
+                                      style: TextStyle(fontSize: 14),
+                                    ),
+                                  ],
+                                ),
                                 content: item['fileName'] != ""
                                     ? AssetPlayerWidget(
                                         videoPath:
@@ -83,7 +83,9 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: const Text("OK"),
+                                    child: const Align(
+                                        alignment: Alignment.center,
+                                        child: Text("RETORNAR")),
                                   ),
                                 ],
                               ),

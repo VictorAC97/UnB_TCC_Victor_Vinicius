@@ -70,7 +70,10 @@ class Home extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Modulo2(user: usuario)));
+                                builder: (context) => Modulo2(
+                                      user: usuario,
+                                      appSettings: appSettings,
+                                    )));
                       },
                     ),
                   ),
