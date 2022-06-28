@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import '../utilities/Suggestions.dart';
 
 class DefinirPrivacidade extends StatefulWidget {
   Usuario? user;
@@ -42,12 +41,12 @@ class _DefinirPrivacidadeState extends State<DefinirPrivacidade> {
                   activeColor: Colors.black,
                   controlAffinity: ListTileControlAffinity.trailing,
                   title: Row(
-                    children: [
-                      const Padding(
+                    children: const [
+                      Padding(
                           padding:
                               EdgeInsets.only(top: 8, bottom: 8, right: 18),
                           child: Icon(Icons.public)),
-                      Text(sugestaoPrivacidade[0]),
+                      Text('PÚBLICO'),
                     ],
                   ),
                   subtitle:
@@ -64,12 +63,12 @@ class _DefinirPrivacidadeState extends State<DefinirPrivacidade> {
                   activeColor: Colors.black,
                   controlAffinity: ListTileControlAffinity.trailing,
                   title: Row(
-                    children: [
-                      const Padding(
+                    children: const [
+                      Padding(
                           padding:
                               EdgeInsets.only(top: 8, bottom: 8, right: 18),
                           child: Icon(Icons.lock)),
-                      Text(sugestaoPrivacidade[1]),
+                      Text('PRIVADO'),
                     ],
                   ),
                   subtitle:

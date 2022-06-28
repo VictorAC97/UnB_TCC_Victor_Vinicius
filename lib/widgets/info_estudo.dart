@@ -84,7 +84,7 @@ class _InfoEstudoState extends State<InfoEstudo> {
         ),
         content: SingleChildScrollView(
           child: ListBody(
-            children: listaEscolaridade
+            children: listaEscolaridade.keys
                 .map((e) => CheckboxListTile(
                     activeColor: Colors.black,
                     title: Text(e),

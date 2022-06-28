@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Sugestao extends StatefulWidget {
   int? limiteSelecoes;
   List<String>? listaUser;
-  List<String>? listaSugestoes;
+  Map<String, String> listaSugestoes;
   String? titulo;
   bool? isPublic;
 
@@ -111,11 +111,32 @@ class _SugestaoState extends State<Sugestao> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               ListBody(
-                children: widget.listaSugestoes!
+                children: widget.listaSugestoes.keys
                     .map((item) => CheckboxListTile(
                           secondary: IconButton(
                             tooltip: "Visualizar exemplo",
-                            onPressed: () {},
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: const Text('Exemplo'),
+                                  content: Image.asset(
+                                    'assets/images/sugestoes/${widget.listaSugestoes[item]}',
+                                    height: 300,
+                                  ),
+                                  actions: [
+                                    ElevatedButton(
+                                      onPressed: () => Navigator.pop(context),
+                                      child: const Text('Voltar'),
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                                  Colors.black)),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
                             icon: const Icon(Icons.help),
                           ),
                           activeColor: Colors.black,

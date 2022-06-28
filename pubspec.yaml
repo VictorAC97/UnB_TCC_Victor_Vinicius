@@ -82,6 +82,7 @@ flutter:
     - assets/logos/logoRedesSociais.png
     - assets/logos/logoRedesSociais2.png
     - assets/images/emojis/
+    - assets/images/sugestoes/
     - assets/images/imagensCurtir/
     - assets/videos/
 
