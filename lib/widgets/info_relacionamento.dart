@@ -54,7 +54,7 @@ class _InfoRelacionamentoState extends State<InfoRelacionamento> {
         title: const Text("STATUS DE RELACIONAMENTO"),
         content: SingleChildScrollView(
           child: ListBody(
-            children: listaSugestoes
+            children: listaSugestoes.keys
                 .map((e) => CheckboxListTile(
                     activeColor: Colors.black,
                     title: Text(e),
