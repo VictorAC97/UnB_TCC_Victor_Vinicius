@@ -14,8 +14,7 @@ class TelaTarefaCurtir extends StatefulWidget {
 class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
   @override
   Widget build(BuildContext context) {
-    var acertos = context.watch<AcertosCurtidasNotifier>();
-    List<String> listaAcertos = acertos.lista;
+    var acertosList = context.watch<AcertosCurtidasNotifier>();
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -23,13 +22,18 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              const Text(
-                "LIÇÃO INTERAGIR COM EMOJI",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              GestureDetector(
+                onLongPress: () {
+                  acertosList.limparAcertos();
+                },
+                child: const Text(
+                  "LIÇÃO INTERAGIR COM EMOJI",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
               ),
               const Divider(thickness: 1),
               SizedBox(
-                height: 650,
+                height: MediaQuery.of(context).size.height - 150,
                 child: ListView.builder(
                   itemCount: fotoEemoji.length,
                   itemBuilder: (context, index) {
@@ -43,19 +47,21 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text("${fotoEemoji[index]["tarefa"]}"),
-                        leading: CircleAvatar(
-                          child:
-                              listaAcertos.contains(fotoEemoji[index]["foto"])
-                                  ? const Icon(Icons.check)
-                                  : Text(
-                                      (index + 1).toString(),
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 22),
-                                    ),
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          radius: 25,
+                        leading: Consumer<AcertosCurtidasNotifier>(
+                          builder: (context, acertos, child) => CircleAvatar(
+                            child: acertos.lista
+                                    .contains(fotoEemoji[index]["foto"])
+                                ? const Icon(Icons.check)
+                                : Text(
+                                    (index + 1).toString(),
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22),
+                                  ),
+                            backgroundColor: Colors.white,
+                            foregroundColor: Colors.black,
+                            radius: 25,
+                          ),
                         ),
                         trailing: ElevatedButton.icon(
                           onPressed: () {

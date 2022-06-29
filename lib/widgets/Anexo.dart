@@ -9,17 +9,14 @@ class Anexo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12),
-      child: Center(
-        child: SizedBox(
-          width: largura,
-          height: altura,
-          child: ClipOval(
-            child: Image.file(
-              picture!,
-              fit: BoxFit.cover,
-            ),
+    return Center(
+      child: SizedBox(
+        width: largura,
+        height: altura,
+        child: ClipOval(
+          child: Image.file(
+            picture!,
+            fit: BoxFit.cover,
           ),
         ),
       ),
