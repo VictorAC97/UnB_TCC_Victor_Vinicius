@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/telas/TelaCurtirFoto.dart';
+import 'package:projeto_final_unb/models/AcertosCurtidasNotifier.dart';
+import 'package:projeto_final_unb/pages/TelaCurtirFoto.dart';
 import '../utilities/pictureAndEmoji.dart';
+import 'package:provider/provider.dart';
 
 class TelaTarefaCurtir extends StatefulWidget {
   const TelaTarefaCurtir({Key? key}) : super(key: key);
@@ -12,6 +14,8 @@ class TelaTarefaCurtir extends StatefulWidget {
 class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
   @override
   Widget build(BuildContext context) {
+    var acertos = context.watch<AcertosCurtidasNotifier>();
+    List<String> listaAcertos = acertos.lista;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -40,11 +44,15 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
                         ),
                         subtitle: Text("${fotoEemoji[index]["tarefa"]}"),
                         leading: CircleAvatar(
-                          child: Text(
-                            (index + 1).toString(),
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 22),
-                          ),
+                          child:
+                              listaAcertos.contains(fotoEemoji[index]["foto"])
+                                  ? const Icon(Icons.check)
+                                  : Text(
+                                      (index + 1).toString(),
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 22),
+                                    ),
                           backgroundColor: Colors.white,
                           foregroundColor: Colors.black,
                           radius: 25,

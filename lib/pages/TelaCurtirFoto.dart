@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingButton.dart';
-
 import '../widgets/gerar_emojis.dart';
 
 class CurtirFoto extends StatefulWidget {
@@ -118,6 +117,7 @@ class _CurtirFotoState extends State<CurtirFoto> {
                   child: SingleChildScrollView(
                     child: GerarEmojis(
                       emojiCorreto: widget.emoji,
+                      nomeFoto: widget.image,
                     ),
                   ),
                 ),

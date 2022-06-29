@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/telas/TelaInstrucoesModulo1.dart';
-import 'package:projeto_final_unb/telas/VisualizarPerfil.dart';
+import 'package:projeto_final_unb/pages/TelaInstrucoesModulo1.dart';
+import 'package:projeto_final_unb/pages/VisualizarPerfil.dart';
 
 class Modulo1 extends StatefulWidget {
   Usuario? user;

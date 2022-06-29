@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/telas/TelaCriacaoTexto.dart';
-import 'package:projeto_final_unb/telas/TelaDadosPublicosPrivados.dart';
-import 'package:projeto_final_unb/telas/TelaObterFoto.dart';
+import 'package:projeto_final_unb/pages/TelaCriacaoTexto.dart';
+import 'package:projeto_final_unb/pages/TelaDadosPublicosPrivados.dart';
+import 'package:projeto_final_unb/pages/TelaObterFoto.dart';
 import 'package:projeto_final_unb/widgets/Anexo.dart';
 import 'package:projeto_final_unb/widgets/generate_user_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

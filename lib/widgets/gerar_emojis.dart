@@ -1,13 +1,17 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/models/AcertosCurtidasNotifier.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingImage.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 import 'package:projeto_final_unb/widgets/feedback_foto_curtida.dart';
 import '../utilities/emojisList.dart';
+import 'package:provider/provider.dart';
 
 class GerarEmojis extends StatefulWidget {
   final String? emojiCorreto;
-  const GerarEmojis({Key? key, this.emojiCorreto}) : super(key: key);
+  final String? nomeFoto;
+  const GerarEmojis({Key? key, this.emojiCorreto, this.nomeFoto})
+      : super(key: key);
 
   @override
   State<GerarEmojis> createState() => _GerarEmojisState();
@@ -52,6 +56,7 @@ class _GerarEmojisState extends State<GerarEmojis> {
   @override
   Widget build(BuildContext context) {
     AppSettings appSettings = AppSettings();
+    var acerto = context.watch<AcertosCurtidasNotifier>();
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -81,11 +86,12 @@ class _GerarEmojisState extends State<GerarEmojis> {
                             );
                           },
                         );
+                        acerto.addAcerto(widget.nomeFoto!);
                       },
                 child: SizedBox(
                   child: tentativas >= 2 && emoji == widget.emojiCorreto
-                      ? MyBlinkingImage(path: "assets/images/emojis/${emoji}")
-                      : Image.asset("assets/images/emojis/${emoji}"),
+                      ? MyBlinkingImage(path: "assets/images/emojis/$emoji")
+                      : Image.asset("assets/images/emojis/$emoji"),
                   width: 100,
                 ),
               ))
