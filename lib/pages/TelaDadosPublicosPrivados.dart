@@ -191,13 +191,17 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.black)),
               onPressed: () async {
-                widget.user!.relacionamento = await showDialog(
+                var relacionamento = await showDialog(
                   context: context,
                   builder: (context) => InfoRelacionamento(
                     relacionamentoUser: widget.user!.relacionamento,
                     isPublic: widget.user!.isPublic,
                   ),
                 );
+                if (relacionamento != null) {
+                  widget.user!.relacionamento = relacionamento;
+                }
+
                 setState(() {});
               },
             ),

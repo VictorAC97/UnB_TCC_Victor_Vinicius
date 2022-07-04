@@ -3,7 +3,7 @@ import 'package:projeto_final_unb/models/Emprego.dart';
 import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/pages/Modulo1.dart';
-import 'package:projeto_final_unb/pages/Modulo2.dart';
+import 'package:projeto_final_unb/pages/Modulo2/Modulo2.dart';
 import 'package:projeto_final_unb/pages/Modulo3.dart';
 import 'package:projeto_final_unb/pages/TelaConfiguracoes.dart';
 import 'package:projeto_final_unb/pages/TelaDuvidas.dart';

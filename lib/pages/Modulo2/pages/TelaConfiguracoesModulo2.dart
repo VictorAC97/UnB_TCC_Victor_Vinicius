@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 import 'package:projeto_final_unb/widgets/asset_player_widget.dart';
-import '../utilities/videos_list_names.dart';
+import '../../../utilities/videos_list_names.dart';
 
 class TelaConfiguracoesModulo2 extends StatefulWidget {
   AppSettings appSettings;
@@ -60,7 +60,7 @@ class _TelaConfiguracoesModulo2State extends State<TelaConfiguracoesModulo2> {
                                 const Text("DEMONSTRAÇÃO"),
                                 Text(
                                   item['titulo'].toString(),
-                                  style: TextStyle(fontSize: 14),
+                                  style: const TextStyle(fontSize: 14),
                                 ),
                               ],
                             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/AcertosCurtidasNotifier.dart';
-import 'package:projeto_final_unb/pages/TelaCurtirFoto.dart';
-import '../utilities/pictureAndEmoji.dart';
+import 'package:projeto_final_unb/pages/Modulo2/pages/TelaCurtirFoto.dart';
+import '../../../utilities/pictureAndEmoji.dart';
 import 'package:provider/provider.dart';
 
 class TelaTarefaCurtir extends StatefulWidget {
@@ -23,9 +23,12 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              const Text(
-                "LIÇÃO INTERAGIR COM EMOJI",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              GestureDetector(
+                child: const Text(
+                  "LIÇÃO INTERAGIR COM EMOJI",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                onLongPress: acertos.limparAcertos,
               ),
               const Divider(thickness: 1),
               SizedBox(
@@ -53,7 +56,10 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
                                           fontWeight: FontWeight.bold,
                                           fontSize: 22),
                                     ),
-                          backgroundColor: Colors.white,
+                          backgroundColor:
+                              listaAcertos.contains(fotoEemoji[index]["foto"])
+                                  ? const Color.fromARGB(255, 113, 196, 116)
+                                  : Colors.white,
                           foregroundColor: Colors.black,
                           radius: 25,
                         ),

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/models/AcertosCurtidasNotifier.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/pages/TelaConfiguracoesModulo2.dart';
-import 'package:projeto_final_unb/pages/TelaInstrucoesModulo2.dart';
-import 'package:projeto_final_unb/pages/TelaTarefaComentar.dart';
-import 'package:projeto_final_unb/pages/TelaTarefaCompartilhar.dart';
-import 'package:projeto_final_unb/pages/TelaTarefaCurtir.dart';
+import 'package:projeto_final_unb/pages/Modulo2/pages/TelaConfiguracoesModulo2.dart';
+import 'package:projeto_final_unb/pages/Modulo2/pages/TelaInstrucoesModulo2.dart';
+import 'package:projeto_final_unb/pages/Modulo2/pages/TelaTarefaComentar.dart';
+import 'package:projeto_final_unb/pages/Modulo2/pages/TelaTarefaCompartilhar.dart';
+import 'package:projeto_final_unb/pages/Modulo2/pages/TelaTarefaCurtir.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 
 class Modulo2 extends StatefulWidget {
@@ -17,8 +16,6 @@ class Modulo2 extends StatefulWidget {
   @override
   State<Modulo2> createState() => _Modulo2State();
 }
-
-AcertosCurtidasNotifier acertos = AcertosCurtidasNotifier();
 
 class _Modulo2State extends State<Modulo2> {
   @override
