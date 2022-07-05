@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import '../utilities/monthsInYear.dart';
+import '../../../utilities/monthsInYear.dart';
 
 class GenerateUserText extends StatelessWidget {
   Usuario? user;

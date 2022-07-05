@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/comentario_field_widget.dart';
+import 'package:projeto_final_unb/utilities/picturesList.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingButton.dart';
 import 'package:provider/provider.dart';
 import '../../../models/ComentariosNotifier.dart';
@@ -11,9 +14,18 @@ class TelaTarefaComentar extends StatefulWidget {
   State<TelaTarefaComentar> createState() => _TelaTarefaComentarState();
 }
 
+String getRandomPicture() {
+  String pictureName;
+  Random random = Random();
+  int index = random.nextInt(picturesList.length);
+  pictureName = picturesList[index];
+  return pictureName;
+}
+
 class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
   bool visivel = false;
   bool wrongTap = false;
+  String picture = getRandomPicture();
   @override
   Widget build(BuildContext context) {
     var comentariosNotifier = context.watch<ComentariosNotifier>();
@@ -24,18 +36,15 @@ class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              GestureDetector(
-                onLongPress: comentariosNotifier.limparComentarios,
-                child: const Text(
-                  "LIÇÃO COMENTAR",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
+              const Text(
+                "LIÇÃO COMENTAR",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const Divider(thickness: 1),
               const Padding(padding: EdgeInsets.all(4)),
               GestureDetector(
                   child: Image.asset(
-                    "assets/images/imagensCurtir/feliz.jpg",
+                    "assets/images/imagensCurtir/$picture",
                   ),
                   onTap: wrongTapFunc),
               Row(
@@ -115,7 +124,11 @@ class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
                     return ListView.builder(
                       itemCount: value.comentarios.length,
                       itemBuilder: ((context, index) => ListTile(
-                            leading: const Icon(Icons.person),
+                            leading: Column(
+                              children: const [
+                                Icon(Icons.person),
+                              ],
+                            ),
                             title: const Text('Nome da pessoa'),
                             subtitle: Text(value.comentarios[index]),
                           )),
@@ -140,9 +153,7 @@ class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
 
   wrongTapFunc() {
     setState(() {
-      if (visivel == false) {
-        wrongTap = true;
-      }
+      wrongTap = true;
     });
   }
 }

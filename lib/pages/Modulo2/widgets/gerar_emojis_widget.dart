@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/AcertosCurtidasNotifier.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingImage.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
-import 'package:projeto_final_unb/pages/Modulo2/widgets/feedback_foto_curtida.dart';
+import 'package:projeto_final_unb/pages/Modulo2/widgets/feedback_foto_curtida_widget.dart';
 import '../../../utilities/emojisList.dart';
 import 'package:provider/provider.dart';
 

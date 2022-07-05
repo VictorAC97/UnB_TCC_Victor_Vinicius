@@ -3,12 +3,12 @@ import 'package:projeto_final_unb/models/Emprego.dart';
 import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/utilities/Suggestions.dart';
-import 'package:projeto_final_unb/widgets/definicao_privacidade.dart';
-import 'package:projeto_final_unb/widgets/info_endereco.dart';
-import 'package:projeto_final_unb/widgets/info_estudo.dart';
-import 'package:projeto_final_unb/widgets/info_trabalho.dart';
-import 'package:projeto_final_unb/widgets/Sugestao.dart';
-import '../widgets/info_relacionamento.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/definicao_privacidade_widget.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/info_endereco_widget.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/info_estudo_widget.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/info_trabalho_widget.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/sugestao_widget.dart';
+import '../widgets/info_relacionamento_widget.dart';
 
 class TelaDadosPublicosPrivados extends StatefulWidget {
   Usuario? user;

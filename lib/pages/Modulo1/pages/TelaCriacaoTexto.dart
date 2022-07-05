@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/widgets/bloco_sugestoes.dart';
-import '../utilities/monthsInYear.dart';
-import '../utilities/invalid_date.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/bloco_sugestoes_widget.dart';
+import '../../../utilities/monthsInYear.dart';
+import '../../../utilities/invalid_date.dart';
 
 class TelaCriacaoTexto extends StatefulWidget {
   Usuario? user;

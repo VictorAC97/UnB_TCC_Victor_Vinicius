@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:projeto_final_unb/widgets/Anexo.dart';
-import '../models/Usuario.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/anexo_widget.dart';
+import '../../../models/Usuario.dart';
 
 class TelaObterFoto extends StatefulWidget {
   Usuario? user;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utilities/Suggestions.dart';
+import '../../../utilities/Suggestions.dart';
 
 class InfoEstudo extends StatefulWidget {
   String? escolaridadeUser;

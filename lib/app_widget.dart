@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:projeto_final_unb/models/AcertosCurtidasNotifier.dart';
 import 'package:projeto_final_unb/models/ComentariosNotifier.dart';
+import 'package:projeto_final_unb/models/CompartilhamentosNotifier.dart';
 import 'package:projeto_final_unb/pages/Home.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +15,8 @@ class AppWidget extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => AcertosCurtidasNotifier()),
         ChangeNotifierProvider(create: (context) => ComentariosNotifier()),
+        ChangeNotifierProvider(
+            create: (context) => CompartilhamentosNotifier()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

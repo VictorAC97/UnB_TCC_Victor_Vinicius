@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/visualizar_exemplo_widget.dart';
 
 class Sugestao extends StatefulWidget {
   int? limiteSelecoes;
@@ -114,28 +115,12 @@ class _SugestaoState extends State<Sugestao> {
                 children: widget.listaSugestoes.keys
                     .map((item) => CheckboxListTile(
                           secondary: IconButton(
-                            tooltip: "Visualizar exemplo",
+                            tooltip: "VISUALIZAR EXEMPLO",
                             onPressed: () {
                               showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                  title: const Text('Exemplo'),
-                                  content: Image.asset(
-                                    'assets/images/sugestoes/${widget.listaSugestoes[item]}',
-                                    height: 300,
-                                  ),
-                                  actions: [
-                                    ElevatedButton(
-                                      onPressed: () => Navigator.pop(context),
-                                      child: const Text('Voltar'),
-                                      style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all(
-                                                  Colors.black)),
-                                    ),
-                                  ],
-                                ),
-                              );
+                                  context: context,
+                                  builder: (context) => VisualizarExemplo(
+                                      image: widget.listaSugestoes[item]!));
                             },
                             icon: const Icon(Icons.help),
                           ),
@@ -169,7 +154,7 @@ class _SugestaoState extends State<Sugestao> {
             TextField(
               controller: _controller,
               decoration: const InputDecoration(
-                label: Text("Outro"),
+                label: Text("OUTRO"),
               ),
               onSubmitted: (value) {
                 if (_controller.text != "") {
@@ -187,7 +172,7 @@ class _SugestaoState extends State<Sugestao> {
             children: [
               TextButton(
                 child: const Text(
-                  "Limpar",
+                  "LIMPAR",
                   style: TextStyle(color: Colors.black),
                 ),
                 onPressed: () {
@@ -199,7 +184,7 @@ class _SugestaoState extends State<Sugestao> {
               const Padding(padding: EdgeInsets.only(right: 20)),
               TextButton(
                 child: const Text(
-                  "Cancelar",
+                  "CANCELAR",
                   style: TextStyle(color: Colors.black),
                 ),
                 onPressed: () => Navigator.pop(context, _selectedItems),
@@ -208,7 +193,7 @@ class _SugestaoState extends State<Sugestao> {
                 ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.black)),
-                  child: const Text("Finalizar"),
+                  child: const Text("FINALIZAR"),
                   onPressed: () => Navigator.pop(context, _selectedItems),
                 )
               else

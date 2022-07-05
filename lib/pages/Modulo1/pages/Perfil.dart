@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/pages/TelaCriacaoTexto.dart';
-import 'package:projeto_final_unb/pages/TelaDadosPublicosPrivados.dart';
-import 'package:projeto_final_unb/pages/TelaObterFoto.dart';
-import 'package:projeto_final_unb/widgets/Anexo.dart';
-import 'package:projeto_final_unb/widgets/generate_user_text.dart';
+import 'package:projeto_final_unb/pages/Modulo1/pages/TelaCriacaoTexto.dart';
+import 'package:projeto_final_unb/pages/Modulo1/pages/TelaDadosPublicosPrivados.dart';
+import 'package:projeto_final_unb/pages/Modulo1/pages/TelaObterFoto.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/anexo_widget.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/generate_user_text_widget.dart';
+import 'package:projeto_final_unb/pages/Modulo1/widgets/mostrar_informacoes_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../utilities/invalid_date.dart';
+import '../../../utilities/invalid_date.dart';
 
 class Perfil extends StatefulWidget {
   Usuario? user;
@@ -23,6 +24,12 @@ class _PerfilState extends State<Perfil> {
   void initState() {
     super.initState();
     _controller = PageController(initialPage: 0);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   bool saved = false;
@@ -86,7 +93,7 @@ class _PerfilState extends State<Perfil> {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.only(top: 4.0),
                                     child: SmoothPageIndicator(
                                       controller: _controller,
                                       count: 3,
@@ -130,12 +137,6 @@ class _PerfilState extends State<Perfil> {
       ),
     );
   }
-
-  TextStyle? _estiloTitulo() => const TextStyle(
-        fontSize: 20,
-        color: Colors.black,
-        fontWeight: FontWeight.w600,
-      );
 
   Widget _semFoto() => const Padding(
         padding: EdgeInsets.all(12.0),
@@ -199,49 +200,7 @@ class _PerfilState extends State<Perfil> {
                   ),
                 ),
         ),
-        const Divider(thickness: 1),
-        Text("MEU TRABALHO", style: _estiloTitulo()),
-        const Padding(padding: EdgeInsets.all(2)),
-        if (widget.user!.dadosEmprego!.empresa != "")
-          Text("${widget.user!.dadosEmprego!.empresa}".toUpperCase()),
-        if (widget.user!.dadosEmprego!.cargo != "")
-          Text("${widget.user!.dadosEmprego!.cargo}".toUpperCase()),
-        if (widget.user!.dadosEmprego!.cidade != "")
-          Text("${widget.user!.dadosEmprego!.cidade}".toUpperCase()),
-        const Divider(thickness: 1),
-        Text("ESCOLARIDADE", style: _estiloTitulo()),
-        const Padding(padding: EdgeInsets.all(2)),
-        if (widget.user!.listaEscolaridade!.isNotEmpty)
-          Text(widget.user!.listaEscolaridade!.join(", ")),
-        const Divider(thickness: 1),
-        Text("LOCALIDADE", style: _estiloTitulo()),
-        const Padding(padding: EdgeInsets.all(2)),
-        if (widget.user!.endereco!.moroEm!.isNotEmpty)
-          Text("MORO EM ${widget.user!.endereco!.moroEm!}."),
-        const Padding(padding: EdgeInsets.all(4)),
-        if (widget.user!.endereco!.pais!.isNotEmpty &&
-            widget.user!.endereco!.cidade!.isNotEmpty &&
-            widget.user!.endereco!.estado!.isNotEmpty)
-          Column(children: [
-            Text("SOU DA CIDADE: ${widget.user!.endereco!.cidade}"),
-            Text("ESTADO: ${widget.user!.endereco!.estado}"),
-            Text("PAÍS: ${widget.user!.endereco!.pais}"),
-          ]),
-        const Divider(thickness: 1),
-        Text("STATUS DE RELACIONAMENTO", style: _estiloTitulo()),
-        const Padding(padding: EdgeInsets.all(2)),
-        if (widget.user!.relacionamento!.isNotEmpty)
-          Text("${widget.user!.relacionamento}"),
-        const Divider(thickness: 1),
-        Text("TELEFONE", style: _estiloTitulo()),
-        const Padding(padding: EdgeInsets.all(2)),
-        if (widget.user!.telefone != "") Text("${widget.user!.telefone}"),
-        const Divider(thickness: 1),
-        Text("MEUS HOBBIES", style: _estiloTitulo()),
-        const Padding(padding: EdgeInsets.all(2)),
-        if (widget.user!.listaHobbies!.isNotEmpty)
-          Text(widget.user!.listaHobbies!.join(", ")),
-        const Divider(thickness: 1),
+        MostrarInformacoes(user: widget.user!),
       ],
     );
   }

@@ -1,4 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/pages/Modulo2/pages/TelaFeedNoticias.dart';
+import 'package:projeto_final_unb/pages/Modulo2/widgets/compartilhar_widget.dart';
+import 'package:projeto_final_unb/utilities/picturesList.dart';
+import 'package:projeto_final_unb/widgets/MyBlinkingButton.dart';
 
 class TelaTarefaCompartilhar extends StatefulWidget {
   const TelaTarefaCompartilhar({Key? key}) : super(key: key);
@@ -7,13 +13,113 @@ class TelaTarefaCompartilhar extends StatefulWidget {
   State<TelaTarefaCompartilhar> createState() => _TelaTarefaCompartilharState();
 }
 
+String getRandomPicture() {
+  String pictureName;
+  Random random = Random();
+  int index = random.nextInt(picturesList.length);
+  pictureName = picturesList[index];
+  return pictureName;
+}
+
 class _TelaTarefaCompartilharState extends State<TelaTarefaCompartilhar> {
+  bool wrongTap = false;
+  String picture = getRandomPicture();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.blue,
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              const Text(
+                "LIÇÃO COMPARTILHAR",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              const Divider(thickness: 1),
+              const Padding(padding: EdgeInsets.all(4)),
+              GestureDetector(
+                  child: Image.asset(
+                    "assets/images/imagensCurtir/$picture",
+                  ),
+                  onTap: wrongTapFunc),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton.icon(
+                    icon: const Icon(Icons.comment),
+                    label: const Text("Comentar"),
+                    style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black)),
+                    onPressed: wrongTapFunc,
+                  ),
+                  TextButton.icon(
+                    icon: const Icon(Icons.thumb_up),
+                    label: const Text("Curtir"),
+                    style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all(Colors.black)),
+                    onPressed: wrongTapFunc,
+                  ),
+                  wrongTap == false
+                      ? TextButton.icon(
+                          icon: const Icon(Icons.share),
+                          label: const Text("Compartilhar"),
+                          style: ButtonStyle(
+                            foregroundColor:
+                                MaterialStateProperty.all(Colors.black),
+                          ),
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) =>
+                                  CompartilharWidget(pictureName: picture),
+                            );
+                          },
+                        )
+                      : MyBlinkingButton(
+                          onPressed: () {
+                            setState(() {
+                              wrongTap = false;
+                            });
+                            showDialog(
+                              context: context,
+                              builder: (context) =>
+                                  CompartilharWidget(pictureName: picture),
+                            );
+                          },
+                          label: const Text("Compartilhar"),
+                          icon: const Icon(Icons.share),
+                          style: ButtonStyle(
+                            foregroundColor:
+                                MaterialStateProperty.all(Colors.black),
+                          ),
+                        ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const TelaFeedNoticias()));
+        },
+        label: const Text('Feed de Noticias'),
+        backgroundColor: Colors.black,
       ),
     );
+  }
+
+  wrongTapFunc() {
+    setState(() {
+      wrongTap = true;
+    });
   }
 }
