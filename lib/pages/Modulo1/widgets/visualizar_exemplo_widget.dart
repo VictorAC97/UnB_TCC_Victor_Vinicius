@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 
 class VisualizarExemplo extends StatelessWidget {
   final String image;
-  const VisualizarExemplo({Key? key, required this.image}) : super(key: key);
+  final String nomeExemplo;
+  const VisualizarExemplo(
+      {Key? key, required this.image, required this.nomeExemplo})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('EXEMPLO'),
+      title: Text(nomeExemplo),
       content: Image.asset(
         'assets/images/sugestoes/$image',
         height: 300,

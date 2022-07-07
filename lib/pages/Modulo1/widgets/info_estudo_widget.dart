@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../utilities/Suggestions.dart';
+import '../../../utilities/suggestionPictures.dart';
 
 class InfoEstudo extends StatefulWidget {
   String? escolaridadeUser;
@@ -84,7 +84,7 @@ class _InfoEstudoState extends State<InfoEstudo> {
         ),
         content: SingleChildScrollView(
           child: ListBody(
-            children: listaEscolaridade.keys
+            children: listaEscolaridade
                 .map((e) => CheckboxListTile(
                     activeColor: Colors.black,
                     title: Text(e),

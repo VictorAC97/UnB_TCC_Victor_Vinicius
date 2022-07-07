@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../utilities/Suggestions.dart';
+import '../../../utilities/suggestionPictures.dart';
 
 class InfoRelacionamento extends StatefulWidget {
   String? relacionamentoUser;
@@ -54,7 +54,7 @@ class _InfoRelacionamentoState extends State<InfoRelacionamento> {
         title: const Text("STATUS DE RELACIONAMENTO"),
         content: SingleChildScrollView(
           child: ListBody(
-            children: listaSugestoes.keys
+            children: listaSugestoes
                 .map((e) => CheckboxListTile(
                     activeColor: Colors.black,
                     title: Text(e),

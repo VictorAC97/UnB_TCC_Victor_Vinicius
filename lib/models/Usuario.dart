@@ -47,6 +47,7 @@ class Usuario {
     this.listaNaoGostoDe,
     this.listaSigno,
     this.listaEscolaridade,
+    this.listaAtividades,
     this.relacionamento,
     this.listaHobbies,
     this.isPublic,

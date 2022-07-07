@@ -1,0 +1,129 @@
+Personalidades
+    homem.jpg: https://www.freepik.com/free-photo/low-angle-businessman_12162282.htm#query=man%20group&position=9&from_view=search
+    mulher.png: https://www.freepik.com/free-photo/group-women-spending-time-together_13611204.htm#query=woman&position=2&from_view=search
+    jovem.jpg: https://www.freepik.com/free-photo/multiethnic-group-young-cheerful-students-walking_7570746.htm?query=teenagers
+    adulto.jpg: https://www.freepik.com/free-photo/cheerful-diverse-friends-with-arms-around_2826196.htm?query=group%20adults
+    tranquila.jpg: https://www.freepik.com/free-photo/wonderful-moments-spent-is-silence_12652207.htm#query=calma&from_query=tranquila&position=7&from_view=search
+    calma.jpg: https://www.freepik.com/free-photo/lifestyle-people-emotions-casual-concept-relaxed-patient-smiling-young-asian-woman-with-closed-eyes-meditating-calm-down-breathing-exercises-with-hands-zen-gesture_17077221.htm#query=calma&from_query=tranquila&position=22&from_view=search
+    feliz.jpg: https://www.freepik.com/free-photo/outgoing-sociable-happy-african-american-male-with-beard-afro-haircut_16069001.htm#query=happy%20person&position=22&from_view=search
+    agitada.jpg: https://www.freepik.com/free-photo/attractive-smiling-happy-woman-dancing-waving-long-hair-isolated-white-studio_10689622.htm#query=moviment&position=0&from_view=search
+
+Cores da Pele
+    branca.jpg: https://www.freepik.com/free-photo/beautiful-curly-girl-pointing-finger_7509642.htm#query=white%20people&position=7&from_view=search
+    parda.jpg: https://www.freepik.com/free-photo/portrait-beautiful-afro-american-latin-confident-woman-laughing-street-outdoors_10928918.htm#query=latin&position=21&from_view=search
+    preta.jpg: https://www.freepik.com/free-photo/african-american-female-thinking-with-her-finger-her-chin_10073630.htm#page=2&query=black%20people&position=21&from_view=search
+    amarela.jpg: https://www.freepik.com/free-photo/beautiful-asian-woman-with-clear-skin_28482263.htm#query=asian&position=5&from_view=search#position=5&query=asian
+    negra.jpg: https://www.freepik.com/free-photo/african-american-man-with-round-glasses_9990342.htm#query=black%20people&position=2&from_view=search
+    morena.jpg: https://www.freepik.com/free-photo/positive-female-student-wearing-white-t-shirt-posing-camera_3629551.htm#query=latina&position=18&from_view=search
+
+Cores dos olhos
+    olhoPreto: https://www.freepik.com/premium-photo/closeup-portrait-happy-eyes-brunette-with-curly-hair-looking-into-camera-closeup_20604253.htm#query=black%20eyes&position=12&from_view=search
+    olhoCastanho.jpg: https://www.freepik.com/free-photo/macro-shot-young-adult-blinking-front-camera-showing-eyes-with-colored-iris-retina-pupil-man-looking-reflection-healthy-focus-eyesight-eyebrows-eyelashes-authentic-look_27173017.htm#query=human%20eye&position=11&from_view=search
+    olhoAzul.jpg: https://www.freepik.com/free-photo/close-up-gray-eye-face-young-beautiful-caucasian-girl_11315864.htm#query=human%20eye&position=4&from_view=search
+    olhoVerde.jpg: https://www.freepik.com/free-photo/human-s-deep-eye_8024229.htm#query=GREEN%20EYES&position=5&from_view=search
+
+Comidas Preferidas
+  arrozEfeijao.jpg: https://conteudo.imguol.com.br/c/entretenimento/0d/2021/05/11/prato-de-arroz-e-feijao-1620764972485_v2_1x1.jpg
+  macarrao.jpg: https://www.freepik.com/free-photo/comida-lifestyle-spaghetti-foodie-gastronomy_1134803.htm#query=macarr%C3%A3o&position=7&from_view=search
+  bife.jpg: https://www.freepik.com/free-photo/fried-steak-pieces-wooden-board-garlic_7136233.htm#query=carne&position=15&from_view=search
+  frango.jpg: https://www.freepik.com/free-photo/preparing-raw-barbeque-chicken-cooking_3057600.htm#query=frango&position=4&from_view=search#position=4&query=frango
+  sanduiche.jpg: https://www.freepik.com/free-photo/beef-cotlet-burger-with-sauce-wooden-board_5536632.htm#query=hamburguer&position=2&from_view=search
+  churrasco.jpg: https://www.freepik.com/premium-photo/picanha-barbecue-roasted-hot-coals-brazilian-food_16425357.htm#query=churrasco&position=48&from_view=search
+  peixe.jpg: https://www.freepik.com/premium-photo/grilled-salmon-fish-with-various-vegetables-flaming-grill_5208080.htm#query=fish%20food&position=41&from_view=search
+  "PIZZA": https://www.freepik.com/premium-photo/pepperoni-pizza-isolated-white_10625223.htm#query=pizza&position=19&from_view=search
+  "COXINHA": https://www.freepik.com/free-photo/coxinha-brazilian-snack-with-bar-space_10326201.htm#query=coxinha&position=0&from_view=search
+  "SOPA": https://www.freepik.com/free-photo/front-view-delicious-soup-inside-white-plate-dark-surface_14225448.htm#query=sopa&position=0&from_view=search
+  salada.jpg: https://www.freepik.com/free-photo/dietary-salad-with-tomatoes-feta-lettuce-spinach-pine-nuts_7701197.htm#query=salad&position=1&from_view=search
+  ovo.jpg: https://www.freepik.com/free-photo/fried-eggs-white-plate-dark-surface_12952734.htm#query=eggs&position=30&from_view=search
+  "BOLO": https://www.freepik.com/free-photo/dessert-fruitcake_6448637.htm#query=bolo&position=0&from_view=search
+  "BATATA FRITA": https://www.freepik.com/free-photo/french-fries_3717942.htm#query=batata%20frita&position=18&from_view=search
+  "CUSCUZ": https://www.freepik.com/premium-photo/cuscuz-dish-typical-northeastern-brazil-made-with-corn_8443706.htm#query=cuscuz&position=25&from_view=search
+  "TAPIOCA": https://www.freepik.com/premium-photo/typical-brazilian-bread-tapioca-with-melted-mozzarella-cheese-coffee_11086734.htm#query=cuscuz&position=15&from_view=search
+  pao.jpg: https://www.freepik.com/free-photo/macro-detail-french-bread_16093357.htm#page=2&query=p%C3%A3o&position=36&from_view=search
+
+Gosto de
+  "VIAJAR": https://www.freepik.com/free-photo/travelers-with-backpacks-poses-near-modern-airport_15660360.htm#query=travel&position=23&from_view=search
+  "LER": https://www.freepik.com/free-photo/young-woman-reading-from-book-home_16135912.htm#query=read&position=4&from_view=search
+  "CINEMA": https://www.freepik.com/free-photo/cinema-hall-with-red-seat-wide-white-screen_13180954.htm#query=cinema&position=21&from_view=search
+  "SHOPPING": https://www.freepik.com/free-photo/two-excited-black-girls-pointing-shop-window_1148207.htm#query=shopping&position=10&from_view=search
+  "ANDAR DE BICICLETA": https://www.freepik.com/free-photo/pensive-man-riding-down-hill_12116232.htm#query=bicicleta&position=13&from_view=search
+  "SAIR COM AMIGOS": https://www.freepik.com/free-photo/close-up-friends-spending-time-together_19924944.htm#query=hang%20out&position=7&from_view=search
+  "TEATRO": https://www.freepik.com/free-photo/clapperboard-front-excited-mime-couple-peeking-red-curtain_2934850.htm#query=teatro&position=35&from_view=search
+  "DANÇAR": https://www.freepik.com/free-photo/close-up-smiley-friends-dancing-bar_18953106.htm#query=dance&position=5&from_view=search
+  "NADAR": https://www.freepik.com/free-photo/swimmer-with-equipment-pool-full-shot_16081270.htm#query=nadar&position=11&from_view=search
+  "PRAIA": https://www.freepik.com/free-photo/tropical-beach_3501168.htm#query=praia&position=2&from_view=search
+  "PISCINA": https://www.freepik.com/free-photo/garden-summer-green-poolside-leisure_1044409.htm#query=piscina&position=37&from_view=search
+  "PARQUE": https://www.freepik.com/free-photo/park-with-wooden-pathway-benches_968520.htm#query=parque&position=1&from_view=search
+  "CAMINHAR": https://www.freepik.com/free-photo/happy-young-couple-field-spring_1232101.htm#query=caminhar&position=3&from_view=search
+  "CORRER": https://www.freepik.com/free-photo/outdoor-shot-active-dark-skinned-man-running-morning-has-regular-trainings-dressed-tracksuit-comfortable-sneakers-concentrated-into-distance-sees-finish-far-away_12204561.htm#query=correr&position=33&from_view=search
+  "ACADEMIA": https://www.freepik.com/premium-photo/gym-interior-with-equipments_3630931.htm#query=gym&position=12&from_view=search
+  "JOGAR FUTEBOL": https://www.freepik.com/free-photo/soccer-player-action-stadium_5212258.htm#query=soccer&position=7&from_view=search
+  "CAPOEIRA": https://www.freepik.com/premium-photo/men-train-capoeira-beach-concept-about-people-lifestyle-sport_6310210.htm#page=3&query=capoeira&position=5&from_view=search
+  "COZINHAR": https://www.freepik.com/free-photo/woman-chef-cooking-vegetables-pan_8380324.htm#query=cooking&position=1&from_view=search
+  "FAZER ARTESANATO": https://www.freepik.com/free-photo/people-making-paper-flowers-craft-art-work-handicraft_2861213.htm#query=artesanato&position=24&from_view=search
+  "CUIDAR DE PLANTAS": https://www.freepik.com/free-photo/men-wearing-orange-gloves-planting-trees-indoors_9294530.htm#query=taking%20care%20of%20plantas&position=7&from_view=search
+  "AVIÃO": https://www.freepik.com/free-photo/place-flying-sunset-sky_1145580.htm#query=aviao&position=1&from_view=search
+  "PLANETAS": https://www.freepik.com/premium-photo/planetary-system-with-actual-sizes-solar-system-with-planets-sun-3d-render_20920628.htm#page=4&query=planet&position=27&from_view=search
+  "MONTANHA": https://www.freepik.com/free-photo/beautiful-shot-grassy-hills-covered-trees-near-mountains-dolomites-italy_11527510.htm#query=mountains&position=1&from_view=search
+  "CACHOEIRA": https://www.freepik.com/free-photo/beautiful-shot-waterfall-surrounded-by-trees-hills_13234987.htm?query=waterfall&collectionId=1165&&position=15&from_view=collections
+  "VER TELEVISÃO": https://www.freepik.com/free-photo/man-watching-show-his-tv_16625367.htm#query=watch%20tv&position=36&from_view=search
+  "JOGAR VIDEO GAME": https://www.freepik.com/free-photo/portrait-happy-african-american-father-son-sitting-sofa-couch-playing-console-video-games-together-home-family-technology-concept_10104294.htm#page=3&query=play%20video%20game&position=29&from_view=search
+  "PESCAR": https://www.freepik.com/free-photo/man-fishing-lake_800482.htm#query=fishing&position=4&from_view=search       
+
+Nao gosto de
+  "ACORDAR CEDO": https://www.freepik.com/free-photo/lazy-woman-hand-holding-alarm-clock-bed_3397014.htm#query=wake%20up%20lazy&position=18&from_view=search
+  "PESSOAS MAL EDUCADAS": https://www.freepik.com/premium-photo/angry-senior-man-arguing-after-car-accident_22838248.htm?query=unkind&collectionId=555&page=2&position=6&from_view=collections
+  "SOM ALTO": https://www.freepik.com/free-photo/annoyed-guy-shut-ears-from-bothering-loud-noise_9902370.htm#query=loud%20noise&position=3&from_view=search
+  "DORMIR TARDE": https://www.freepik.com/free-photo/woman-sleeping-sofa-front-tv-while-watching-bored-movie-tired-exhausted-lonely-sleepy-lady-pajamas-falling-asleep-sitting-cozy-couch-living-room-closing-eyes-night_18075789.htm#query=sleep%20late&position=12&from_view=search
+  "CHUVA": https://www.freepik.com/free-photo/family-crossing-road-rainy-day_17228641.htm#page=3&query=chuva&position=4&from_view=search
+  "SOL FORTE": https://www.freepik.com/free-photo/beautiful-outdoor-nature-with-sky-sunset-sunrise-around-coconut-palm-tree_4320972.htm#page=2&query=sun&position=31&from_view=search
+  "FAZER ATIVIDADE FÍSICA": https://www.freepik.com/free-photo/young-healthy-man-athlete-doing-exercise-with-ropes-gym-single-male-model-practicing-hard-training-his-upper-body-concept-healthy-lifestyle-sport-fitness-bodybuilding-wellbeing_12836358.htm#query=atividade%20fisica&position=43&from_view=search
+  "COMER VERDURAS": https://www.freepik.com/free-photo/bowl-fresh-green-salad-hold-female-hands_1281262.htm#page=2&query=eat%20vegetables&position=31&from_view=search
+  "FOFOCA": https://www.freepik.com/free-photo/employees-gossiping-about-young-female-colleague_5546367.htm#query=fofoca&position=3&from_view=search
+  "TRÂNSITO": https://www.freepik.com/premium-photo/background-blur-out-focus-bokeh-traffic-jams-during-rush-hours-after-work-red-brake-lights-stopped-cars-background-city-neighborhood_16066404.htm#query=transito&position=17&from_view=search
+  "BUZINA": https://www.freepik.com/free-photo/beautiful-blonde-woman-beep-car-panic-with-closed-eyes-while-driving-high-speed_11043669.htm#query=horn&from_query=buzina&position=3&from_view=search
+  "COMIDA FRIA": https://www.freepik.com/free-photo/open-fridge-with-plastic-food-containers-vegetables_7389459.htm#query=fridge%20food&position=23&from_view=search
+  "COMIDA QUENTE": https://www.freepik.com/premium-photo/cooking-barbecue-grill-summer_27944307.htm#page=6&query=hot%20meal%20burn&position=36&from_view=search
+  "FICAR SOZINHO": https://www.freepik.com/free-photo/horizontal-isolated-portrait-attractive-young-caucasian-man-with-voluminous-hair-thick-beard-sitting-casually-gray-sofa-home-looking-ahead-him-having-pensive-thoughtful-expression_11035985.htm#query=be%20alone&position=26&from_view=search
+  "FICAR SOZINHA": https://www.freepik.com/free-photo/young-happy-girl-riding-swing-park_2525694.htm#query=be%20alone&position=16&from_view=search
+  "ELEVADOR": https://www.freepik.com/free-photo/elevator-building_4690093.htm#query=escalator&from_query=escada%20rolante&position=9&from_view=search
+  "ESCADA ROLANTE": https://www.freepik.com/free-photo/view-escalator-underground-station_1120901.htm#query=elevator&position=40&from_view=search
+
+Atividades
+  "ARTESANATO": Mesma do FAZER ARTESANATO
+  "PINTURA": https://www.freepik.com/free-photo/top-view-attractive-woman-hands-drawing-amazing-picture-canvas-modern-cozy-art-workshop_22549519.htm?query=painting&collectionId=2241&&position=0&from_view=collections
+  "DANÇA": Mesma do Gosto de DANCAR
+  "ARTES": https://www.freepik.com/free-photo/medium-shot-woman-painting-desk_13757780.htm?query=painting&collectionId=2241&&position=2&from_view=collections
+  "MÚSICA": https://www.freepik.com/free-photo/male-musician-playing-acoustic-guitar-dark-room-copy-space_13738467.htm#query=music&position=40&from_view=search
+  "ESPORTE": https://www.freepik.com/free-photo/sports-tools_18415697.htm#query=sports&position=1&from_view=search
+  "JARDINAGEM": https://www.freepik.com/free-photo/planting-flowers-pots_13238956.htm#query=jardinagem&position=13&from_view=search
+  "HORTA": https://www.freepik.com/free-photo/woman-picking-up-vegetables-from-field_13361572.htm#page=2&query=horta&position=38&from_view=search
+  "CULINÁRIA": https://www.freepik.com/free-photo/portrait-handsome-male-chef-dressed-uniform_6873276.htm#page=2&query=culinaria&position=6&from_view=search
+  "JOGOS": https://www.freepik.com/free-photo/videogamer-winning-first-person-shooter-tournament-using-rgb-keyboard-professional-headphones-pro-player-man-talking-with-other-players-online-game-competition-powerful-computer_15962828.htm#query=jogos&position=13&from_view=search
+  "ALFABETIZAÇÃO": https://www.freepik.com/free-photo/students-knowing-right-answer_13132985.htm#query=kids%20school&position=14&from_view=search
+
+Hobbies
+  "ARTESANATO": 'artesanato.jpg',
+  "DANÇAR": 'dancar.jpg',
+  "OUVIR MÚSICA": https://www.freepik.com/free-photo/happy-african-man-smiling-listening-music-headphones_8812761.htm#query=listen%20music&position=3&from_view=search
+  "FAZER TEATRO": https://www.freepik.com/free-photo/smiling-girl-holding-venetian-mask-her-hands-standing-front-stage-light_2948656.htm#query=teatro&position=3&from_view=search
+  "FAZER DOBRADURAS (ORIGAMI)": https://www.freepik.com/free-photo/close-up-woman-hand-making-creative-art-craft-using-origami-paper_4822493.htm#query=origami&position=15&from_view=search
+  "TOCAR INSTRUMENTO MUSICAL": 'musica.jpg',
+  "JARDINAGEM": 'jardinagem.jpg',
+  "CULINÁRIA": 'cozinhar.jpg',
+  "JOGOS": 'jogos.jpg',
+  "LEITURA": https://www.freepik.com/free-photo/lovely-asian-young-lady-portriat-happy-woman-lifestyle-concept_4351294.htm#query=read&position=3&from_view=search
+  "ASSISTIR FILME": https://www.freepik.com/free-photo/selective-focus-laughing-child-wearing-3d-glasses-eating-popcorn-watching-funny-movie-cute-little-girl-enjoying-time-with-friends-cinema_10101830.htm#page=2&query=watch%20movie&position=31&from_view=search
+  "FOTOGRAFIA": https://www.freepik.com/free-photo/woman-taking-photos-ceramic-kitchenware_17044880.htm?query=photography
+  "ENCONTRAR AMIGOS": https://www.freepik.com/free-photo/happy-friends-eating-drinking-beers-barbecue-dinner-sunset-time_13235256.htm#query=meet%20friends&position=3&from_view=search
+  "FAZER PALAVRA CRUZADA": https://www.freepik.com/premium-photo/conceptual-pencil-top-crossword-puzzle-paper_5565137.htm#query=crossword&position=16&from_view=search
+  "PASSEAR COM CACHORRO": https://www.freepik.com/free-photo/young-stylish-couple-walking-with-dog-street-man-woman-happy-together-with-husky-breed_9699445.htm#query=walk%20with%20dog&position=18&from_view=search
+  "VIAJAR": 'viajar.jpg',
+  "FAZER QUEBRA CABEÇA": https://www.freepik.com/free-photo/close-up-puzzle-background_22895071.htm#page=2&query=quebra%20cabe%C3%A7a&position=44&from_view=search
+  "PESCARIA": 'pescar.jpg',
+  "ACAMPAR": https://www.freepik.com/free-photo/people-getting-their-tent-ready-winter-camping_21810186.htm#query=camping%20tent&position=32&from_view=keyword
+  "FAZER TRILHA": https://www.freepik.com/premium-photo/backpacker-camping-hiking-journey-travel-trek-concept_3430256.htm#query=trilha&position=12&from_view=search
+  "COLECIONAR COISAS": https://www.freepik.com/premium-photo/flea-market-swap-meet-old-rare-retro-things-vintage-art-objects_22551121.htm#query=rare%20things&position=22&from_view=search#position=22&query=rare%20things
+
+Signos
+    https://www.freepik.com/free-vector/gradient-zodiac-sign-collection_15275719.htm#query=signos&position=2&from_view=search

@@ -149,6 +149,7 @@ _novoUsuario() {
     listaNaoGostoDe: List.empty(growable: true),
     listaSigno: List.empty(growable: true),
     listaEscolaridade: List.empty(growable: true),
+    listaAtividades: List.empty(growable: true),
     listaMinhaComidaPreferida: List.empty(growable: true),
     listaHobbies: List.empty(growable: true),
     endereco: Endereco(moroEm: "", cidade: "", estado: "", pais: ""),

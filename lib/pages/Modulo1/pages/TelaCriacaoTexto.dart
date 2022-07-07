@@ -190,6 +190,9 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                             initialDate: DateTime.now(),
                             firstDate: DateTime(1900),
                             lastDate: DateTime.now());
+                        if (widget.user!.dataNasc == null) {
+                          widget.user!.dataNasc = DateTime.now();
+                        }
                         setState(() {});
                       },
                     ),

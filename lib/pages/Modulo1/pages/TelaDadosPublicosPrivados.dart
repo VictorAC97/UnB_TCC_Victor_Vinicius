@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Emprego.dart';
 import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/utilities/Suggestions.dart';
+import 'package:projeto_final_unb/utilities/suggestionPictures.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/definicao_privacidade_widget.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/info_endereco_widget.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/info_estudo_widget.dart';
@@ -224,6 +224,37 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
                   });
                 },
               ),
+            ),
+            _divider(),
+            const Text(
+              "ATIVIDADES",
+              style: TextStyle(fontSize: 18),
+            ),
+            if (widget.user!.listaAtividades != null)
+              Wrap(
+                children: widget.user!.listaAtividades!
+                    .map((item) => Chip(
+                          label: Text(item),
+                        ))
+                    .toList(),
+              ),
+            ElevatedButton.icon(
+              icon: const Icon(Icons.add),
+              label: const Text("Adicionar"),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.black)),
+              onPressed: () async {
+                widget.user!.listaAtividades = await showDialog(
+                  context: context,
+                  builder: (context) => Sugestao(
+                      listaUser: widget.user!.listaAtividades,
+                      listaSugestoes: sugestaoAtividades,
+                      limiteSelecoes: 5,
+                      isPublic: widget.user!.isPublic,
+                      titulo: "MINHAS ATIVIDADES SÃO: "),
+                );
+                setState(() {});
+              },
             ),
             _divider(),
             const Text(

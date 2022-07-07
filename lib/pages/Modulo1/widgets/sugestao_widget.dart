@@ -120,6 +120,7 @@ class _SugestaoState extends State<Sugestao> {
                               showDialog(
                                   context: context,
                                   builder: (context) => VisualizarExemplo(
+                                      nomeExemplo: item,
                                       image: widget.listaSugestoes[item]!));
                             },
                             icon: const Icon(Icons.help),
