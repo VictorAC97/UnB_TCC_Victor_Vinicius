@@ -32,6 +32,7 @@ class _PerfilState extends State<Perfil> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
+              const Padding(padding: EdgeInsets.all(4)),
               GestureDetector(
                 child: widget.user!.fotoPerfil != null
                     ? Anexo(
@@ -56,6 +57,10 @@ class _PerfilState extends State<Perfil> {
                   );
                   setState(() {}); //carrega a foto na tela de perfil
                 },
+              ),
+              const Padding(padding: EdgeInsets.all(8)),
+              const Divider(
+                thickness: 1,
               ),
               widget.user!.isPublic == false
                   ? const PerfilPrivado()

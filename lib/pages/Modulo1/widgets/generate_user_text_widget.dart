@@ -52,28 +52,33 @@ class GenerateUserText extends StatelessWidget {
       );
     }
     if (user!.listaGostoDe!.isNotEmpty && user!.listaNaoGostoDe!.isNotEmpty) {
+      texto.add('Sobre as minhas preferências, ');
       texto.add(
         "Eu gosto de ${user!.listaGostoDe!.join(", ")} e não gosto de ${user!.listaNaoGostoDe!.join(", ")}.",
       );
     } else if (user!.listaGostoDe!.isNotEmpty) {
+      texto.add('Sobre as minhas preferências, ');
       texto.add(
         "Eu gosto de ${user!.listaGostoDe!.join(", ")}.",
       );
     } else if (user!.listaNaoGostoDe!.isNotEmpty) {
+      texto.add('Sobre as minhas preferências, ');
       texto.add(
         "Eu Não gosto de ${user!.listaNaoGostoDe!.join(", ")}.",
       );
     }
-    texto.add('porfim, '.toUpperCase());
     if (user!.listaCorPreferida!.isNotEmpty && user!.listaSigno!.isNotEmpty) {
+      texto.add('Porfim, ');
       texto.add(
         "A minha cor preferida é ${user!.listaCorPreferida!.join(", ")} e meu signo é ${user!.listaSigno!.join(", ")}.",
       );
     } else if (user!.listaCorPreferida!.isNotEmpty) {
+      texto.add('Porfim, ');
       texto.add(
         "A minha cor preferida é ${user!.listaCorPreferida!.join(", ")}.",
       );
     } else if (user!.listaSigno!.isNotEmpty) {
+      texto.add('Porfim, ');
       texto.add(
         "Meu signo é ${user!.listaSigno!.join(", ")}.",
       );
