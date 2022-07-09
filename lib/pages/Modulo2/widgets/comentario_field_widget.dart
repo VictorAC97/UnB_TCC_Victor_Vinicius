@@ -47,8 +47,14 @@ class _ComentarioFieldWidgetState extends State<ComentarioFieldWidget> {
             comentarios.addComentario(newComentario);
             _controller.clear();
           },
-          label: const Text('Enviar Comentário'),
-          icon: const Icon(Icons.send),
+          label: const Text(
+            'Enviar Comentário',
+            style: TextStyle(color: Colors.black),
+          ),
+          icon: const Icon(
+            Icons.send,
+            color: Colors.black,
+          ),
         )
       ],
     );

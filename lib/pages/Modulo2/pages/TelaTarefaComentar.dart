@@ -23,12 +23,12 @@ String getRandomPicture() {
 }
 
 class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
-  bool visivel = false;
   bool wrongTap = false;
   String picture = getRandomPicture();
   @override
   Widget build(BuildContext context) {
-    var comentariosNotifier = context.watch<ComentariosNotifier>();
+    var containerComentariosController = context.watch<ComentariosNotifier>();
+    bool visivel = containerComentariosController.animationContainerVisible;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -60,17 +60,19 @@ class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
                                 : MaterialStateProperty.all(Colors.black),
                           ),
                           onPressed: () {
-                            setState(() {
-                              visivel = !visivel;
-                            });
+                            containerComentariosController.abrirContainer();
+                            if (visivel == true) {
+                              containerComentariosController.fecharContainer();
+                            }
                           },
                         )
                       : MyBlinkingButton(
                           onPressed: () {
-                            setState(() {
-                              wrongTap = false;
-                              visivel = !visivel;
-                            });
+                            wrongTap = false;
+                            containerComentariosController.abrirContainer();
+                            if (visivel == true) {
+                              containerComentariosController.fecharContainer();
+                            }
                           },
                           label: const Text("Comentar"),
                           icon: const Icon(Icons.comment),

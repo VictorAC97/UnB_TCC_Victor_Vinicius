@@ -70,28 +70,19 @@ class _SugestaoState extends State<Sugestao> {
         title: Column(
           children: [
             Text(widget.titulo!),
-            if ((_selectedItems.length < widget.limiteSelecoes!))
-              Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "${_selectedItems.length} / ${widget.limiteSelecoes}",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 16,
-                    ),
-                  ))
-            else
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "${_selectedItems.length} / ${widget.limiteSelecoes}",
-                  style: const TextStyle(
-                    color: Colors.red,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 16,
-                  ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "${_selectedItems.length} / ${widget.limiteSelecoes}",
+                style: TextStyle(
+                  color: _selectedItems.length < widget.limiteSelecoes!
+                      ? Colors.black
+                      : Colors.red,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 16,
                 ),
               ),
+            ),
             Wrap(
                 children: _selectedItems
                     .map((item) => Chip(
@@ -113,26 +104,29 @@ class _SugestaoState extends State<Sugestao> {
             children: [
               ListBody(
                 children: widget.listaSugestoes.keys
-                    .map((item) => CheckboxListTile(
-                          secondary: IconButton(
-                            tooltip: "VISUALIZAR EXEMPLO",
-                            onPressed: () {
-                              showDialog(
-                                  context: context,
-                                  builder: (context) => VisualizarExemplo(
-                                      nomeExemplo: item,
-                                      image: widget.listaSugestoes[item]!));
-                            },
-                            icon: const Icon(Icons.help),
-                          ),
-                          activeColor: Colors.black,
-                          title: Text(item),
-                          value: _selectedItems.contains(item),
-                          controlAffinity: ListTileControlAffinity.leading,
-                          onChanged: (isChecked) {
-                            _itemChange(item, isChecked!);
+                    .map(
+                      (item) => CheckboxListTile(
+                        secondary: IconButton(
+                          tooltip: "VISUALIZAR EXEMPLO",
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) => VisualizarExemplo(
+                                  nomeExemplo: item,
+                                  image: widget.listaSugestoes[item]!),
+                            );
                           },
-                        ))
+                          icon: const Icon(Icons.help),
+                        ),
+                        activeColor: Colors.black,
+                        title: Text(item),
+                        value: _selectedItems.contains(item),
+                        controlAffinity: ListTileControlAffinity.leading,
+                        onChanged: (isChecked) {
+                          _itemChange(item, isChecked!);
+                        },
+                      ),
+                    )
                     .toList(),
               ),
             ],
@@ -190,20 +184,15 @@ class _SugestaoState extends State<Sugestao> {
                 ),
                 onPressed: () => Navigator.pop(context, _selectedItems),
               ),
-              if (_selectedItems.length < widget.limiteSelecoes!)
-                ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.black)),
-                  child: const Text("FINALIZAR"),
-                  onPressed: () => Navigator.pop(context, _selectedItems),
-                )
-              else
-                ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.green)),
-                  child: const Text("Finalizar"),
-                  onPressed: () => Navigator.pop(context, _selectedItems),
-                )
+              ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        _selectedItems.length < widget.limiteSelecoes!
+                            ? Colors.black
+                            : Colors.green)),
+                child: const Text("FINALIZAR"),
+                onPressed: () => Navigator.pop(context, _selectedItems),
+              ),
             ],
           ),
         ],

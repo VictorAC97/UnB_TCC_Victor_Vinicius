@@ -30,57 +30,60 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      child: Column(
-        children: [
-          Flexible(
-            flex: 10,
-            child: PageView(
-              controller: _controller,
-              children: [
-                TelaObterFoto(user: widget.user),
-                TelaCriacaoTexto(user: widget.user),
-                TelaDadosPublicosPrivados(user: widget.user),
-              ],
-              onPageChanged: (index) {
-                setState(() {
-                  paginaAtual = index;
-                });
-              },
+    return SizedBox(
+      width: 50,
+      child: Dialog(
+        child: Column(
+          children: [
+            Flexible(
+              flex: 10,
+              child: PageView(
+                controller: _controller,
+                children: [
+                  TelaObterFoto(user: widget.user),
+                  TelaCriacaoTexto(user: widget.user),
+                  TelaDadosPublicosPrivados(user: widget.user),
+                ],
+                onPageChanged: (index) {
+                  setState(() {
+                    paginaAtual = index;
+                  });
+                },
+              ),
             ),
-          ),
-          Flexible(
-            flex: 1,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 4.0),
-                  child: SmoothPageIndicator(
-                    controller: _controller,
-                    count: 3,
-                    effect: SwapEffect(
-                      dotWidth: 10,
-                      dotHeight: 10,
-                      activeDotColor: Colors.black,
-                      dotColor: Colors.grey.shade300,
+            Flexible(
+              flex: 1,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4.0),
+                    child: SmoothPageIndicator(
+                      controller: _controller,
+                      count: 3,
+                      effect: SwapEffect(
+                        dotWidth: 10,
+                        dotHeight: 10,
+                        activeDotColor: Colors.black,
+                        dotColor: Colors.grey.shade300,
+                      ),
                     ),
                   ),
-                ),
-                Flexible(
-                  flex: 1,
-                  child: OutlinedButton(
-                      onPressed: () {
-                        Navigator.pop(context, widget.user);
-                      },
-                      style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all(Colors.black)),
-                      child: const Text("RETORNAR")),
-                ),
-              ],
+                  Flexible(
+                    flex: 1,
+                    child: OutlinedButton(
+                        onPressed: () {
+                          Navigator.pop(context, widget.user);
+                        },
+                        style: ButtonStyle(
+                            foregroundColor:
+                                MaterialStateProperty.all(Colors.black)),
+                        child: const Text("RETORNAR")),
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

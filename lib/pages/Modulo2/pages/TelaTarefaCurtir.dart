@@ -14,7 +14,6 @@ class TelaTarefaCurtir extends StatefulWidget {
 class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
   @override
   Widget build(BuildContext context) {
-    var acertosList = context.watch<AcertosCurtidasNotifier>();
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(

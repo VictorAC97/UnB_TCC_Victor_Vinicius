@@ -14,6 +14,7 @@ class GenerateUserText extends StatelessWidget {
         SelectableText(
           _text(),
           style: textStyle,
+          textAlign: TextAlign.justify,
         ),
       ],
     );
@@ -63,6 +64,7 @@ class GenerateUserText extends StatelessWidget {
         "Eu Não gosto de ${user!.listaNaoGostoDe!.join(", ")}.",
       );
     }
+    texto.add('porfim, '.toUpperCase());
     if (user!.listaCorPreferida!.isNotEmpty && user!.listaSigno!.isNotEmpty) {
       texto.add(
         "A minha cor preferida é ${user!.listaCorPreferida!.join(", ")} e meu signo é ${user!.listaSigno!.join(", ")}.",

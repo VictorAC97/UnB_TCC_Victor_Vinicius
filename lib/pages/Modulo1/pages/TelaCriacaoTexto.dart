@@ -88,7 +88,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
               autovalidateMode: AutovalidateMode.always,
               validator: (value) {
                 if (widget.user!.nome == "") {
-                  return 'CAMPO OBRIGATÓRIO!';
+                  return '*';
                 }
                 return null;
               },
@@ -134,7 +134,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                 autovalidateMode: AutovalidateMode.always,
                 validator: (value) {
                   if (widget.user!.idade == "") {
-                    return 'CAMPO OBRIGATÓRIO!';
+                    return '*';
                   }
                   return null;
                 },
@@ -245,6 +245,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                     },
                   ),
                 ),
+                const Text(','),
                 ConstrainedBox(
                   constraints: BoxConstraints.tight(const Size(128, 96)),
                   child: TextFormField(
@@ -315,6 +316,7 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                     },
                   ),
                 ),
+                const Text(','),
                 ConstrainedBox(
                   constraints: BoxConstraints.tight(const Size(96, 96)),
                   child: TextFormField(
