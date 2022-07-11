@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AcertosCurtidasNotifier extends ChangeNotifier {
   List<String> _lista = [];
-  get lista => _lista;
+  List<String> get lista => _lista;
 
   addAcerto(String emojiCorreto) {
     if (!_lista.contains(emojiCorreto)) {

@@ -21,9 +21,16 @@ String getRandomPicture() {
   return pictureName;
 }
 
+String picture = '';
+
 class _TelaTarefaCompartilharState extends State<TelaTarefaCompartilhar> {
+  @override
+  void initState() {
+    picture = getRandomPicture();
+    super.initState();
+  }
+
   bool wrongTap = false;
-  String picture = getRandomPicture();
 
   @override
   Widget build(BuildContext context) {

@@ -26,6 +26,7 @@ class _SugestaoState extends State<Sugestao> {
   bool saved = false;
   bool checked = false;
   late TextEditingController _controller;
+  late ScrollController _scrollController;
 
   void _itemChange(String itemValue, bool isSelected) {
     setState(() {
@@ -45,12 +46,14 @@ class _SugestaoState extends State<Sugestao> {
   @override
   void initState() {
     _controller = TextEditingController();
+    _scrollController = ScrollController();
     super.initState();
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -102,32 +105,41 @@ class _SugestaoState extends State<Sugestao> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              ListBody(
-                children: widget.listaSugestoes.keys
-                    .map(
-                      (item) => CheckboxListTile(
-                        secondary: IconButton(
-                          tooltip: "VISUALIZAR EXEMPLO",
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) => VisualizarExemplo(
-                                  nomeExemplo: item,
-                                  image: widget.listaSugestoes[item]!),
-                            );
-                          },
-                          icon: const Icon(Icons.help),
-                        ),
-                        activeColor: Colors.black,
-                        title: Text(item),
-                        value: _selectedItems.contains(item),
-                        controlAffinity: ListTileControlAffinity.leading,
-                        onChanged: (isChecked) {
-                          _itemChange(item, isChecked!);
-                        },
-                      ),
-                    )
-                    .toList(),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 400,
+                child: Scrollbar(
+                  thumbVisibility: true,
+                  controller: _scrollController,
+                  child: ListView(
+                    controller: _scrollController,
+                    children: widget.listaSugestoes.keys
+                        .map(
+                          (item) => CheckboxListTile(
+                            secondary: IconButton(
+                              tooltip: "VISUALIZAR EXEMPLO",
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => VisualizarExemplo(
+                                      nomeExemplo: item,
+                                      image: widget.listaSugestoes[item]!),
+                                );
+                              },
+                              icon: const Icon(Icons.help),
+                            ),
+                            activeColor: Colors.black,
+                            title: Text(item),
+                            value: _selectedItems.contains(item),
+                            controlAffinity: ListTileControlAffinity.leading,
+                            onChanged: (isChecked) {
+                              _itemChange(item, isChecked!);
+                            },
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
               ),
             ],
           ),

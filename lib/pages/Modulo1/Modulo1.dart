@@ -32,7 +32,7 @@ class _Modulo1State extends State<Modulo1> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: const Text("MÓDULO 1 - Edição de Perfil"),
+        title: const Text("MÓDULO 1"),
       ),
       body: Center(
         child: PageView(

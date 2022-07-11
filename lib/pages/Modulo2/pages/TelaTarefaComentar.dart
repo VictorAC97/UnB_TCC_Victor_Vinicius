@@ -24,7 +24,8 @@ String getRandomPicture() {
 
 class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
   bool wrongTap = false;
-  String picture = getRandomPicture();
+  //String picture = getRandomPicture();
+  String picture = 'feliz2.jpg';
   @override
   Widget build(BuildContext context) {
     var containerComentariosController = context.watch<ComentariosNotifier>();

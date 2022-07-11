@@ -30,10 +30,10 @@ class _InfoEstudoState extends State<InfoEstudo> {
     setState(() {
       if (isSelected) {
         _selectedItems.add(itemValue);
-        print(_selectedItems);
+        //print(_selectedItems);
       } else {
         _selectedItems.remove(itemValue);
-        print(_selectedItems);
+        //print(_selectedItems);
       }
     });
   }
