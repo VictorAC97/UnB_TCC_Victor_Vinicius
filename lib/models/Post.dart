@@ -7,6 +7,7 @@ class Post {
   String mensagem;
   DateTime data;
   int curtidas = 0;
+  int compartilhamentos = 0;
   List<Comentario> comentarios = [];
 
   Post({

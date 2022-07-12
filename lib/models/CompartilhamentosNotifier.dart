@@ -19,6 +19,11 @@ class CompartilhamentosNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  compartilharPost(Post post) {
+    post.compartilhamentos++;
+    notifyListeners();
+  }
+
   curtirPost(Post post) {
     post.curtidas++;
     notifyListeners();
