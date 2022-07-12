@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
 class CompartilhamentosNotifier extends ChangeNotifier {
-  List<Map<String, String>> _lista = [];
+  List<Map<String, dynamic>> _lista = [];
 
-  List<Map<String, String>> get lista => _lista;
+  List<Map<String, dynamic>> get lista => _lista;
 
-  compartilhar(Map<String, String> newFoto) {
+  compartilhar(Map<String, dynamic> newFoto) {
     _lista.add(newFoto);
     notifyListeners();
   }

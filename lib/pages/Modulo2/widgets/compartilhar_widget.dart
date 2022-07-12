@@ -29,8 +29,8 @@ class _CompartilharWidgetState extends State<CompartilharWidget> {
   @override
   Widget build(BuildContext context) {
     var feed = context.watch<CompartilhamentosNotifier>();
-    Map<String, String> newPost = {
-      'comentario': '',
+    Map<String, dynamic> newPost = {
+      'mensagem': '',
       'foto': widget.pictureName,
       'data': '',
     };
@@ -76,9 +76,9 @@ class _CompartilharWidgetState extends State<CompartilharWidget> {
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(Colors.black)),
           onPressed: () {
-            newPost['comentario'] = mensagem;
+            newPost['mensagem'] = mensagem;
             newPost['foto'] = widget.pictureName;
-            newPost['data'] = DateTime.now().toString();
+            newPost['data'] = DateTime.now();
             feed.compartilhar(newPost);
             Navigator.pop(context);
           },
