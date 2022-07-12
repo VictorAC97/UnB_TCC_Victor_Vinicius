@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/CompartilhamentosNotifier.dart';
+import 'package:projeto_final_unb/models/Usuario.dart';
+import 'package:projeto_final_unb/pages/Modulo2/widgets/comentarios_post_widget.dart';
 import 'package:provider/provider.dart';
 
 class TelaFeedNoticias extends StatelessWidget {
-  const TelaFeedNoticias({Key? key}) : super(key: key);
+  final Usuario user;
+  const TelaFeedNoticias({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,18 +46,32 @@ class TelaFeedNoticias extends StatelessWidget {
                             padding: const EdgeInsets.all(12.0),
                             child: Row(
                               children: [
-                                const CircleAvatar(
+                                CircleAvatar(
                                   backgroundColor: Colors.white,
                                   foregroundColor: Colors.black,
-                                  child: Icon(Icons.person),
+                                  child: value.lista[reverseIndex].autor
+                                              .fotoPerfil ==
+                                          null
+                                      ? const Icon(Icons.person)
+                                      : SizedBox(
+                                          width: 50,
+                                          height: 50,
+                                          child: ClipOval(
+                                            child: Image.file(
+                                              value.lista[reverseIndex].autor
+                                                  .fotoPerfil!,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
                                 ),
                                 const Padding(padding: EdgeInsets.all(4)),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Text(
-                                      'Nome da Pessoa',
-                                      style: TextStyle(
+                                    Text(
+                                      value.lista[reverseIndex].autor.nome!,
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 17,
@@ -64,12 +81,13 @@ class TelaFeedNoticias extends StatelessWidget {
                                       children: [
                                         Text(
                                           DateTime.now()
-                                                      .difference(value.lista[
-                                                          reverseIndex]['data'])
+                                                      .difference(value
+                                                          .lista[reverseIndex]
+                                                          .data)
                                                       .inMinutes <
                                                   60
-                                              ? '${DateTime.now().difference(value.lista[reverseIndex]['data']).inMinutes} min atrás'
-                                              : '${DateTime.now().difference(value.lista[reverseIndex]['data']).inHours} h atrás',
+                                              ? '${DateTime.now().difference(value.lista[reverseIndex].data).inMinutes} min atrás'
+                                              : '${DateTime.now().difference(value.lista[reverseIndex].data).inHours} h atrás',
                                           style: const TextStyle(
                                             fontSize: 16,
                                             color: Colors.white,
@@ -93,18 +111,37 @@ class TelaFeedNoticias extends StatelessWidget {
                             child: Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                value.lista[reverseIndex]['mensagem']!,
+                                value.lista[reverseIndex].mensagem,
                                 style: const TextStyle(color: Colors.white),
                               ),
                             ),
                           ),
                           Image.asset(
-                              "assets/images/imagensCurtir/${value.lista[reverseIndex]['foto']}"),
+                              "assets/images/imagensCurtir/${value.lista[reverseIndex].foto}"),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  '${value.lista[reverseIndex].comentarios.length} comentário(s)',
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                                const Padding(padding: EdgeInsets.all(8)),
+                                Text(
+                                  '${value.lista[reverseIndex].curtidas} curtida(s)',
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               TextButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  value.curtirPost(value.lista[reverseIndex]);
+                                },
                                 style: ButtonStyle(
                                     foregroundColor: MaterialStateProperty.all(
                                         Colors.white)),
@@ -112,7 +149,15 @@ class TelaFeedNoticias extends StatelessWidget {
                                 label: const Text('Curtir'),
                               ),
                               TextButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) =>
+                                          ComentariosPostWidget(
+                                            post: value.lista[reverseIndex],
+                                            user: user,
+                                          ));
+                                },
                                 style: ButtonStyle(
                                     foregroundColor: MaterialStateProperty.all(
                                         Colors.white)),

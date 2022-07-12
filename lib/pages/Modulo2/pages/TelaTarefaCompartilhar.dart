@@ -1,13 +1,16 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/pages/Modulo2/pages/TelaFeedNoticias.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/compartilhar_widget.dart';
 import 'package:projeto_final_unb/utilities/picturesList.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingButton.dart';
 
 class TelaTarefaCompartilhar extends StatefulWidget {
-  const TelaTarefaCompartilhar({Key? key}) : super(key: key);
+  final Usuario user;
+  const TelaTarefaCompartilhar({Key? key, required this.user})
+      : super(key: key);
 
   @override
   State<TelaTarefaCompartilhar> createState() => _TelaTarefaCompartilharState();
@@ -82,8 +85,10 @@ class _TelaTarefaCompartilharState extends State<TelaTarefaCompartilhar> {
                           onPressed: () {
                             showDialog(
                               context: context,
-                              builder: (context) =>
-                                  CompartilharWidget(pictureName: picture),
+                              builder: (context) => CompartilharWidget(
+                                pictureName: picture,
+                                user: widget.user,
+                              ),
                             );
                           },
                         )
@@ -94,8 +99,10 @@ class _TelaTarefaCompartilharState extends State<TelaTarefaCompartilhar> {
                             });
                             showDialog(
                               context: context,
-                              builder: (context) =>
-                                  CompartilharWidget(pictureName: picture),
+                              builder: (context) => CompartilharWidget(
+                                pictureName: picture,
+                                user: widget.user,
+                              ),
                             );
                           },
                           label: const Text("Compartilhar"),
@@ -116,7 +123,7 @@ class _TelaTarefaCompartilharState extends State<TelaTarefaCompartilhar> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => const TelaFeedNoticias()));
+                  builder: (context) => TelaFeedNoticias(user: widget.user)));
         },
         label: const Text('Feed de Noticias'),
         backgroundColor: Colors.black,
