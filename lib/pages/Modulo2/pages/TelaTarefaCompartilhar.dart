@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/pages/Modulo2/pages/TelaFeedNoticias.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/compartilhar_widget.dart';
-import 'package:projeto_final_unb/utilities/picturesList.dart';
+import 'package:projeto_final_unb/utilities/picturesSugestionList.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingButton.dart';
 
 class TelaTarefaCompartilhar extends StatefulWidget {
@@ -19,8 +19,8 @@ class TelaTarefaCompartilhar extends StatefulWidget {
 String getRandomPicture() {
   String pictureName;
   Random random = Random();
-  int index = random.nextInt(picturesList.length);
-  pictureName = picturesList[index];
+  int index = random.nextInt(picturesSugestionList.length);
+  pictureName = picturesSugestionList[index];
   return pictureName;
 }
 
@@ -52,7 +52,7 @@ class _TelaTarefaCompartilharState extends State<TelaTarefaCompartilhar> {
               const Padding(padding: EdgeInsets.all(4)),
               GestureDetector(
                   child: Image.asset(
-                    "assets/images/imagensCurtir/$picture",
+                    "assets/images/sugestoes/$picture",
                   ),
                   onTap: wrongTapFunc),
               Row(

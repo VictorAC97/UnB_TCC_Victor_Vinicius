@@ -106,10 +106,12 @@ class Home extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  TelaConfiguracoes(appSettings: appSettings)));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              TelaConfiguracoes(appSettings: appSettings),
+                        ),
+                      );
                     },
                   ),
                 ],

@@ -32,7 +32,7 @@ class _Modulo2State extends State<Modulo2> {
             const TelaInstrucoesModulo2(),
             TelaConfiguracoesModulo2(appSettings: widget.appSettings!),
             const TelaTarefaCurtir(),
-            const TelaTarefaComentar(),
+            TelaTarefaComentar(user: widget.user!),
             TelaTarefaCompartilhar(user: widget.user!),
           ],
         ),

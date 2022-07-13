@@ -95,7 +95,7 @@ class _ComentariosPostWidgetState extends State<ComentariosPostWidget> {
         : '${DateTime.now().difference(date).inHours} h atrás';
 
 //usando o mounted para realizar setState apenas quando o widget estiver na arvore, pois se nao ele continua sendo atualizado fora da arvore e isso causa erro de memoria
-    Timer.periodic(const Duration(minutes: 2), (timer) {
+    Timer.periodic(const Duration(seconds: 90), (timer) {
       if (mounted) {
         setState(() {
           tempo;

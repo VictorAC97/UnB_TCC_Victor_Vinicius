@@ -66,7 +66,7 @@ class _CompartilharWidgetState extends State<CompartilharWidget> {
               },
             ),
             Image.asset(
-              "assets/images/imagensCurtir/${widget.pictureName}",
+              "assets/images/sugestoes/${widget.pictureName}",
             ),
           ],
         ),

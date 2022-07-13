@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/comentario_field_widget.dart';
 import 'package:projeto_final_unb/utilities/picturesList.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingButton.dart';
@@ -8,7 +9,8 @@ import 'package:provider/provider.dart';
 import '../../../models/ComentariosNotifier.dart';
 
 class TelaTarefaComentar extends StatefulWidget {
-  const TelaTarefaComentar({Key? key}) : super(key: key);
+  final Usuario user;
+  const TelaTarefaComentar({Key? key, required this.user}) : super(key: key);
 
   @override
   State<TelaTarefaComentar> createState() => _TelaTarefaComentarState();
@@ -126,15 +128,20 @@ class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
                   builder: ((context, value, child) {
                     return ListView.builder(
                       itemCount: value.comentarios.length,
-                      itemBuilder: ((context, index) => ListTile(
-                            leading: Column(
-                              children: const [
-                                Icon(Icons.person),
-                              ],
-                            ),
-                            title: const Text('Nome da pessoa'),
-                            subtitle: Text(value.comentarios[index]),
-                          )),
+                      itemBuilder: ((context, index) {
+                        int reverseIndex = value.comentarios.length - 1 - index;
+                        return ListTile(
+                          leading: Column(
+                            children: const [
+                              Icon(Icons.person),
+                            ],
+                          ),
+                          title: widget.user.nome == ''
+                              ? const Text('Anônimo')
+                              : Text(widget.user.nome!),
+                          subtitle: Text(value.comentarios[reverseIndex]),
+                        );
+                      }),
                     );
                   }),
                 ),

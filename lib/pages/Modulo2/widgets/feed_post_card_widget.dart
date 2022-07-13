@@ -93,7 +93,7 @@ class _FeedPostCardWidgetState extends State<FeedPostCardWidget> {
                 ),
               ),
             ),
-            Image.asset("assets/images/imagensCurtir/${widget.post.foto}"),
+            Image.asset("assets/images/sugestoes/${widget.post.foto}"),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
