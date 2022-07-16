@@ -23,19 +23,22 @@ class _TelaFeedNoticiasState extends State<TelaFeedNoticias> {
       ),
       body: Consumer<CompartilhamentosNotifier>(
         builder: ((context, value, child) {
-          return Scrollbar(
-            controller: _scrollController,
-            child: ListView.builder(
-                controller: _scrollController,
-                itemCount: value.lista.length,
-                itemBuilder: (context, index) {
-                  int reverseIndex = value.lista.length - 1 - index;
-                  return FeedPostCardWidget(
-                    post: value.lista[reverseIndex],
-                    user: widget.user,
-                  );
-                }),
-          );
+          return value.lista.isEmpty
+              ? const Center(
+                  child: Text('Feed de Notícias sem nenhum compartilhamento.'))
+              : Scrollbar(
+                  controller: _scrollController,
+                  child: ListView.builder(
+                      controller: _scrollController,
+                      itemCount: value.lista.length,
+                      itemBuilder: (context, index) {
+                        int reverseIndex = value.lista.length - 1 - index;
+                        return FeedPostCardWidget(
+                          post: value.lista[reverseIndex],
+                          user: widget.user,
+                        );
+                      }),
+                );
         }),
       ),
     );

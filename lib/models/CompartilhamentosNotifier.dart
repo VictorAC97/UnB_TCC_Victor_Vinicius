@@ -12,6 +12,11 @@ class CompartilhamentosNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  removerCompartilhamento(Post post) {
+    _lista.remove(post);
+    notifyListeners();
+  }
+
   comentarNoPost(Comentario comentario, Post post) {
     if (_lista.contains(post)) {
       post.comentarios.add(comentario);

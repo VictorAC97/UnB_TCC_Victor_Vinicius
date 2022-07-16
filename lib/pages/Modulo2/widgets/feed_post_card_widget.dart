@@ -17,7 +17,25 @@ class FeedPostCardWidget extends StatefulWidget {
   State<FeedPostCardWidget> createState() => _FeedPostCardWidgetState();
 }
 
+late Timer timer;
+
 class _FeedPostCardWidgetState extends State<FeedPostCardWidget> {
+  @override
+  void initState() {
+    timer = Timer.periodic(const Duration(minutes: 1), (timer) {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var feedNotifier = context.watch<CompartilhamentosNotifier>();
@@ -36,51 +54,62 @@ class _FeedPostCardWidgetState extends State<FeedPostCardWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                    child: widget.post.autor.fotoPerfil == null
-                        ? const Icon(Icons.person)
-                        : SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: ClipOval(
-                              child: Image.file(
-                                widget.post.autor.fotoPerfil!,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+            ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.black,
+                child: widget.post.autor.fotoPerfil == null
+                    ? const Icon(Icons.person)
+                    : SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: ClipOval(
+                          child: Image.file(
+                            widget.post.autor.fotoPerfil!,
+                            fit: BoxFit.cover,
                           ),
-                  ),
-                  const Padding(padding: EdgeInsets.all(4)),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.post.autor.nome!,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
                         ),
                       ),
-                      Row(
-                        children: [
-                          horarioDecorrido(widget.post.data),
-                          const Padding(padding: EdgeInsets.all(4)),
-                          const Icon(
-                            Icons.public,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
-                    ],
+              ),
+              title: Text(
+                widget.post.autor.nome!,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
+              ),
+              subtitle: Row(
+                children: [
+                  horarioDecorrido(widget.post.data),
+                  const Padding(padding: EdgeInsets.all(4)),
+                  const Icon(
+                    Icons.public,
+                    color: Colors.white,
                   ),
                 ],
+              ),
+              trailing: PopupMenuButton(
+                position: PopupMenuPosition.under,
+                icon: const Icon(
+                  Icons.more_horiz,
+                  color: Colors.white,
+                ),
+                itemBuilder: ((context) => [
+                      PopupMenuItem(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text('Remover Publicação'),
+                            Icon(Icons.delete),
+                          ],
+                        ),
+                        onTap: () =>
+                            feedNotifier.removerCompartilhamento(widget.post),
+                        //onTap:
+                        //feedNotifier.removerCompartilhamento(widget.post),
+                      ),
+                    ]),
               ),
             ),
             Padding(
@@ -172,14 +201,6 @@ class _FeedPostCardWidgetState extends State<FeedPostCardWidget> {
     String tempo = DateTime.now().difference(date).inMinutes < 60
         ? '${DateTime.now().difference(date).inMinutes} min atrás'
         : '${DateTime.now().difference(date).inHours} h atrás';
-    //usando o mounted para realizar setState apenas quando o widget estiver na arvore, pois se nao ele continua sendo atualizado fora da arvore e isso causa erro de memoria
-    Timer.periodic(const Duration(minutes: 1), (timer) {
-      if (mounted) {
-        setState(() {
-          tempo;
-        });
-      }
-    });
 
     return Text(
       tempo,

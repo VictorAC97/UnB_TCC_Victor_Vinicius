@@ -112,10 +112,12 @@ class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
                 curve: Curves.bounceOut,
                 child: SingleChildScrollView(
                   child: Column(
-                    children: const [
+                    children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 8.0, right: 8.0),
-                        child: ComentarioFieldWidget(),
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                        child: ComentarioFieldWidget(
+                          user: widget.user,
+                        ),
                       ),
                     ],
                   ),
@@ -131,15 +133,16 @@ class _TelaTarefaComentarState extends State<TelaTarefaComentar> {
                       itemBuilder: ((context, index) {
                         int reverseIndex = value.comentarios.length - 1 - index;
                         return ListTile(
-                          leading: Column(
-                            children: const [
-                              Icon(Icons.person),
-                            ],
+                          leading: const CircleAvatar(
+                            child: Icon(Icons.person),
+                            backgroundColor: Colors.black,
+                            foregroundColor: Colors.white,
                           ),
                           title: widget.user.nome == ''
                               ? const Text('Anônimo')
                               : Text(widget.user.nome!),
-                          subtitle: Text(value.comentarios[reverseIndex]),
+                          subtitle:
+                              Text(value.comentarios[reverseIndex].mensagem),
                         );
                       }),
                     );

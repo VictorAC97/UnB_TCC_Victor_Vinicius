@@ -13,7 +13,25 @@ class ComentarioPostCardWidget extends StatefulWidget {
       _ComentarioPostCardWidgetState();
 }
 
+late Timer timer;
+
 class _ComentarioPostCardWidgetState extends State<ComentarioPostCardWidget> {
+  @override
+  void initState() {
+    timer = Timer.periodic(const Duration(minutes: 1), (timer) {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -43,12 +61,6 @@ class _ComentarioPostCardWidgetState extends State<ComentarioPostCardWidget> {
     String tempo = DateTime.now().difference(date).inMinutes < 60
         ? '${DateTime.now().difference(date).inMinutes} min atrás'
         : '${DateTime.now().difference(date).inHours} h atrás';
-
-    Timer.periodic(const Duration(minutes: 1), (timer) {
-      setState(() {
-        tempo;
-      });
-    });
 
     return Text(tempo);
   }

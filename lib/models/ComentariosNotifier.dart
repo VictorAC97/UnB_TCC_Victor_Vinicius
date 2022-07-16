@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/models/Comentario.dart';
 
 class ComentariosNotifier extends ChangeNotifier {
-  List<String> _comentarios = [];
+  List<Comentario> _comentarios = [];
   bool animationContainerVisible = false;
 
-  List<String> get comentarios => _comentarios;
+  List<Comentario> get comentarios => _comentarios;
 
   abrirContainer() {
     animationContainerVisible = true;
@@ -16,13 +17,13 @@ class ComentariosNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  addComentario(String newComentario) {
+  addComentario(Comentario newComentario) {
     _comentarios.add(newComentario);
     notifyListeners();
     fecharContainer();
   }
 
-  removerComentario(String comentario) {
+  removerComentario(Comentario comentario) {
     if (_comentarios.contains(comentario)) {
       _comentarios.remove(comentario);
     }

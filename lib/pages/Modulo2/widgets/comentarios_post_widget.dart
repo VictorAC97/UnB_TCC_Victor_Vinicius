@@ -1,10 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/models/CompartilhamentosNotifier.dart';
 import 'package:projeto_final_unb/models/Post.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/comentario_post_card_widget.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/novo_comentario_post_dialog.dart';
+import 'package:provider/provider.dart';
 
 class ComentariosPostWidget extends StatefulWidget {
   final Usuario user;
@@ -39,25 +39,29 @@ class _ComentariosPostWidgetState extends State<ComentariosPostWidget> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: const Text('COMENTÁRIOS'),
-      content: SizedBox(
-        height: 300,
-        width: MediaQuery.of(context).size.width,
-        child: widget.post.comentarios.isEmpty
-            ? const Text('Ainda não há nenhum comentário.')
-            : Scrollbar(
-                thumbVisibility: true,
-                controller: _scrollController,
-                child: ListView.builder(
-                  controller: _scrollController,
-                  itemCount: widget.post.comentarios.length,
-                  itemBuilder: ((context, index) {
-                    int reverseIndex =
-                        widget.post.comentarios.length - 1 - index;
-                    return ComentarioPostCardWidget(
-                        comentario: widget.post.comentarios[reverseIndex]);
-                  }),
-                ),
-              ),
+      content: Consumer<CompartilhamentosNotifier>(
+        builder: (context, value, child) {
+          return SizedBox(
+            height: 300,
+            width: MediaQuery.of(context).size.width,
+            child: widget.post.comentarios.isEmpty
+                ? const Text('Ainda não há nenhum comentário.')
+                : Scrollbar(
+                    thumbVisibility: true,
+                    controller: _scrollController,
+                    child: ListView.builder(
+                      controller: _scrollController,
+                      itemCount: widget.post.comentarios.length,
+                      itemBuilder: ((context, index) {
+                        int reverseIndex =
+                            widget.post.comentarios.length - 1 - index;
+                        return ComentarioPostCardWidget(
+                            comentario: widget.post.comentarios[reverseIndex]);
+                      }),
+                    ),
+                  ),
+          );
+        },
       ),
       actions: [
         OutlinedButton(
@@ -87,22 +91,5 @@ class _ComentariosPostWidgetState extends State<ComentariosPostWidget> {
         ),
       ],
     );
-  }
-
-  horarioDecorrido(DateTime date) {
-    String tempo = DateTime.now().difference(date).inMinutes < 60
-        ? '${DateTime.now().difference(date).inMinutes} min atrás'
-        : '${DateTime.now().difference(date).inHours} h atrás';
-
-//usando o mounted para realizar setState apenas quando o widget estiver na arvore, pois se nao ele continua sendo atualizado fora da arvore e isso causa erro de memoria
-    Timer.periodic(const Duration(seconds: 90), (timer) {
-      if (mounted) {
-        setState(() {
-          tempo;
-        });
-      }
-    });
-
-    return Text(tempo);
   }
 }

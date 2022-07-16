@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_final_unb/models/Comentario.dart';
 import 'package:projeto_final_unb/models/ComentariosNotifier.dart';
+import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:provider/provider.dart';
 
 class ComentarioFieldWidget extends StatefulWidget {
-  const ComentarioFieldWidget({Key? key}) : super(key: key);
+  final Usuario user;
+  const ComentarioFieldWidget({Key? key, required this.user}) : super(key: key);
 
   @override
   State<ComentarioFieldWidget> createState() => _ComentarioFieldWidgetState();
@@ -27,7 +30,7 @@ class _ComentarioFieldWidgetState extends State<ComentarioFieldWidget> {
   @override
   Widget build(BuildContext context) {
     var comentarios = context.watch<ComentariosNotifier>();
-    String newComentario = '';
+    String textoComentario = '';
     return Column(
       children: [
         TextFormField(
@@ -39,12 +42,17 @@ class _ComentarioFieldWidgetState extends State<ComentarioFieldWidget> {
             icon: Icon(Icons.send_rounded),
           ),
           onChanged: (value) {
-            newComentario = value;
+            textoComentario = value;
           },
         ),
         OutlinedButton.icon(
           onPressed: () {
-            comentarios.addComentario(newComentario);
+            Comentario comentario = Comentario(
+              mensagem: textoComentario,
+              data: DateTime.now(),
+              autor: widget.user,
+            );
+            comentarios.addComentario(comentario);
             _controller.clear();
           },
           label: const Text(
