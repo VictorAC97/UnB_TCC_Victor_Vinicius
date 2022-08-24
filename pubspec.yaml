@@ -84,6 +84,7 @@ flutter:
     - assets/images/emojis/
     - assets/images/sugestoes/
     - assets/images/imagensCurtir/
+    - assets/images/imagensPostar/
     - assets/videos/
 
   # An image asset can refer to one or more resolution-specific "variants", see

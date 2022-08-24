@@ -72,7 +72,9 @@ class _FeedPostCardWidgetState extends State<FeedPostCardWidget> {
                       ),
               ),
               title: Text(
-                widget.post.autor.nome!,
+                widget.post.autor.nome! != ''
+                    ? widget.post.autor.nome!
+                    : 'Anônimo',
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
