@@ -1,10 +1,10 @@
 List<Map<String, dynamic>> listaPodePostar = [
   {
-    "nome-foto": "vestidaParaTrabalho.jpg",
+    "nome_foto": "vestidaParaTrabalho.jpg",
     "pode-postar": true,
   },
   {
-    "nome-foto": "bicicleta.jpg",
+    "nome_foto": "bicicleta.jpg",
     "pode-postar": true,
   },
   {

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
+import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodeEscrever.dart';
 import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodePostarFoto.dart';
+import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarFotos.dart';
+import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarPalavraFrase.dart';
 
 import 'pages/TelaInstrucoesModulo3.dart';
 
@@ -15,6 +18,11 @@ class Modulo3 extends StatefulWidget {
 class _Modulo3State extends State<Modulo3> {
   @override
   Widget build(BuildContext context) {
+    var listaNomesFotos = gerarNomesFotos();
+    var listaFrasesPalavras = gerarPalavrasFrases();
+    List<Map<String, dynamic>> acertosFotos = [];
+    List<Map<String, dynamic>> acertosFrasesPalavras = [];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -25,9 +33,13 @@ class _Modulo3State extends State<Modulo3> {
         child: PageView(
           children: [
             const TelaInstrucoesModulo3(),
-            const TelaTarefaPodePostarFoto(),
-            Container(
-              color: Colors.blue,
+            TelaTarefaPodePostarFoto(
+              listaNomesFotos: listaNomesFotos,
+              acertos: acertosFotos,
+            ),
+            TelaTarefaPodeEscrever(
+              listaFrasesPalavras: listaFrasesPalavras,
+              acertos: acertosFrasesPalavras,
             ),
           ],
         ),

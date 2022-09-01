@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarFotos.dart';
+import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarPalavraFrase.dart';
 
-class TelaTarefaPodePostarFoto extends StatefulWidget {
-  List<Map<String, dynamic>> listaNomesFotos;
+class TelaTarefaPodeEscrever extends StatefulWidget {
+  List<Map<String, dynamic>> listaFrasesPalavras;
   List<Map<String, dynamic>> acertos;
-  TelaTarefaPodePostarFoto(
-      {Key? key, required this.listaNomesFotos, required this.acertos})
-      : super(key: key);
+
+  TelaTarefaPodeEscrever({
+    Key? key,
+    required this.listaFrasesPalavras,
+    required this.acertos,
+  }) : super(key: key);
 
   @override
-  State<TelaTarefaPodePostarFoto> createState() =>
-      _TelaTarefaPodePostarFotoState();
+  State<TelaTarefaPodeEscrever> createState() => _TelaTarefaPodeEscreverState();
 }
 
-class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
+class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
             padding: const EdgeInsets.all(8.0),
             child: Column(children: [
               const Text(
-                "O QUE POSSO POSTAR NAS REDES SOCIAIS ?",
+                "O QUE POSSO ESCREVER NAS REDES SOCIAIS ?",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const Divider(thickness: 1.0),
@@ -34,13 +36,27 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                     crossAxisCount: 3,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    children: widget.listaNomesFotos
+                    children: widget.listaFrasesPalavras
                         .map(
                           (e) => Draggable<Map<String, dynamic>>(
-                            feedback: SizedBox(
-                              height: 120,
-                              child: Image.asset(
-                                  'assets/images/imagensPostar/${e["nome_foto"]}'),
+                            feedback: Container(
+                              child: Center(
+                                child: Text(
+                                  '${e["frase-palavra"]}',
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.black,
+                                      decoration: TextDecoration.none),
+                                ),
+                              ),
+                              width: 140,
+                              height: 140,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(width: 3),
+                                color: const Color.fromARGB(255, 221, 221, 221),
+                              ),
                             ),
                             child: widget.acertos.contains(e)
                                 ? const Icon(
@@ -48,10 +64,20 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                                     color: Colors.green,
                                     size: 50,
                                   )
-                                : SizedBox(
-                                    height: 150,
-                                    child: Image.asset(
-                                        'assets/images/imagensPostar/${e["nome_foto"]}'),
+                                : Container(
+                                    child: Center(
+                                        child: Text(
+                                      '${e["frase-palavra"]}',
+                                      textAlign: TextAlign.center,
+                                    )),
+                                    height: 100,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all(width: 3),
+                                      color: const Color.fromARGB(
+                                          255, 221, 221, 221),
+                                    ),
                                   ),
                             childWhenDragging: Container(),
                             data: e,
@@ -65,8 +91,8 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                     child: Center(
                         child: Text(
                       "Arraste a resposta até aqui.".toUpperCase(),
-                      style: const TextStyle(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     )),
                     height: 170,
                     width: 200,
@@ -87,7 +113,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                   if (data!.containsValue(false)) {
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         backgroundColor: Colors.red,
-                        content: Text('NÃO POSTE ISSO NAS REDES SOCIAIS!')));
+                        content: Text('NÃO ESCREVA ISSO NAS REDES SOCIAIS!')));
                   }
                 },
               ),
@@ -101,7 +127,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
           onPressed: () {
             setState(() {
               widget.acertos = [];
-              widget.listaNomesFotos = gerarNomesFotos();
+              widget.listaFrasesPalavras = gerarPalavrasFrases();
             });
           }),
     );

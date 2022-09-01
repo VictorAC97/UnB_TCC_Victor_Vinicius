@@ -16,7 +16,27 @@ class _TelaDuvidasState extends State<TelaDuvidas> {
         title: const Text("SOBRE O APP"),
         centerTitle: true,
       ),
-      body: const Center(),
+      body: Center(
+        child: Column(
+          children: const [
+            Text(
+              "Idealização - Profa. Maraisa Helena Borges Estevão Pereira",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "Orientador - Prof. Dr. Wilson Henrique Veneziano",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+            Text(
+              "Desenvolvedores - Victor Alves de Carvalho e Marcus Vinícius Lopes",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
