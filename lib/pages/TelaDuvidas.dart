@@ -18,6 +18,7 @@ class _TelaDuvidasState extends State<TelaDuvidas> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Text(
               "Idealização - Profa. Maraisa Helena Borges Estevão Pereira",

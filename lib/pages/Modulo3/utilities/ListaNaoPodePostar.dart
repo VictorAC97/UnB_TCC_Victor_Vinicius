@@ -84,14 +84,6 @@ List<Map<String, dynamic>> listaNaoPodePostar = [
     "pode-postar": false,
   },
   {
-    "nome_foto": "cartaoDeCredito.jpg",
-    "pode-postar": false,
-  },
-  {
-    "nome_foto": "casalBeijando.jpg",
-    "pode-postar": false,
-  },
-  {
     "nome_foto": "casalBeijando.jpg",
     "pode-postar": false,
   },
