@@ -107,7 +107,7 @@ class _SugestaoState extends State<Sugestao> {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                height: 400,
+                height: 300,
                 child: Scrollbar(
                   thumbVisibility: true,
                   controller: _scrollController,

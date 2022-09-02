@@ -134,7 +134,10 @@ class _FeedPostCardWidgetState extends State<FeedPostCardWidget> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       '${widget.post.curtidas} curtida(s)',
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
                     ),
                   ),
                   Row(
@@ -144,12 +147,18 @@ class _FeedPostCardWidgetState extends State<FeedPostCardWidget> {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           '${widget.post.comentarios.length} comentário(s)',
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                       Text(
                         '${widget.post.compartilhamentos} compartilhamento(s)',
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
                       ),
                     ],
                   ),
