@@ -64,7 +64,8 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                   return Container(
                     child: Center(
                         child: Text(
-                      "Arraste a resposta até aqui.".toUpperCase(),
+                      "Toque na imagem correta e arraste até aqui."
+                          .toUpperCase(),
                       style: const TextStyle(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     )),
@@ -91,6 +92,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                   }
                 },
               ),
+              const Padding(padding: EdgeInsets.all(32)),
             ]),
           ),
         ),

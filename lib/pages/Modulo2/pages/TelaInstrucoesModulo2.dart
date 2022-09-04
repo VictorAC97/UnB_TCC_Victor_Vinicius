@@ -79,7 +79,7 @@ class TelaInstrucoesModulo2 extends StatelessWidget {
                     backgroundColor: Colors.black,
                   ),
                   title: Text(
-                    "Para navegar entre paginas, arraste para esquerda ou direita."
+                    "Para navegar entre paginas, arraste para direita ou esquerda."
                         .toUpperCase(),
                   ),
                 ),

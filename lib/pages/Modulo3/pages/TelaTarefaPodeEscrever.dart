@@ -90,7 +90,8 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                   return Container(
                     child: Center(
                         child: Text(
-                      "Arraste a resposta até aqui.".toUpperCase(),
+                      "Toque na frase ou palavra correta e arraste até aqui."
+                          .toUpperCase(),
                       textAlign: TextAlign.center,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     )),
@@ -117,6 +118,7 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                   }
                 },
               ),
+              const Padding(padding: EdgeInsets.all(32)),
             ]),
           ),
         ),
