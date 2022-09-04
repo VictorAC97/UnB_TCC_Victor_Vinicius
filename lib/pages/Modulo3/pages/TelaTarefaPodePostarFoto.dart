@@ -95,9 +95,10 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
           backgroundColor: Colors.black,
-          child: const Icon(Icons.shuffle, size: 40),
+          icon: const Icon(Icons.shuffle, size: 40),
+          label: const Text("REFAZER"),
           onPressed: () {
             setState(() {
               widget.acertos = [];

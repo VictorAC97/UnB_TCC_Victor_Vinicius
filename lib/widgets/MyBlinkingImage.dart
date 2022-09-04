@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class MyBlinkingImage extends StatefulWidget {
@@ -15,7 +17,11 @@ class _MyBlinkingImageState extends State<MyBlinkingImage>
   @override
   void initState() {
     _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+        vsync: this, duration: const Duration(milliseconds: 300))
+      ..addListener(() {
+        Timer(const Duration(milliseconds: 1450),
+            () => _animationController.stop());
+      });
     _animationController.repeat(reverse: true);
     super.initState();
   }
