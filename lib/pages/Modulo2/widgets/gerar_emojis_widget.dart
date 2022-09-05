@@ -1,16 +1,19 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/models/AcertosCurtidasNotifier.dart';
+import 'package:projeto_final_unb/utilities/conceitosList.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingImage.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/feedback_foto_curtida_widget.dart';
-import '../../../utilities/emojisList.dart';
-import 'package:provider/provider.dart';
 
 class GerarEmojis extends StatefulWidget {
   final String? emojiCorreto;
   final String? nomeFoto;
-  const GerarEmojis({Key? key, this.emojiCorreto, this.nomeFoto})
+  int indexConceitoList;
+  GerarEmojis(
+      {Key? key,
+      this.emojiCorreto,
+      this.nomeFoto,
+      required this.indexConceitoList})
       : super(key: key);
 
   @override
@@ -19,52 +22,68 @@ class GerarEmojis extends StatefulWidget {
 
 List<String> emojis = [];
 
-randomizePositions(List<String> list) {
-  list.shuffle();
-}
-
-List<String> generateWrongAnswers(String emojiCorreto) {
+List<String> generateAnswers(int conceitoListIndex) {
   int i = 0;
-  List<String> wrongAnswers = [];
+  List<String> answers = [];
+  int position;
   Random random = Random();
+  //adicionar resposta correta
+  position = random
+      .nextInt(conceitosList[conceitoListIndex]['emojis-corretos'].length);
+  answers.add(conceitosList[conceitoListIndex]['emojis-corretos'][position]);
+
+  //adicionando respostas erradas
   while (i < 2) {
-    int position = random.nextInt(emojisList.length);
-    if (emojisList[position] != emojiCorreto &&
-        wrongAnswers.contains(emojisList[position]) == false) {
-      wrongAnswers.add(emojisList[position]);
+    position = random
+        .nextInt(conceitosList[conceitoListIndex]['emojis-errados'].length);
+    if (!answers.contains(
+        conceitosList[conceitoListIndex]['emojis-errados'][position])) {
+      answers.add(conceitosList[conceitoListIndex]['emojis-errados'][position]);
       i++;
     }
   }
-  return wrongAnswers;
+  answers.shuffle();
+  return answers;
 }
 
 class _GerarEmojisState extends State<GerarEmojis> {
   int tentativas = 0;
 
   getEmojis() {
-    emojis = generateWrongAnswers(widget.emojiCorreto!);
-    emojis.add(widget.emojiCorreto!);
+    emojis = generateAnswers(widget.indexConceitoList);
   }
 
   @override
   void initState() {
     getEmojis();
-    randomizePositions(emojis);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     AppSettings appSettings = AppSettings();
-    var acerto = context.watch<AcertosCurtidasNotifier>();
+    //var acerto = context.watch<AcertosCurtidasNotifier>();
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: emojis
           .map((emoji) => InkWell(
                 splashColor: Colors.blue,
-                onTap: emoji != widget.emojiCorreto
+                onTap: conceitosList[widget.indexConceitoList]
+                            ['emojis-corretos']
+                        .contains(emoji)
                     ? () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return FeedBackFotoCurtida(
+                              appSettings: appSettings,
+                            );
+                          },
+                        );
+                        //acerto.addAcerto(widget.nomeFoto!);
+                      }
+                    : () {
                         setState(() {
                           tentativas++;
                         });
@@ -76,20 +95,12 @@ class _GerarEmojisState extends State<GerarEmojis> {
                                 children: const [
                                   Text('RESPOSTA INCORRETA!'),
                                 ])));
-                      }
-                    : () {
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return FeedBackFotoCurtida(
-                              appSettings: appSettings,
-                            );
-                          },
-                        );
-                        acerto.addAcerto(widget.nomeFoto!);
                       },
                 child: SizedBox(
-                  child: tentativas >= 2 && emoji == widget.emojiCorreto
+                  child: tentativas >= 2 &&
+                          conceitosList[widget.indexConceitoList]
+                                  ['emojis-corretos']
+                              .contains(emoji)
                       ? MyBlinkingImage(path: "assets/images/emojis/$emoji")
                       : Image.asset("assets/images/emojis/$emoji"),
                   width: 100,
