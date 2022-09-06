@@ -19,21 +19,57 @@ class _TelaDuvidasState extends State<TelaDuvidas> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text(
-              "Idealização - Profa. Maraisa Helena Borges Estevão Pereira",
-              style: TextStyle(fontWeight: FontWeight.bold),
+          children: [
+            Column(
+              children: [
+                const Text(
+                  "Idealização",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const Text(
+                  "Profa. Maraisa Helena Borges Estevão Pereira",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: const [
+                      Text(
+                        "Orientador",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "Prof. Dr. Wilson Henrique Veneziano",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+                const Text(
+                  "Desenvolvedores",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Text(
+                  "Victor Alves de Carvalho",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Text(
+                  "Marcus Vinícius Lopes",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "Orientador - Prof. Dr. Wilson Henrique Veneziano",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-            Text(
-              "Desenvolvedores - Victor Alves de Carvalho e Marcus Vinícius Lopes",
-              style: TextStyle(fontWeight: FontWeight.bold),
+              padding: const EdgeInsets.all(60.0),
+              child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Image.asset("assets/credits/logoCic.png")),
             ),
           ],
         ),

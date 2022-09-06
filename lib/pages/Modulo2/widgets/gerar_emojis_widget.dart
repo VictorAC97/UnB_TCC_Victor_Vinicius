@@ -1,20 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/utilities/conceitosList.dart';
+import 'package:projeto_final_unb/utilities/emojisList.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingImage.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/feedback_foto_curtida_widget.dart';
 
 class GerarEmojis extends StatefulWidget {
-  final String? emojiCorreto;
-  final String? nomeFoto;
   int indexConceitoList;
-  GerarEmojis(
-      {Key? key,
-      this.emojiCorreto,
-      this.nomeFoto,
-      required this.indexConceitoList})
-      : super(key: key);
+  GerarEmojis({Key? key, required this.indexConceitoList}) : super(key: key);
 
   @override
   State<GerarEmojis> createState() => _GerarEmojisState();
@@ -34,11 +28,11 @@ List<String> generateAnswers(int conceitoListIndex) {
 
   //adicionando respostas erradas
   while (i < 2) {
-    position = random
-        .nextInt(conceitosList[conceitoListIndex]['emojis-errados'].length);
-    if (!answers.contains(
-        conceitosList[conceitoListIndex]['emojis-errados'][position])) {
-      answers.add(conceitosList[conceitoListIndex]['emojis-errados'][position]);
+    position = random.nextInt(emojisList.length);
+    if (!answers.contains(emojisList[position]) &&
+        !conceitosList[conceitoListIndex]['emojis-corretos']
+            .contains(emojisList[position])) {
+      answers.add(emojisList[position]);
       i++;
     }
   }

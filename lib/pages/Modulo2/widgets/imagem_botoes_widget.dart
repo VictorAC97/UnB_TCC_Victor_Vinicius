@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/gerar_emojis_widget.dart';
 import 'package:projeto_final_unb/utilities/conceitosList.dart';
-import 'package:projeto_final_unb/utilities/pictureAndEmoji.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingButton.dart';
 
 class ImagemBotoesWidget extends StatefulWidget {
@@ -26,6 +25,7 @@ class _ImagemBotoesWidgetState extends State<ImagemBotoesWidget> {
         GestureDetector(
           child: Image.asset(
             "assets/images/imagensCurtir/${conceitosList[widget.indexConceitoList]['fotos'][widget.index]}",
+            height: 300,
           ),
           onTap: () {
             setState(() {
@@ -107,8 +107,6 @@ class _ImagemBotoesWidgetState extends State<ImagemBotoesWidget> {
           child: SingleChildScrollView(
             child: GerarEmojis(
               indexConceitoList: widget.indexConceitoList,
-              emojiCorreto: fotoEemoji[widget.index]['emoji'],
-              nomeFoto: fotoEemoji[widget.index]['foto'],
             ),
           ),
         ),
