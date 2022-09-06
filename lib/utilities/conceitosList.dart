@@ -90,6 +90,7 @@ List<Map<String, dynamic>> conceitosList = [
       "caraIrritado.png",
       "caraMuitaRaiva.png",
       "caraVirandoOsOlhos.png",
+      'caraFalandoPalavrasFeias.png',
     ],
   },
   {
@@ -115,6 +116,7 @@ List<Map<String, dynamic>> conceitosList = [
       "caraRaiva.png",
       "caraIrritado.png",
       "caraMuitaRaiva.png",
+      'caraFalandoPalavrasFeias.png',
     ],
   },
   {
