@@ -6,7 +6,7 @@ import 'package:projeto_final_unb/pages/Modulo1/Modulo1.dart';
 import 'package:projeto_final_unb/pages/Modulo2/Modulo2.dart';
 import 'package:projeto_final_unb/pages/Modulo3/Modulo3.dart';
 import 'package:projeto_final_unb/pages/TelaConfiguracoes.dart';
-import 'package:projeto_final_unb/pages/TelaDuvidas.dart';
+import 'package:projeto_final_unb/pages/TelaCreditos.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 
 class Home extends StatelessWidget {
@@ -124,7 +124,7 @@ class Home extends StatelessWidget {
           backgroundColor: Colors.black,
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const TelaDuvidas()));
+                MaterialPageRoute(builder: (context) => const TelaCreditos()));
           },
           child: const Icon(Icons.help_outline, size: 40)),
     );

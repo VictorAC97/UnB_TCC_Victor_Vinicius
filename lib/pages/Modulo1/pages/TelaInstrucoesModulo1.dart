@@ -80,7 +80,7 @@ class TelaInstrucoesModulo1 extends StatelessWidget {
                     backgroundColor: Colors.black,
                   ),
                   title: Text(
-                    "Para iniciar a tarefa do módulo 1, toque na imagem circular."
+                    "Para iniciar a tarefa do módulo 1, arraste para a esquerda e toque na imagem circular."
                         .toUpperCase(),
                   ),
                 ),
