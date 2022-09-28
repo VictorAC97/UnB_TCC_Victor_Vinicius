@@ -40,13 +40,7 @@ class _Modulo1State extends State<Modulo1> {
         child: PageView(
           controller: _pageController,
           onPageChanged: (index) {
-            setState(() {
-              currentIndexPage = index;
-            });
-
-            _pageController.animateToPage(currentIndexPage,
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.linear);
+            currentIndexPage = index;
           },
           children: [
             const TelaInstrucoesModulo1(),
@@ -66,8 +60,7 @@ class _Modulo1State extends State<Modulo1> {
         children: [
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(
-                  currentIndexPage > 0 ? Colors.black : Colors.grey.shade400),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -81,9 +74,8 @@ class _Modulo1State extends State<Modulo1> {
               if (currentIndexPage > 0) {
                 currentIndexPage--;
                 _pageController.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.linear);
-                //setState(() {});
               }
             },
           ),
@@ -99,8 +91,7 @@ class _Modulo1State extends State<Modulo1> {
           ),
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(
-                  currentIndexPage < 1 ? Colors.black : Colors.grey.shade400),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -114,9 +105,8 @@ class _Modulo1State extends State<Modulo1> {
               if (currentIndexPage < 1) {
                 currentIndexPage++;
                 _pageController.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.linear);
-                setState(() {});
               }
             },
           ),

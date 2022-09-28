@@ -85,48 +85,52 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                         )
                         .toList()),
               ),
-              DragTarget<Map<String, dynamic>>(
-                builder: ((context, candidateData, rejectedData) {
-                  return Container(
-                    child: Center(
-                        child: Text(
-                      "Toque na frase ou palavra correta e arraste até aqui."
-                          .toUpperCase(),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    )),
-                    height: 135,
-                    width: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(width: 3),
-                      color: const Color.fromARGB(255, 165, 165, 165),
-                    ),
-                  );
-                }),
-                onWillAccept: (data) => data!.containsValue(true),
-                onAccept: (data) {
-                  setState(() {
-                    widget.acertos.add(data);
-                  });
-                },
-                onLeave: (data) {
-                  if (data!.containsValue(false)) {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        backgroundColor: Colors.red,
-                        content: Text('NÃO ESCREVA ISSO NAS REDES SOCIAIS!')));
-                  }
-                },
+              Padding(
+                padding: const EdgeInsets.all(14.0),
+                child: DragTarget<Map<String, dynamic>>(
+                  builder: ((context, candidateData, rejectedData) {
+                    return Container(
+                      child: Center(
+                          child: Text(
+                        "Toque na frase ou palavra correta e arraste até aqui."
+                            .toUpperCase(),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      )),
+                      height: 120,
+                      width: 180,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(width: 3),
+                        color: const Color.fromARGB(255, 165, 165, 165),
+                      ),
+                    );
+                  }),
+                  onWillAccept: (data) => data!.containsValue(true),
+                  onAccept: (data) {
+                    setState(() {
+                      widget.acertos.add(data);
+                    });
+                  },
+                  onLeave: (data) {
+                    if (data!.containsValue(false)) {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          backgroundColor: Colors.red,
+                          content:
+                              Text('NÃO ESCREVA ISSO NAS REDES SOCIAIS!')));
+                    }
+                  },
+                ),
               ),
               const Padding(padding: EdgeInsets.all(32)),
             ]),
           ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
           backgroundColor: Colors.black,
-          icon: const Icon(Icons.shuffle, size: 40),
+          icon: const Icon(Icons.shuffle, size: 20),
           label: const Text("REFAZER"),
           onPressed: () {
             setState(() {

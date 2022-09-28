@@ -48,9 +48,7 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
               child: PageView(
                 controller: _controller,
                 onPageChanged: (index) {
-                  setState(() {
-                    currentIndexPage = index;
-                  });
+                  currentIndexPage = index;
                 },
                 children: [
                   TelaObterFoto(user: widget.user),
@@ -74,8 +72,7 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
         children: [
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(
-                  currentIndexPage > 0 ? Colors.black : Colors.grey.shade400),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -89,9 +86,8 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
               if (currentIndexPage > 0) {
                 currentIndexPage--;
                 _controller.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.linear);
-                //setState(() {});
               }
             },
           ),
@@ -107,8 +103,7 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
           ),
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(
-                  currentIndexPage < 2 ? Colors.black : Colors.grey.shade400),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -122,9 +117,8 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
               if (currentIndexPage < 2) {
                 currentIndexPage++;
                 _controller.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.linear);
-                //setState(() {});
               }
             },
           ),

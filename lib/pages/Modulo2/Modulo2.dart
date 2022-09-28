@@ -40,13 +40,7 @@ class _Modulo2State extends State<Modulo2> {
         child: PageView(
           controller: _pageController,
           onPageChanged: (index) {
-            setState(() {
-              currentIndexPage = index;
-            });
-
-            _pageController.animateToPage(currentIndexPage,
-                duration: const Duration(milliseconds: 200),
-                curve: Curves.linear);
+            currentIndexPage = index;
           },
           children: [
             const TelaInstrucoesModulo2(),
@@ -69,8 +63,7 @@ class _Modulo2State extends State<Modulo2> {
         children: [
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(
-                  currentIndexPage > 0 ? Colors.black : Colors.grey.shade400),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -84,7 +77,7 @@ class _Modulo2State extends State<Modulo2> {
               if (currentIndexPage > 0) {
                 currentIndexPage--;
                 _pageController.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.linear);
               }
             },
@@ -101,8 +94,7 @@ class _Modulo2State extends State<Modulo2> {
           ),
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(
-                  currentIndexPage < 4 ? Colors.black : Colors.grey.shade400),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -116,9 +108,8 @@ class _Modulo2State extends State<Modulo2> {
               if (currentIndexPage < 4) {
                 currentIndexPage++;
                 _pageController.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 400),
                     curve: Curves.linear);
-                setState(() {});
               }
             },
           ),

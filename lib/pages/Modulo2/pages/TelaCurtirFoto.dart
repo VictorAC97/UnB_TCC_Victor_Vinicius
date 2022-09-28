@@ -44,6 +44,9 @@ class _TelaCurtirFotoState extends State<TelaCurtirFoto> {
               padding: const EdgeInsets.all(16),
               child: PageView.builder(
                   controller: _controller,
+                  onPageChanged: (index) {
+                    currentIndexPage = index;
+                  },
                   itemCount: conceitosList[widget.index]['fotos'].length,
                   itemBuilder: (context, index) {
                     return ImagemBotoesWidget(
@@ -67,8 +70,7 @@ class _TelaCurtirFotoState extends State<TelaCurtirFoto> {
         children: [
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(
-                  currentIndexPage > 0 ? Colors.black : Colors.grey.shade400),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -84,7 +86,6 @@ class _TelaCurtirFotoState extends State<TelaCurtirFoto> {
                 _controller.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.linear);
-                setState(() {});
               }
             },
           ),
@@ -100,8 +101,7 @@ class _TelaCurtirFotoState extends State<TelaCurtirFoto> {
           ),
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(
-                  currentIndexPage < 2 ? Colors.black : Colors.grey.shade400),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -117,7 +117,6 @@ class _TelaCurtirFotoState extends State<TelaCurtirFoto> {
                 _controller.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.linear);
-                setState(() {});
               }
             },
           ),
