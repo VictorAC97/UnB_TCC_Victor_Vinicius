@@ -47,6 +47,11 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
               flex: 10,
               child: PageView(
                 controller: _controller,
+                onPageChanged: (index) {
+                  setState(() {
+                    currentIndexPage = index;
+                  });
+                },
                 children: [
                   TelaObterFoto(user: widget.user),
                   TelaCriacaoTexto(user: widget.user),
@@ -86,7 +91,7 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
                 _controller.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.linear);
-                setState(() {});
+                //setState(() {});
               }
             },
           ),
@@ -119,7 +124,7 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
                 _controller.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.linear);
-                setState(() {});
+                //setState(() {});
               }
             },
           ),

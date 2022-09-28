@@ -17,9 +17,9 @@ class Modulo3 extends StatefulWidget {
 }
 
 late PageController _pageController;
-int currentIndexPage = 0;
 
 class _Modulo3State extends State<Modulo3> {
+  int currentIndexPage = 0;
   @override
   void initState() {
     _pageController = PageController(initialPage: currentIndexPage);
