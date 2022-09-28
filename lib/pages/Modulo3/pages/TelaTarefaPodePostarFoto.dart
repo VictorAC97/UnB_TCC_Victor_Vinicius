@@ -70,7 +70,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                       style: const TextStyle(fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     )),
-                    height: 170,
+                    height: 135,
                     width: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),

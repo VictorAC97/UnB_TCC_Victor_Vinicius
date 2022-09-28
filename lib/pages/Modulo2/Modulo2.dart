@@ -40,7 +40,10 @@ class _Modulo2State extends State<Modulo2> {
         child: PageView(
           controller: _pageController,
           onPageChanged: (index) {
-            currentIndexPage = index;
+            setState(() {
+              currentIndexPage = index;
+            });
+
             _pageController.animateToPage(currentIndexPage,
                 duration: const Duration(milliseconds: 200),
                 curve: Curves.linear);
@@ -83,7 +86,6 @@ class _Modulo2State extends State<Modulo2> {
                 _pageController.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.linear);
-                setState(() {});
               }
             },
           ),

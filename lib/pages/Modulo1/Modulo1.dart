@@ -39,6 +39,15 @@ class _Modulo1State extends State<Modulo1> {
       body: Center(
         child: PageView(
           controller: _pageController,
+          onPageChanged: (index) {
+            setState(() {
+              currentIndexPage = index;
+            });
+
+            _pageController.animateToPage(currentIndexPage,
+                duration: const Duration(milliseconds: 200),
+                curve: Curves.linear);
+          },
           children: [
             const TelaInstrucoesModulo1(),
             Perfil(user: widget.user),
@@ -74,7 +83,7 @@ class _Modulo1State extends State<Modulo1> {
                 _pageController.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.linear);
-                setState(() {});
+                //setState(() {});
               }
             },
           ),

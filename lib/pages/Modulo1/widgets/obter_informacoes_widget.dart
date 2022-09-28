@@ -30,30 +30,34 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('CADASTRO DE INFORMAÇÕES'),
-        backgroundColor: Colors.black,
-        leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.pop(context, widget.user)),
-      ),
-      body: Column(
-        children: [
-          Flexible(
-            flex: 10,
-            child: PageView(
-              controller: _controller,
-              children: [
-                TelaObterFoto(user: widget.user),
-                TelaCriacaoTexto(user: widget.user),
-                TelaDadosPublicosPrivados(user: widget.user),
-              ],
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('CADASTRO DE INFORMAÇÕES'),
+          centerTitle: true,
+          backgroundColor: Colors.black,
+          leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context, widget.user)),
+        ),
+        body: Column(
+          children: [
+            Flexible(
+              flex: 10,
+              child: PageView(
+                controller: _controller,
+                children: [
+                  TelaObterFoto(user: widget.user),
+                  TelaCriacaoTexto(user: widget.user),
+                  TelaDadosPublicosPrivados(user: widget.user),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
+        bottomNavigationBar: bottomBar(),
       ),
-      bottomNavigationBar: bottomBar(),
     );
   }
 

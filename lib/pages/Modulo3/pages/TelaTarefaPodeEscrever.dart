@@ -95,7 +95,7 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                       textAlign: TextAlign.center,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     )),
-                    height: 170,
+                    height: 135,
                     width: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),

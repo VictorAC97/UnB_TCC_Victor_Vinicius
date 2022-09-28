@@ -42,7 +42,10 @@ class _Modulo3State extends State<Modulo3> {
         child: PageView(
           controller: _pageController,
           onPageChanged: (index) {
-            currentIndexPage = index;
+            setState(() {
+              currentIndexPage = index;
+            });
+
             _pageController.animateToPage(currentIndexPage,
                 duration: const Duration(milliseconds: 200),
                 curve: Curves.linear);
@@ -89,7 +92,7 @@ class _Modulo3State extends State<Modulo3> {
                 _pageController.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 200),
                     curve: Curves.linear);
-                setState(() {});
+                //setState(() {});
               }
             },
           ),
