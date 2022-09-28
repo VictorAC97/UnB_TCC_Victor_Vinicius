@@ -123,6 +123,7 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
           backgroundColor: Colors.black,
           icon: const Icon(Icons.shuffle, size: 40),

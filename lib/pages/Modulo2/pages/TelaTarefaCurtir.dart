@@ -39,7 +39,7 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
               ),
               const Divider(thickness: 1),
               SizedBox(
-                height: MediaQuery.of(context).size.height - 150,
+                height: MediaQuery.of(context).size.height - 250,
                 child: Scrollbar(
                   controller: _scrollController,
                   thumbVisibility: true,

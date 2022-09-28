@@ -31,9 +31,9 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                 height: 400,
                 width: MediaQuery.of(context).size.width,
                 child: GridView.count(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5,
                     children: widget.listaNomesFotos
                         .map(
                           (e) => Draggable<Map<String, dynamic>>(
@@ -59,6 +59,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                         )
                         .toList()),
               ),
+              const Padding(padding: EdgeInsets.all(5)),
               DragTarget<Map<String, dynamic>>(
                 builder: ((context, candidateData, rejectedData) {
                   return Container(
@@ -97,6 +98,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
           backgroundColor: Colors.black,
           icon: const Icon(Icons.shuffle, size: 40),

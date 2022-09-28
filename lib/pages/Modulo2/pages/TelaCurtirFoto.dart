@@ -14,9 +14,10 @@ class TelaCurtirFoto extends StatefulWidget {
 late PageController _controller;
 
 class _TelaCurtirFotoState extends State<TelaCurtirFoto> {
+  var currentIndexPage = 0;
   @override
   void initState() {
-    _controller = PageController();
+    _controller = PageController(initialPage: currentIndexPage);
     super.initState();
   }
 
@@ -52,18 +53,73 @@ class _TelaCurtirFotoState extends State<TelaCurtirFoto> {
                   }),
             ),
           ),
-          Flexible(
-            flex: 1,
-            child: SmoothPageIndicator(
-              controller: _controller,
-              count: conceitosList[widget.index]['fotos'].length,
-              effect: SwapEffect(
-                dotWidth: 10,
-                dotHeight: 10,
-                activeDotColor: Colors.black,
-                dotColor: Colors.grey.shade300,
-              ),
+        ],
+      ),
+      bottomNavigationBar: bottomBar(),
+    );
+  }
+
+  Widget bottomBar() {
+    return BottomAppBar(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          TextButton.icon(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all(
+                  currentIndexPage > 0 ? Colors.black : Colors.grey.shade400),
             ),
+            label: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.arrow_back),
+                Text('Imagem Anterior'.toUpperCase()),
+              ],
+            ),
+            icon: const SizedBox(),
+            onPressed: () {
+              if (currentIndexPage > 0) {
+                currentIndexPage--;
+                _controller.animateToPage(currentIndexPage,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.linear);
+                setState(() {});
+              }
+            },
+          ),
+          SmoothPageIndicator(
+            controller: _controller,
+            count: 3,
+            effect: SwapEffect(
+              dotWidth: 10,
+              dotHeight: 10,
+              activeDotColor: Colors.black,
+              dotColor: Colors.grey.shade300,
+            ),
+          ),
+          TextButton.icon(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all(
+                  currentIndexPage < 2 ? Colors.black : Colors.grey.shade400),
+            ),
+            label: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.arrow_forward),
+                Text('Próxima Imagem'.toUpperCase()),
+              ],
+            ),
+            icon: const SizedBox(),
+            onPressed: () {
+              if (currentIndexPage < 2) {
+                currentIndexPage++;
+                _controller.animateToPage(currentIndexPage,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.linear);
+                setState(() {});
+              }
+            },
           ),
         ],
       ),

@@ -41,21 +41,14 @@ class _PerfilState extends State<Perfil> {
                         picture: widget.user!.fotoPerfil)
                     : _semFoto(),
                 onTap: () async {
-                  widget.user = await showDialog(
-                    context: context,
-                    builder: (context) => WillPopScope(
-                      // nao permite clicar fora do dialog p fechar, somente no botao retornar
-                      onWillPop: () async {
-                        if (!saved) {
-                          return false;
-                        } else {
-                          return true;
-                        }
-                      },
-                      child: ObterInformacoes(user: widget.user!),
-                    ),
-                  );
-                  setState(() {}); //carrega a foto na tela de perfil
+                  widget.user = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) =>
+                            ObterInformacoes(user: widget.user!)),
+                      ));
+                  //carrega a foto na tela de perfil
+                  setState(() {});
                 },
               ),
               const Padding(padding: EdgeInsets.all(8)),

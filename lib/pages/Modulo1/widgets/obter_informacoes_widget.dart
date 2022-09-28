@@ -15,11 +15,11 @@ class ObterInformacoes extends StatefulWidget {
 
 class _ObterInformacoesState extends State<ObterInformacoes> {
   late PageController _controller;
-  int paginaAtual = 0;
+  int currentIndexPage = 0;
   @override
   void initState() {
     super.initState();
-    _controller = PageController(initialPage: 0);
+    _controller = PageController(initialPage: currentIndexPage);
   }
 
   @override
@@ -30,60 +30,96 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 50,
-      child: Dialog(
-        child: Column(
-          children: [
-            Flexible(
-              flex: 10,
-              child: PageView(
-                controller: _controller,
-                children: [
-                  TelaObterFoto(user: widget.user),
-                  TelaCriacaoTexto(user: widget.user),
-                  TelaDadosPublicosPrivados(user: widget.user),
-                ],
-                onPageChanged: (index) {
-                  setState(() {
-                    paginaAtual = index;
-                  });
-                },
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('CADASTRO DE INFORMAÇÕES'),
+        backgroundColor: Colors.black,
+        leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => Navigator.pop(context, widget.user)),
+      ),
+      body: Column(
+        children: [
+          Flexible(
+            flex: 10,
+            child: PageView(
+              controller: _controller,
+              children: [
+                TelaObterFoto(user: widget.user),
+                TelaCriacaoTexto(user: widget.user),
+                TelaDadosPublicosPrivados(user: widget.user),
+              ],
             ),
-            Flexible(
-              flex: 1,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 4.0),
-                    child: SmoothPageIndicator(
-                      controller: _controller,
-                      count: 3,
-                      effect: SwapEffect(
-                        dotWidth: 10,
-                        dotHeight: 10,
-                        activeDotColor: Colors.black,
-                        dotColor: Colors.grey.shade300,
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: OutlinedButton(
-                        onPressed: () {
-                          Navigator.pop(context, widget.user);
-                        },
-                        style: ButtonStyle(
-                            foregroundColor:
-                                MaterialStateProperty.all(Colors.black)),
-                        child: const Text("RETORNAR")),
-                  ),
-                ],
-              ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: bottomBar(),
+    );
+  }
+
+  Widget bottomBar() {
+    return BottomAppBar(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          TextButton.icon(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all(
+                  currentIndexPage > 0 ? Colors.black : Colors.grey.shade400),
             ),
-          ],
-        ),
+            label: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.arrow_back),
+                Text('Página Anterior'.toUpperCase()),
+              ],
+            ),
+            icon: const SizedBox(),
+            onPressed: () {
+              if (currentIndexPage > 0) {
+                currentIndexPage--;
+                _controller.animateToPage(currentIndexPage,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.linear);
+                setState(() {});
+              }
+            },
+          ),
+          SmoothPageIndicator(
+            controller: _controller,
+            count: 3,
+            effect: SwapEffect(
+              dotWidth: 10,
+              dotHeight: 10,
+              activeDotColor: Colors.black,
+              dotColor: Colors.grey.shade300,
+            ),
+          ),
+          TextButton.icon(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all(
+                  currentIndexPage < 2 ? Colors.black : Colors.grey.shade400),
+            ),
+            label: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.arrow_forward),
+                Text('Próxima Página'.toUpperCase()),
+              ],
+            ),
+            icon: const SizedBox(),
+            onPressed: () {
+              if (currentIndexPage < 2) {
+                currentIndexPage++;
+                _controller.animateToPage(currentIndexPage,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.linear);
+                setState(() {});
+              }
+            },
+          ),
+        ],
       ),
     );
   }

@@ -8,7 +8,7 @@ List<Map<String, dynamic>> gerarNomesFotos() {
   int i = 0;
   int j = 0;
   //acertos
-  while (i < 3) {
+  while (i < 2) {
     int num = randomNum.nextInt(listaPodePostar.length);
     if (!(nomesFotos.contains(listaPodePostar[num]))) {
       nomesFotos.add(listaPodePostar[num]);
@@ -16,7 +16,7 @@ List<Map<String, dynamic>> gerarNomesFotos() {
     }
   }
   //erros
-  while (j < 3) {
+  while (j < 2) {
     int numm = randomNum.nextInt(listaNaoPodePostar.length);
     if (!(nomesFotos.contains(listaNaoPodePostar[numm]))) {
       nomesFotos.add(listaNaoPodePostar[numm]);
