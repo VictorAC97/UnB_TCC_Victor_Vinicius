@@ -212,6 +212,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
                   setState(() {});
                 },
               ),
+/*
               _divider(),
               if (widget.user!.telefone != "")
                 Chip(label: Text(widget.user!.telefone!)),
@@ -232,6 +233,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
                   },
                 ),
               ),
+ */
               _divider(),
               const Text(
                 "ATIVIDADES",

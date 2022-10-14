@@ -82,13 +82,13 @@ class _GerarEmojisState extends State<GerarEmojis> {
                           tentativas++;
                         });
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            duration: const Duration(seconds: 2),
-                            backgroundColor: Colors.red,
-                            content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: const [
-                                  Text('RESPOSTA INCORRETA!'),
-                                ])));
+                          duration: const Duration(seconds: 2),
+                          backgroundColor: Colors.red,
+                          content: Image.asset(
+                            'assets/images/emojis/thumbDown.png',
+                            height: 30,
+                          ),
+                        ));
                       },
                 child: SizedBox(
                   child: tentativas >= 2 &&

@@ -114,10 +114,19 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                   },
                   onLeave: (data) {
                     if (data!.containsValue(false)) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          backgroundColor: Colors.red,
-                          content:
-                              Text('NÃO ESCREVA ISSO NAS REDES SOCIAIS!')));
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: Colors.red,
+                        content: Row(
+                          children: [
+                            const Text(
+                                'NÃO ESCREVA ISSO NAS REDES SOCIAIS!   '),
+                            Image.asset(
+                              'assets/images/emojis/thumbDown.png',
+                              height: 25,
+                            ),
+                          ],
+                        ),
+                      ));
                     }
                   },
                 ),
@@ -130,8 +139,8 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
           backgroundColor: Colors.black,
-          icon: const Icon(Icons.shuffle, size: 20),
-          label: const Text("REFAZER"),
+          icon: const Icon(Icons.restart_alt, size: 20),
+          label: const Text("REINICIAR"),
           onPressed: () {
             setState(() {
               widget.acertos = [];

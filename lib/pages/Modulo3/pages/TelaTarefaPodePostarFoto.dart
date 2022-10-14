@@ -88,9 +88,19 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                   },
                   onLeave: (data) {
                     if (data!.containsValue(false)) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           backgroundColor: Colors.red,
-                          content: Text('NÃO POSTE ISSO NAS REDES SOCIAIS!')));
+                          content: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Text(
+                                  'NÃO POSTE ISSO NAS REDES SOCIAIS!   '),
+                              Image.asset(
+                                'assets/images/emojis/thumbDown.png',
+                                height: 25,
+                              ),
+                            ],
+                          )));
                     }
                   },
                 ),
@@ -103,8 +113,8 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
           backgroundColor: Colors.black,
-          icon: const Icon(Icons.shuffle, size: 20),
-          label: const Text("REFAZER"),
+          icon: const Icon(Icons.restart_alt, size: 20),
+          label: const Text("REINICIAR"),
           onPressed: () {
             setState(() {
               widget.acertos = [];
