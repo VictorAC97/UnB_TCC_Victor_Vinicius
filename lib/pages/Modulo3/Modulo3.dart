@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
+import 'package:projeto_final_unb/pages/Modulo3/pages/TelaConfigurarDificuldades.dart';
 import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodeEscrever.dart';
+import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodeEscreverDuploToque.dart';
 import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodePostarFoto.dart';
+import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodePostarFotoDuploToque.dart';
 import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarFotos.dart';
 import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarPalavraFrase.dart';
+import 'package:projeto_final_unb/pages/Modulo3/widgets/DificuldadeNotifier.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:provider/provider.dart';
 
 import 'pages/TelaInstrucoesModulo3.dart';
 
@@ -31,6 +36,7 @@ class _Modulo3State extends State<Modulo3> {
     var listaFrasesPalavras = gerarPalavrasFrases();
     List<Map<String, dynamic>> acertosFotos = [];
     List<Map<String, dynamic>> acertosFrasesPalavras = [];
+    var dificuldade = context.watch<DificuldadeNotifier>().dificuldade;
 
     return Scaffold(
       appBar: AppBar(
@@ -46,14 +52,25 @@ class _Modulo3State extends State<Modulo3> {
           },
           children: [
             const TelaInstrucoesModulo3(),
-            TelaTarefaPodePostarFoto(
-              listaNomesFotos: listaNomesFotos,
-              acertos: acertosFotos,
-            ),
-            TelaTarefaPodeEscrever(
-              listaFrasesPalavras: listaFrasesPalavras,
-              acertos: acertosFrasesPalavras,
-            ),
+            const TelaConfigurarDificuldades(),
+            dificuldade == 'arrastar'
+                ? TelaTarefaPodePostarFoto(
+                    listaNomesFotos: listaNomesFotos,
+                    acertos: acertosFotos,
+                  )
+                : TelaTarefaPodePostarFotoDuploToque(
+                    listaNomesFotos: listaNomesFotos,
+                    acertos: acertosFotos,
+                  ),
+            dificuldade == 'arrastar'
+                ? TelaTarefaPodeEscrever(
+                    listaFrasesPalavras: listaFrasesPalavras,
+                    acertos: acertosFrasesPalavras,
+                  )
+                : TelaTarefaPodeEscreverDuploToque(
+                    listaFrasesPalavras: listaFrasesPalavras,
+                    acertos: acertosFrasesPalavras,
+                  ),
           ],
         ),
       ),
@@ -90,7 +107,7 @@ class _Modulo3State extends State<Modulo3> {
           ),
           SmoothPageIndicator(
             controller: _pageController,
-            count: 3,
+            count: 4,
             effect: SwapEffect(
               dotWidth: 10,
               dotHeight: 10,
@@ -111,7 +128,7 @@ class _Modulo3State extends State<Modulo3> {
             ),
             icon: const SizedBox(),
             onPressed: () {
-              if (currentIndexPage < 2) {
+              if (currentIndexPage < 3) {
                 currentIndexPage++;
                 _pageController.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 400),

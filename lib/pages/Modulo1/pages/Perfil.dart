@@ -33,14 +33,18 @@ class _PerfilState extends State<Perfil> {
                 ),
               ),
               const Padding(padding: EdgeInsets.all(4)),
-              GestureDetector(
-                child: widget.user!.fotoPerfil != null
-                    ? Anexo(
-                        largura: 200,
-                        altura: 200,
-                        picture: widget.user!.fotoPerfil)
-                    : _semFoto(),
-                onTap: () async {
+              widget.user!.fotoPerfil != null
+                  ? Anexo(
+                      largura: 200,
+                      altura: 200,
+                      picture: widget.user!.fotoPerfil)
+                  : _semFoto(),
+              const Padding(padding: EdgeInsets.all(4)),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.black),
+                ),
+                onPressed: () async {
                   widget.user = await Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -50,8 +54,9 @@ class _PerfilState extends State<Perfil> {
                   //carrega a foto na tela de perfil
                   setState(() {});
                 },
+                child: const Text('CADASTRAR INFORMAÇÕES'),
               ),
-              const Padding(padding: EdgeInsets.all(8)),
+              //const Padding(padding: EdgeInsets.all(4)),
               const Divider(
                 thickness: 1,
               ),

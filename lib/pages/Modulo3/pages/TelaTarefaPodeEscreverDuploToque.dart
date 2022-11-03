@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarPalavraFrase.dart';
 
-class TelaTarefaPodeEscrever extends StatefulWidget {
+class TelaTarefaPodeEscreverDuploToque extends StatefulWidget {
   List<Map<String, dynamic>> listaFrasesPalavras;
   List<Map<String, dynamic>> acertos;
 
-  TelaTarefaPodeEscrever({
+  TelaTarefaPodeEscreverDuploToque({
     Key? key,
     required this.listaFrasesPalavras,
     required this.acertos,
   }) : super(key: key);
 
   @override
-  State<TelaTarefaPodeEscrever> createState() => _TelaTarefaPodeEscreverState();
+  State<TelaTarefaPodeEscreverDuploToque> createState() =>
+      _TelaTarefaPodeEscreverDuploToqueState();
 }
 
-class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
+class _TelaTarefaPodeEscreverDuploToqueState
+    extends State<TelaTarefaPodeEscreverDuploToque> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +32,7 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
               ),
               const Divider(thickness: 1.0),
               SizedBox(
-                height: 400,
+                height: 600,
                 width: MediaQuery.of(context).size.width,
                 child: GridView.count(
                     crossAxisCount: 3,
@@ -38,26 +40,7 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                     mainAxisSpacing: 10,
                     children: widget.listaFrasesPalavras
                         .map(
-                          (e) => Draggable<Map<String, dynamic>>(
-                            feedback: Container(
-                              child: Center(
-                                child: Text(
-                                  '${e["frase-palavra"]}',
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.black,
-                                      decoration: TextDecoration.none),
-                                ),
-                              ),
-                              width: 140,
-                              height: 140,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(width: 3),
-                                color: const Color.fromARGB(255, 221, 221, 221),
-                              ),
-                            ),
+                          (e) => GestureDetector(
                             child: widget.acertos.contains(e)
                                 ? const Icon(
                                     Icons.check,
@@ -79,9 +62,7 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                                           255, 221, 221, 221),
                                     ),
                                   ),
-                            childWhenDragging: Container(),
-                            data: e,
-                            onDragCompleted: () {
+                            onDoubleTap: () {
                               if (e.containsValue(true)) {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
@@ -96,57 +77,29 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                                     ],
                                   ),
                                 ));
+                                setState(() {
+                                  widget.acertos.add(e);
+                                });
+                              } else {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  backgroundColor: Colors.red,
+                                  content: Row(
+                                    children: [
+                                      const Text(
+                                          'NÃO ESCREVA ISSO NAS REDES SOCIAIS!   '),
+                                      Image.asset(
+                                        'assets/images/emojis/thumbDown.png',
+                                        height: 25,
+                                      ),
+                                    ],
+                                  ),
+                                ));
                               }
                             },
                           ),
                         )
                         .toList()),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: DragTarget<Map<String, dynamic>>(
-                  builder: ((context, candidateData, rejectedData) {
-                    return Container(
-                      child: Center(
-                          child: Text(
-                        "Toque na frase ou palavra correta e arraste até aqui."
-                            .toUpperCase(),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      )),
-                      height: 100,
-                      width: MediaQuery.of(context).size.width - 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(width: 3),
-                        color: const Color.fromARGB(255, 165, 165, 165),
-                      ),
-                    );
-                  }),
-                  onWillAccept: (data) => data!.containsValue(true),
-                  onAccept: (data) {
-                    setState(() {
-                      widget.acertos.add(data);
-                    });
-                  },
-                  onLeave: (data) {
-                    if (data!.containsValue(false)) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        backgroundColor: Colors.red,
-                        content: Row(
-                          children: [
-                            const Text(
-                                'NÃO ESCREVA ISSO NAS REDES SOCIAIS!   '),
-                            Image.asset(
-                              'assets/images/emojis/thumbDown.png',
-                              height: 25,
-                            ),
-                          ],
-                        ),
-                      ));
-                    }
-                  },
-                ),
               ),
               const Padding(padding: EdgeInsets.all(32)),
             ]),

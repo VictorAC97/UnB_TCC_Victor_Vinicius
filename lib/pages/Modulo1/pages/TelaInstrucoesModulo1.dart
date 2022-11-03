@@ -80,7 +80,7 @@ class TelaInstrucoesModulo1 extends StatelessWidget {
                     backgroundColor: Colors.black,
                   ),
                   title: Text(
-                    "Para iniciar a tarefa do módulo 1, tecle o botão 'PRÓXIMA PAGINA' e toque na imagem circular."
+                    "Para iniciar a tarefa do módulo 1, tecle o botão 'PRÓXIMA PAGINA' e toque no botão 'CADASTRAR INFORMAÇÕES'."
                         .toUpperCase(),
                   ),
                 ),

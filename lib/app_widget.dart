@@ -4,6 +4,7 @@ import 'package:projeto_final_unb/models/AcertosCurtidasNotifier.dart';
 import 'package:projeto_final_unb/models/ComentariosNotifier.dart';
 import 'package:projeto_final_unb/models/CompartilhamentosNotifier.dart';
 import 'package:projeto_final_unb/pages/Home.dart';
+import 'package:projeto_final_unb/pages/Modulo3/widgets/DificuldadeNotifier.dart';
 import 'package:provider/provider.dart';
 
 class AppWidget extends StatelessWidget {
@@ -17,6 +18,7 @@ class AppWidget extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ComentariosNotifier()),
         ChangeNotifierProvider(
             create: (context) => CompartilhamentosNotifier()),
+        ChangeNotifierProvider(create: (context) => DificuldadeNotifier()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
