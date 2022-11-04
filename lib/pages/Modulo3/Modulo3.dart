@@ -7,15 +7,17 @@ import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodePostarFoto.d
 import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodePostarFotoDuploToque.dart';
 import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarFotos.dart';
 import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarPalavraFrase.dart';
-import 'package:projeto_final_unb/pages/Modulo3/widgets/DificuldadeNotifier.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:provider/provider.dart';
 
+import '../../widgets/app_settings.dart';
 import 'pages/TelaInstrucoesModulo3.dart';
+import 'widgets/DificuldadeNotifier.dart';
 
 class Modulo3 extends StatefulWidget {
   Usuario? user;
-  Modulo3({Key? key, this.user}) : super(key: key);
+  AppSettings appSettings;
+  Modulo3({Key? key, this.user, required this.appSettings}) : super(key: key);
 
   @override
   State<Modulo3> createState() => _Modulo3State();
@@ -32,7 +34,7 @@ class _Modulo3State extends State<Modulo3> {
 
   @override
   Widget build(BuildContext context) {
-    var listaNomesFotos = gerarNomesFotos();
+    var listaNomesFotos = gerarNomesFotos(2);
     var listaFrasesPalavras = gerarPalavrasFrases();
     List<Map<String, dynamic>> acertosFotos = [];
     List<Map<String, dynamic>> acertosFrasesPalavras = [];

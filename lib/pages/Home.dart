@@ -92,7 +92,8 @@ class Home extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Modulo3(user: usuario)));
+                              builder: (context) => Modulo3(
+                                  user: usuario, appSettings: appSettings)));
                     },
                   ),
                   const Padding(padding: EdgeInsets.all(8)),

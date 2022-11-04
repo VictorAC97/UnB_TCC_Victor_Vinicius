@@ -17,7 +17,7 @@ class _TelaConfiguracoesState extends State<TelaConfiguracoes> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-    var _infoVideo = widget.appSettings.infoVideo;
+    //var _infoVideo = widget.appSettings.infoVideo;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,

@@ -51,7 +51,7 @@ class _InfoEnderecoState extends State<InfoEndereco> {
       },
       child: AlertDialog(
         contentPadding: const EdgeInsets.all(10),
-        title: const Text("MORO EM"),
+        title: const Text("LOCALIDADE"),
         content: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(16),
@@ -69,7 +69,7 @@ class _InfoEnderecoState extends State<InfoEndereco> {
                 TextField(
                   controller: _controllerMoroEm,
                   decoration:
-                      const InputDecoration(label: Text("MORO ATUALMENTE EM")),
+                      const InputDecoration(label: Text("MINHA CIDADE ATUAL")),
                   onChanged: (value) {
                     setState(() {
                       _endereco.moroEm = value.toUpperCase();

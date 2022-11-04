@@ -4,7 +4,6 @@ import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/utilities/suggestionPictures.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/definicao_privacidade_widget.dart';
-import 'package:projeto_final_unb/pages/Modulo1/widgets/info_endereco_widget.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/info_estudo_widget.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/info_trabalho_widget.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/sugestao_widget.dart';
@@ -21,7 +20,8 @@ class TelaDadosPublicosPrivados extends StatefulWidget {
 
 class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
   Emprego _emprego = Emprego(cargo: "", cidade: "", empresa: "");
-  Endereco _endereco = Endereco(moroEm: "", cidade: "", estado: "", pais: "");
+  final Endereco _endereco =
+      Endereco(moroEm: "", cidade: "", estado: "", pais: "");
   late TextEditingController _controllerTel;
   late ScrollController _scrollController;
 
@@ -148,8 +148,9 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
                 },
               ),
               _divider(),
+/*              
               const Text(
-                "MORO EM",
+                "LOCALIDADE",
                 style: TextStyle(fontSize: 18),
               ),
               if (_endereco.moroEm != "")
@@ -185,6 +186,7 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
                 ],
               ),
               _divider(),
+*/
               const Text(
                 "STATUS DE RELACIONAMENTO",
                 style: TextStyle(fontSize: 18),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/pages/Modulo3/widgets/DificuldadeNotifier.dart';
 import 'package:provider/provider.dart';
 
+import '../../../widgets/app_settings.dart';
+
 class TelaConfigurarDificuldades extends StatefulWidget {
   const TelaConfigurarDificuldades({Key? key}) : super(key: key);
 
@@ -14,6 +16,7 @@ class _TelaConfigurarDificuldadesState
     extends State<TelaConfigurarDificuldades> {
   @override
   Widget build(BuildContext context) {
+    var _infoDificuldade = context.watch<DificuldadeNotifier>().dificuldade;
     return Scaffold(
       body: Center(
         child: Padding(
@@ -31,7 +34,7 @@ class _TelaConfigurarDificuldadesState
                     RadioListTile<String>(
                       title: const Text("ARRASTAR E SOLTAR"),
                       activeColor: Colors.black,
-                      groupValue: valueDificuldade.dificuldade,
+                      groupValue: _infoDificuldade,
                       value: "arrastar",
                       onChanged: (value) {
                         setState(() {
@@ -42,7 +45,7 @@ class _TelaConfigurarDificuldadesState
                     RadioListTile<String>(
                       title: const Text("DUPLO TOQUE"),
                       activeColor: Colors.black,
-                      groupValue: valueDificuldade.dificuldade,
+                      groupValue: _infoDificuldade,
                       value: 'duplo-toque',
                       onChanged: (value) {
                         setState(() {

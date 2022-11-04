@@ -135,7 +135,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
           onPressed: () {
             setState(() {
               widget.acertos = [];
-              widget.listaNomesFotos = gerarNomesFotos();
+              widget.listaNomesFotos = gerarNomesFotos(2);
             });
           }),
     );
