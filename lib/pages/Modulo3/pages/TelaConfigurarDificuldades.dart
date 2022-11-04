@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_final_unb/pages/Modulo3/widgets/DificuldadeNotifier.dart';
 import 'package:provider/provider.dart';
 
 import '../../../widgets/app_settings.dart';
@@ -16,7 +15,7 @@ class _TelaConfigurarDificuldadesState
     extends State<TelaConfigurarDificuldades> {
   @override
   Widget build(BuildContext context) {
-    var _infoDificuldade = context.watch<DificuldadeNotifier>().dificuldade;
+    //var _infoDificuldade = context.watch<AppSettings>().infoDificuldade;
     return Scaffold(
       body: Center(
         child: Padding(
@@ -28,28 +27,32 @@ class _TelaConfigurarDificuldadesState
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const Divider(thickness: 1.0),
-              Consumer<DificuldadeNotifier>(
-                builder: (context, valueDificuldade, child) => Column(
+              Consumer<AppSettings>(
+                builder: (context, appSettingsDificuldade, child) => Column(
                   children: [
                     RadioListTile<String>(
                       title: const Text("ARRASTAR E SOLTAR"),
                       activeColor: Colors.black,
-                      groupValue: _infoDificuldade,
+                      groupValue:
+                          appSettingsDificuldade.infoDificuldade['dificuldade'],
                       value: "arrastar",
                       onChanged: (value) {
                         setState(() {
-                          valueDificuldade.changeDificuldade(value!);
+                          appSettingsDificuldade.setInfoDificuldade(value!);
+                          //valueDificuldade.changeDificuldade(value!);
                         });
                       },
                     ),
                     RadioListTile<String>(
                       title: const Text("DUPLO TOQUE"),
                       activeColor: Colors.black,
-                      groupValue: _infoDificuldade,
+                      groupValue:
+                          appSettingsDificuldade.infoDificuldade['dificuldade'],
                       value: 'duplo-toque',
                       onChanged: (value) {
                         setState(() {
-                          valueDificuldade.changeDificuldade(value!);
+                          appSettingsDificuldade.setInfoDificuldade(value!);
+                          //valueDificuldade.changeDificuldade(value!);
                         });
                       },
                     ),

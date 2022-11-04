@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/utilities/conceitosList.dart';
 import 'package:projeto_final_unb/utilities/emojisList.dart';
 import 'package:projeto_final_unb/widgets/MyBlinkingImage.dart';
-import 'package:projeto_final_unb/widgets/app_settings.dart';
 import 'package:projeto_final_unb/pages/Modulo2/widgets/feedback_foto_curtida_widget.dart';
 
 class GerarEmojis extends StatefulWidget {
@@ -55,9 +54,6 @@ class _GerarEmojisState extends State<GerarEmojis> {
 
   @override
   Widget build(BuildContext context) {
-    AppSettings appSettings = AppSettings();
-    //var acerto = context.watch<AcertosCurtidasNotifier>();
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: emojis
@@ -70,12 +66,9 @@ class _GerarEmojisState extends State<GerarEmojis> {
                         showDialog(
                           context: context,
                           builder: (context) {
-                            return FeedBackFotoCurtida(
-                              appSettings: appSettings,
-                            );
+                            return const FeedBackFotoCurtida();
                           },
                         );
-                        //acerto.addAcerto(widget.nomeFoto!);
                       }
                     : () {
                         setState(() {

@@ -7,17 +7,14 @@ import 'package:projeto_final_unb/pages/Modulo2/Modulo2.dart';
 import 'package:projeto_final_unb/pages/Modulo3/Modulo3.dart';
 import 'package:projeto_final_unb/pages/TelaConfiguracoes.dart';
 import 'package:projeto_final_unb/pages/TelaCreditos.dart';
-import 'package:projeto_final_unb/widgets/app_settings.dart';
 
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
 
-  late AppSettings appSettings;
   Usuario usuario = _novoUsuario();
 
   @override
   Widget build(BuildContext context) {
-    appSettings = AppSettings();
     return Scaffold(
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 160, bottom: 128),
@@ -70,10 +67,7 @@ class Home extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Modulo2(
-                                      user: usuario,
-                                      appSettings: appSettings,
-                                    )));
+                                builder: (context) => Modulo2(user: usuario)));
                       },
                     ),
                   ),
@@ -92,8 +86,7 @@ class Home extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Modulo3(
-                                  user: usuario, appSettings: appSettings)));
+                              builder: (context) => Modulo3(user: usuario)));
                     },
                   ),
                   const Padding(padding: EdgeInsets.all(8)),
@@ -109,8 +102,7 @@ class Home extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              TelaConfiguracoes(appSettings: appSettings),
+                          builder: (context) => const TelaConfiguracoes(),
                         ),
                       );
                     },

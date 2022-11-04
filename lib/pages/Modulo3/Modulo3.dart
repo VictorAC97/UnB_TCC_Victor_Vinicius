@@ -12,12 +12,10 @@ import 'package:provider/provider.dart';
 
 import '../../widgets/app_settings.dart';
 import 'pages/TelaInstrucoesModulo3.dart';
-import 'widgets/DificuldadeNotifier.dart';
 
 class Modulo3 extends StatefulWidget {
   Usuario? user;
-  AppSettings appSettings;
-  Modulo3({Key? key, this.user, required this.appSettings}) : super(key: key);
+  Modulo3({Key? key, this.user}) : super(key: key);
 
   @override
   State<Modulo3> createState() => _Modulo3State();
@@ -38,7 +36,8 @@ class _Modulo3State extends State<Modulo3> {
     var listaFrasesPalavras = gerarPalavrasFrases();
     List<Map<String, dynamic>> acertosFotos = [];
     List<Map<String, dynamic>> acertosFrasesPalavras = [];
-    var dificuldade = context.watch<DificuldadeNotifier>().dificuldade;
+    var dificuldade =
+        context.watch<AppSettings>().infoDificuldade['dificuldade'];
 
     return Scaffold(
       appBar: AppBar(

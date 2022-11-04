@@ -53,6 +53,7 @@ class _TelaTarefaPodePostarFotoDuploToqueState
                               if (e.containsValue(true)) {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
+                                  duration: const Duration(milliseconds: 1500),
                                   backgroundColor: Colors.green,
                                   content: Row(
                                     children: [
@@ -70,6 +71,7 @@ class _TelaTarefaPodePostarFotoDuploToqueState
                               } else {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
+                                  duration: const Duration(milliseconds: 1500),
                                   backgroundColor: Colors.red,
                                   content: Row(
                                     children: [

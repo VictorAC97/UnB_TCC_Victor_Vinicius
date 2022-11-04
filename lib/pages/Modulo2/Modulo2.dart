@@ -5,14 +5,11 @@ import 'package:projeto_final_unb/pages/Modulo2/pages/TelaInstrucoesModulo2.dart
 import 'package:projeto_final_unb/pages/Modulo2/pages/TelaTarefaComentar.dart';
 import 'package:projeto_final_unb/pages/Modulo2/pages/TelaTarefaCompartilhar.dart';
 import 'package:projeto_final_unb/pages/Modulo2/pages/TelaTarefaCurtir.dart';
-import 'package:projeto_final_unb/widgets/app_settings.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Modulo2 extends StatefulWidget {
   Usuario? user;
-  AppSettings? appSettings;
-  Modulo2({Key? key, required this.user, required this.appSettings})
-      : super(key: key);
+  Modulo2({Key? key, required this.user}) : super(key: key);
 
   @override
   State<Modulo2> createState() => _Modulo2State();
@@ -44,7 +41,7 @@ class _Modulo2State extends State<Modulo2> {
           },
           children: [
             const TelaInstrucoesModulo2(),
-            TelaConfiguracoesModulo2(appSettings: widget.appSettings!),
+            const TelaConfiguracoesModulo2(),
             const TelaTarefaCurtir(),
             TelaTarefaComentar(user: widget.user!),
             TelaTarefaCompartilhar(user: widget.user!),

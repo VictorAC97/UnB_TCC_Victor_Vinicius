@@ -85,6 +85,7 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                               if (e.containsValue(true)) {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
+                                  duration: const Duration(milliseconds: 1500),
                                   backgroundColor: Colors.green,
                                   content: Row(
                                     children: [
@@ -132,6 +133,7 @@ class _TelaTarefaPodeEscreverState extends State<TelaTarefaPodeEscrever> {
                   onLeave: (data) {
                     if (data!.containsValue(false)) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        duration: const Duration(milliseconds: 1500),
                         backgroundColor: Colors.red,
                         content: Row(
                           children: [

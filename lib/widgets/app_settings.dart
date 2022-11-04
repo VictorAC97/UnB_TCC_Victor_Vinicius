@@ -1,6 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class AppSettings {
+class AppSettings extends ChangeNotifier {
   late SharedPreferences _prefs;
   Map<String, dynamic> infoVideo = {
     "fileName": "",
@@ -30,6 +31,7 @@ class AppSettings {
     infoVideo = {
       "fileName": fileName,
     };
+    notifyListeners();
   }
 
   _readInfoDificuldade() {
@@ -38,6 +40,7 @@ class AppSettings {
     infoDificuldade = {
       "dificuldade": modoDificuldade,
     };
+    notifyListeners();
   }
 
   setInfoVideo(String videoName) async {

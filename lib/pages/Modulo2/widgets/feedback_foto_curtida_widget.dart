@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/widgets/app_settings.dart';
 import 'package:projeto_final_unb/widgets/asset_player_widget.dart';
+import 'package:provider/provider.dart';
 
 class FeedBackFotoCurtida extends StatefulWidget {
-  AppSettings appSettings;
-  FeedBackFotoCurtida({Key? key, required this.appSettings}) : super(key: key);
+  const FeedBackFotoCurtida({Key? key}) : super(key: key);
 
   @override
   State<FeedBackFotoCurtida> createState() => _FeedBackFotoCurtidaState();
@@ -13,12 +13,12 @@ class FeedBackFotoCurtida extends StatefulWidget {
 class _FeedBackFotoCurtidaState extends State<FeedBackFotoCurtida> {
   @override
   Widget build(BuildContext context) {
+    var appSettings = context.watch<AppSettings>();
     return AlertDialog(
       title: const Text("PARABÉNS!"),
-      content: widget.appSettings.infoVideo['fileName'] != ""
+      content: appSettings.infoVideo['fileName'] != ""
           ? AssetPlayerWidget(
-              videoPath:
-                  "assets/videos/${widget.appSettings.infoVideo['fileName']}",
+              videoPath: "assets/videos/${appSettings.infoVideo['fileName']}",
             )
           : const Text("VOCÊ ACERTOU!"),
       actions: [

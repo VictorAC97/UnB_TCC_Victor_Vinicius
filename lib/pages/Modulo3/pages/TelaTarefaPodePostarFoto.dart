@@ -59,6 +59,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                               if (e.containsValue(true)) {
                                 ScaffoldMessenger.of(context)
                                     .showSnackBar(SnackBar(
+                                  duration: const Duration(milliseconds: 1500),
                                   backgroundColor: Colors.green,
                                   content: Row(
                                     children: [
@@ -106,6 +107,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                   onLeave: (data) {
                     if (data!.containsValue(false)) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          duration: const Duration(milliseconds: 1500),
                           backgroundColor: Colors.red,
                           content: Row(
                             mainAxisSize: MainAxisSize.min,
