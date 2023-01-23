@@ -75,8 +75,9 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
               ),
               Align(
                 alignment: Alignment.topLeft,
-                child: IconButton(
-                  icon: const Icon(Icons.rotate_left_outlined),
+                child: TextButton(
+                  child: const Text(
+                      'LIMPAR CAMPO'), //const Icon(Icons.rotate_left_outlined),
                   onPressed: () {
                     setState(() {
                       widget.user!.nome = "";
@@ -118,8 +119,8 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                 ),
               Align(
                 alignment: Alignment.topLeft,
-                child: IconButton(
-                  icon: const Icon(Icons.rotate_left_outlined),
+                child: TextButton(
+                  child: const Text('LIMPAR CAMPO'),
                   onPressed: () {
                     setState(() {
                       widget.user!.idade = "";
@@ -160,8 +161,8 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                 ),
               Align(
                 alignment: Alignment.topLeft,
-                child: IconButton(
-                  icon: const Icon(Icons.rotate_left_outlined),
+                child: TextButton(
+                  child: const Text('LIMPAR CAMPO'),
                   onPressed: () {
                     setState(() {
                       widget.user!.dataNasc = DateTime.now();
@@ -218,8 +219,8 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                     style: TextStyle(fontSize: 18)),
               Align(
                 alignment: Alignment.topLeft,
-                child: IconButton(
-                  icon: const Icon(Icons.rotate_left_outlined),
+                child: TextButton(
+                  child: const Text('LIMPAR CAMPO'),
                   onPressed: () {
                     setState(() {
                       widget.user!.alturaMetro = "";
@@ -289,8 +290,8 @@ class _TelaCriacaoTextoState extends State<TelaCriacaoTexto> {
                 ),
               Align(
                 alignment: Alignment.topLeft,
-                child: IconButton(
-                  icon: const Icon(Icons.rotate_left_outlined),
+                child: TextButton(
+                  child: const Text('LIMPAR CAMPO'),
                   onPressed: () {
                     setState(() {
                       widget.user!.pesoQuilos = "";

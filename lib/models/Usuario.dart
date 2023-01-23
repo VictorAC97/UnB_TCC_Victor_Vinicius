@@ -22,7 +22,7 @@ class Usuario {
   List<String>? listaSigno;
   List<String>? listaAtividades;
   List<String>? listaHobbies;
-  List<String>? listaEscolaridade;
+  String? escolaridade;
   String? relacionamento;
   String? telefone;
   Endereco? endereco;
@@ -46,7 +46,7 @@ class Usuario {
     this.listaGostoDe,
     this.listaNaoGostoDe,
     this.listaSigno,
-    this.listaEscolaridade,
+    this.escolaridade,
     this.listaAtividades,
     this.relacionamento,
     this.listaHobbies,

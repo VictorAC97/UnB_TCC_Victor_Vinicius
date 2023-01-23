@@ -124,7 +124,7 @@ Map<String, String> sugestaoSigno = {
 };
 
 List<String> sugestaoEscolaridade = [
-  "ENSINO FUNDAMETAL",
+  "ENSINO FUNDAMENTAL",
   "ENSINO MÉDIO",
   "FACULDADE",
   "EDUCAÇÃO AO LONGO DA VIDA",
@@ -150,6 +150,8 @@ List<String> sugestaoRelacionamento = [
   "CASADO",
   "NOIVO",
   "VIÚVO",
+  "SEPARADO",
+  "DIVORCIADO",
 ];
 
 Map<String, String> sugestaoHobbies = {

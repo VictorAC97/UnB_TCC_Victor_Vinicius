@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../../utilities/suggestionPictures.dart';
+import '../../../utilities/suggestionStrings.dart';
 
 class InfoEstudo extends StatefulWidget {
   String? escolaridadeUser;
-  List<String>? listaUser;
   bool? isPublic;
 
   InfoEstudo({
     Key? key,
-    required this.listaUser,
     this.isPublic,
     this.escolaridadeUser,
   }) : super(key: key);
@@ -18,25 +16,12 @@ class InfoEstudo extends StatefulWidget {
 }
 
 class _InfoEstudoState extends State<InfoEstudo> {
-  List<String> _selectedItems = [];
   bool saved = false;
   bool checked = false;
   bool isSelected = false;
   late TextEditingController _controller;
-  var listaSugestoes = sugestaoAtividades;
-  var listaEscolaridade = sugestaoEscolaridade;
-
-  void _itemChange(String itemValue, bool isSelected) {
-    setState(() {
-      if (isSelected) {
-        _selectedItems.add(itemValue);
-        //print(_selectedItems);
-      } else {
-        _selectedItems.remove(itemValue);
-        //print(_selectedItems);
-      }
-    });
-  }
+  var listaSugestoes = sugestaoEscolaridade;
+  String? _escolaridade;
 
   @override
   void initState() {
@@ -53,7 +38,9 @@ class _InfoEstudoState extends State<InfoEstudo> {
   @override
   Widget build(BuildContext context) {
     //mantendo os itens do usuario caso ele queira edita-los
-    if (widget.listaUser != null) _selectedItems = widget.listaUser!;
+    if (widget.escolaridadeUser != "") {
+      _escolaridade = widget.escolaridadeUser;
+    }
 
     return WillPopScope(
       onWillPop: () async {
@@ -64,39 +51,18 @@ class _InfoEstudoState extends State<InfoEstudo> {
       },
       child: AlertDialog(
         contentPadding: const EdgeInsets.all(0),
-        title: Column(
-          children: [
-            const Text("ONDE ESTUDO"),
-            Wrap(
-                children: _selectedItems
-                    .map((item) => Chip(
-                          label: Text(item),
-                          deleteIcon: const Icon(Icons.close),
-                          onDeleted: () {
-                            setState(() {
-                              _selectedItems.remove(item);
-                              //print(_selectedItems);
-                            });
-                          },
-                        ))
-                    .toList()),
-          ],
-        ),
+        title: const Text("MINHA ESCOLARIDADE"),
         content: SingleChildScrollView(
           child: ListBody(
-            children: listaEscolaridade
+            children: listaSugestoes
                 .map((e) => CheckboxListTile(
                     activeColor: Colors.black,
                     title: Text(e),
-                    value: _selectedItems.contains(e),
+                    value: widget.escolaridadeUser == e,
                     onChanged: (isChecked) {
-                      // ignore: iterable_contains_unrelated_type
-                      if (_selectedItems.contains(isChecked) == false) {
-                        setState(() {
-                          _itemChange(e, isChecked!);
-                          //print(isChecked);
-                        });
-                      }
+                      setState(() {
+                        widget.escolaridadeUser = e;
+                      });
                     }))
                 .toList(),
           ),
@@ -114,22 +80,6 @@ class _InfoEstudoState extends State<InfoEstudo> {
                 ],
               ),
             ),
-          //if (_selectedItems.length < 2)
-          TextField(
-            controller: _controller,
-            decoration: const InputDecoration(
-              label: Text("Outro"),
-            ),
-            onSubmitted: (value) {
-              if (_controller.text != "") {
-                setState(() {
-                  _selectedItems.add(value.toString().toUpperCase());
-                  _controller.text = "";
-                  //print(_selectedItems);
-                });
-              }
-            },
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -140,7 +90,8 @@ class _InfoEstudoState extends State<InfoEstudo> {
                 ),
                 onPressed: () {
                   setState(() {
-                    widget.listaUser = [];
+                    widget.escolaridadeUser = "";
+                    _escolaridade = "";
                   });
                 },
               ),
@@ -150,13 +101,13 @@ class _InfoEstudoState extends State<InfoEstudo> {
                   "Cancelar",
                   style: TextStyle(color: Colors.black),
                 ),
-                onPressed: () => Navigator.pop(context, _selectedItems),
+                onPressed: () => Navigator.pop(context),
               ),
               ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black)),
                 child: const Text("Finalizar"),
-                onPressed: () => Navigator.pop(context, _selectedItems),
+                onPressed: () => Navigator.pop(context, _escolaridade),
               )
             ],
           ),

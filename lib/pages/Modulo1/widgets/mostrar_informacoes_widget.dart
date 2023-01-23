@@ -21,8 +21,7 @@ class MostrarInformacoes extends StatelessWidget {
         const Divider(thickness: 1),
         Text("ESCOLARIDADE", style: _estiloTitulo()),
         const Padding(padding: EdgeInsets.all(2)),
-        if (user.listaEscolaridade!.isNotEmpty)
-          Text(user.listaEscolaridade!.join(", ")),
+        if (user.escolaridade!.isNotEmpty) Text(user.escolaridade!),
         const Divider(thickness: 1),
         Text("MINHAS ATIVIDADES", style: _estiloTitulo()),
         const Padding(padding: EdgeInsets.all(2)),

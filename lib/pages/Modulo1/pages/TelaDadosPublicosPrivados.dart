@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Emprego.dart';
 import 'package:projeto_final_unb/models/Endereco.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
-import 'package:projeto_final_unb/utilities/suggestionPictures.dart';
+import 'package:projeto_final_unb/utilities/suggestionStrings.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/definicao_privacidade_widget.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/info_estudo_widget.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/info_trabalho_widget.dart';
@@ -121,72 +121,33 @@ class _TelaDadosPublicosPrivadosState extends State<TelaDadosPublicosPrivados> {
               ),
               _divider(),
               const Text(
-                "ONDE ESTUDO",
+                "MINHA ESCOLARIDADE",
                 style: TextStyle(fontSize: 18),
               ),
-              if (widget.user!.listaEscolaridade != null)
-                Wrap(
-                    children: widget.user!.listaEscolaridade!
-                        .map((e) => Chip(
-                              label: Text(e),
-                            ))
-                        .toList()),
+              if (widget.user!.escolaridade != null &&
+                  widget.user!.escolaridade != "")
+                Chip(label: Text(widget.user!.escolaridade.toString())),
               ElevatedButton.icon(
                 icon: const Icon(Icons.add),
                 label: const Text("Adicionar"),
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.black)),
                 onPressed: () async {
-                  widget.user!.listaEscolaridade = await showDialog(
+                  var escolaridade = await showDialog(
                     context: context,
                     builder: (context) => InfoEstudo(
-                      listaUser: widget.user!.listaEscolaridade,
+                      escolaridadeUser: widget.user!.escolaridade,
                       isPublic: widget.user!.isPublic,
                     ),
                   );
+                  if (escolaridade != null) {
+                    widget.user!.escolaridade = escolaridade;
+                  }
+
                   setState(() {});
                 },
               ),
               _divider(),
-/*              
-              const Text(
-                "LOCALIDADE",
-                style: TextStyle(fontSize: 18),
-              ),
-              if (_endereco.moroEm != "")
-                Chip(label: Text("${_endereco.moroEm}")),
-              ElevatedButton.icon(
-                icon: const Icon(Icons.add),
-                label: const Text("Adicionar"),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black)),
-                onPressed: () async {
-                  _endereco = await showDialog(
-                    context: context,
-                    builder: (context) => InfoEndereco(
-                      isPublic: widget.user!.isPublic,
-                      enderecoUser: widget.user!.endereco,
-                    ),
-                  );
-                  setState(() {
-                    widget.user!.endereco = _endereco;
-                  });
-                },
-              ),
-              _divider(),
-              const Text(
-                "SOU DA CIDADE DE \n ESTADO DE \n PAÍS",
-                style: TextStyle(fontSize: 18),
-              ),
-              Wrap(
-                children: [
-                  Chip(label: Text("CIDADE: ${_endereco.cidade}")),
-                  Chip(label: Text("ESTADO: ${_endereco.estado}")),
-                  Chip(label: Text("PAÍS: ${_endereco.pais}")),
-                ],
-              ),
-              _divider(),
-*/
               const Text(
                 "STATUS DE RELACIONAMENTO",
                 style: TextStyle(fontSize: 18),
