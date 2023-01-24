@@ -5,6 +5,7 @@ import 'package:projeto_final_unb/pages/Modulo2/pages/TelaInstrucoesModulo2.dart
 import 'package:projeto_final_unb/pages/Modulo2/pages/TelaTarefaComentar.dart';
 import 'package:projeto_final_unb/pages/Modulo2/pages/TelaTarefaCompartilhar.dart';
 import 'package:projeto_final_unb/pages/Modulo2/pages/TelaTarefaCurtir.dart';
+import 'package:projeto_final_unb/widgets/custom_bottom_app_bar_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Modulo2 extends StatefulWidget {
@@ -37,7 +38,9 @@ class _Modulo2State extends State<Modulo2> {
         child: PageView(
           controller: _pageController,
           onPageChanged: (index) {
-            currentIndexPage = index;
+            setState(() {
+              currentIndexPage = index;
+            });
           },
           children: [
             const TelaInstrucoesModulo2(),
@@ -48,7 +51,11 @@ class _Modulo2State extends State<Modulo2> {
           ],
         ),
       ),
-      bottomNavigationBar: bottomBar(),
+      bottomNavigationBar: CustomBottomAppBar(
+        pagesQuantity: 5,
+        currentIndexPage: currentIndexPage,
+        pageController: _pageController,
+      ), //bottomBar(),
     );
   }
 

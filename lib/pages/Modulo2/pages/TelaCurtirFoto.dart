@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/utilities/conceitosList.dart';
+import 'package:projeto_final_unb/widgets/custom_bottom_app_bar_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../widgets/imagem_botoes_widget.dart';
 
@@ -30,36 +31,42 @@ class _TelaCurtirFotoState extends State<TelaCurtirFoto> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text("CONCEITO ${conceitosList[widget.index]['conceito']}"),
-        centerTitle: true,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Flexible(
-            flex: 3,
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              child: PageView.builder(
-                  controller: _controller,
-                  onPageChanged: (index) {
-                    currentIndexPage = index;
-                  },
-                  itemCount: conceitosList[widget.index]['fotos'].length,
-                  itemBuilder: (context, index) {
-                    return ImagemBotoesWidget(
-                      index: index,
-                      indexConceitoList: widget.index,
-                    );
-                  }),
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: Text("CONCEITO ${conceitosList[widget.index]['conceito']}"),
+          centerTitle: true,
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 3,
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                child: PageView.builder(
+                    controller: _controller,
+                    onPageChanged: (index) {
+                      setState(() {
+                        currentIndexPage = index;
+                      });
+                    },
+                    itemCount: conceitosList[widget.index]['fotos'].length,
+                    itemBuilder: (context, index) {
+                      return ImagemBotoesWidget(
+                        index: index,
+                        indexConceitoList: widget.index,
+                      );
+                    }),
+              ),
             ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: bottomBar(),
-    );
+          ],
+        ),
+        bottomNavigationBar: CustomBottomAppBar(
+          pagesQuantity: 3,
+          currentIndexPage: currentIndexPage,
+          pageController: _controller,
+        ) //bottomBar(),
+        );
   }
 
   Widget bottomBar() {

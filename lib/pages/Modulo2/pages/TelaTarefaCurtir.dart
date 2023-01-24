@@ -52,9 +52,16 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
                         margin: const EdgeInsets.all(10),
                         color: Colors.grey[300],
                         child: ListTile(
-                          title: Text(
-                            "${conceitosList[index]["conceito"]}",
-                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          title: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "${conceitosList[index]["conceito"]}",
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
                           ),
                           subtitle: Text(
                               "LIÇÕES: ${conceitosList[index]["fotos"].length}"),

@@ -5,6 +5,8 @@ import 'package:projeto_final_unb/pages/Modulo1/pages/TelaDadosPublicosPrivados.
 import 'package:projeto_final_unb/pages/Modulo1/pages/TelaObterFoto.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../widgets/custom_bottom_app_bar_widget.dart';
+
 class ObterInformacoes extends StatefulWidget {
   final Usuario user;
   const ObterInformacoes({Key? key, required this.user}) : super(key: key);
@@ -48,7 +50,9 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
               child: PageView(
                 controller: _controller,
                 onPageChanged: (index) {
-                  currentIndexPage = index;
+                  setState(() {
+                    currentIndexPage = index;
+                  });
                 },
                 children: [
                   TelaObterFoto(user: widget.user),
@@ -59,7 +63,11 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
             ),
           ],
         ),
-        bottomNavigationBar: bottomBar(),
+        bottomNavigationBar: CustomBottomAppBar(
+          pagesQuantity: 3,
+          currentIndexPage: currentIndexPage,
+          pageController: _controller,
+        ), //bottomBar(),
       ),
     );
   }
@@ -72,7 +80,9 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
         children: [
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(Colors.black),
+              foregroundColor: currentIndexPage == 0
+                  ? MaterialStateProperty.all(Colors.transparent)
+                  : MaterialStateProperty.all(Colors.black),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -84,7 +94,9 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
             icon: const SizedBox(),
             onPressed: () {
               if (currentIndexPage > 0) {
-                currentIndexPage--;
+                setState(() {
+                  currentIndexPage--;
+                });
                 _controller.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.linear);
@@ -103,7 +115,9 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
           ),
           TextButton.icon(
             style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(Colors.black),
+              foregroundColor: currentIndexPage < 2
+                  ? MaterialStateProperty.all(Colors.black)
+                  : MaterialStateProperty.all(Colors.transparent),
             ),
             label: Column(
               mainAxisSize: MainAxisSize.min,
@@ -115,7 +129,10 @@ class _ObterInformacoesState extends State<ObterInformacoes> {
             icon: const SizedBox(),
             onPressed: () {
               if (currentIndexPage < 2) {
-                currentIndexPage++;
+                setState(() {
+                  currentIndexPage++;
+                });
+
                 _controller.animateToPage(currentIndexPage,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.linear);

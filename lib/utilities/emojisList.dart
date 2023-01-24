@@ -50,7 +50,6 @@ List<String> emojisList = [
   "caraNaoSeiOqDizer2.png",
   "caraOculosSol.png",
   "caraOlhosCoracoes1.png",
-  "caraOlhosCoracoes2.png",
   "caraOlhosEstrela.png",
   "caraPaciencia.png",
   "caraPedindoAlgumaCoisa.png",

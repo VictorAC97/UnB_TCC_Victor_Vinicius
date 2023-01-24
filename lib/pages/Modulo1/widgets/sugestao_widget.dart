@@ -129,7 +129,14 @@ class _SugestaoState extends State<Sugestao> {
                               icon: const Icon(Icons.help),
                             ),
                             activeColor: Colors.black,
-                            title: Text(item),
+                            title: FittedBox(
+                              alignment: Alignment.centerLeft,
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                item,
+                                style: const TextStyle(fontSize: 14),
+                              ),
+                            ),
                             value: _selectedItems.contains(item),
                             controlAffinity: ListTileControlAffinity.leading,
                             onChanged: (isChecked) {

@@ -13,7 +13,6 @@ List<Map<String, dynamic>> conceitosList = [
       "caraDandoRisada.png",
       "caraEngracada2.png",
       "caraOlhosCoracoes1.png",
-      "caraOlhosCoracoes2.png",
       "caraOlhosEstrela.png",
       "caraPiscandoOlhos1.png",
       "caraMostrandoLingua1.png",
@@ -49,6 +48,7 @@ List<Map<String, dynamic>> conceitosList = [
       "caraCansada1.png",
       "caraCansada2.png",
       "caraNaoEntendo.png",
+      "caraComSono1.png",
     ],
   },
   {
@@ -71,7 +71,6 @@ List<Map<String, dynamic>> conceitosList = [
       "caraDandoRisada.png",
       "caraEngracada2.png",
       "caraOlhosCoracoes1.png",
-      "caraOlhosCoracoes2.png",
       "caraOlhosEstrela.png",
       "caraSorrindoComSuor.png",
     ],

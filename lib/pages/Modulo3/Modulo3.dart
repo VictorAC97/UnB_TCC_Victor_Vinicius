@@ -7,6 +7,7 @@ import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodePostarFoto.d
 import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodePostarFotoDuploToque.dart';
 import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarFotos.dart';
 import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarPalavraFrase.dart';
+import 'package:projeto_final_unb/widgets/custom_bottom_app_bar_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:provider/provider.dart';
 
@@ -40,43 +41,48 @@ class _Modulo3State extends State<Modulo3> {
         context.watch<AppSettings>().infoDificuldade['dificuldade'];
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text("MÓDULO 3"),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            currentIndexPage = index;
-          },
-          children: [
-            const TelaInstrucoesModulo3(),
-            const TelaConfigurarDificuldades(),
-            dificuldade == 'arrastar'
-                ? TelaTarefaPodePostarFoto(
-                    listaNomesFotos: listaNomesFotos,
-                    acertos: acertosFotos,
-                  )
-                : TelaTarefaPodePostarFotoDuploToque(
-                    listaNomesFotos: listaNomesFotos,
-                    acertos: acertosFotos,
-                  ),
-            dificuldade == 'arrastar'
-                ? TelaTarefaPodeEscrever(
-                    listaFrasesPalavras: listaFrasesPalavras,
-                    acertos: acertosFrasesPalavras,
-                  )
-                : TelaTarefaPodeEscreverDuploToque(
-                    listaFrasesPalavras: listaFrasesPalavras,
-                    acertos: acertosFrasesPalavras,
-                  ),
-          ],
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: const Text("MÓDULO 3"),
+          centerTitle: true,
         ),
-      ),
-      bottomNavigationBar: bottomBar(),
-    );
+        body: Center(
+          child: PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() {
+                currentIndexPage = index;
+              });
+            },
+            children: [
+              const TelaInstrucoesModulo3(),
+              const TelaConfigurarDificuldades(),
+              dificuldade == 'arrastar'
+                  ? TelaTarefaPodePostarFoto(
+                      listaNomesFotos: listaNomesFotos,
+                      acertos: acertosFotos,
+                    )
+                  : TelaTarefaPodePostarFotoDuploToque(
+                      listaNomesFotos: listaNomesFotos,
+                      acertos: acertosFotos,
+                    ),
+              dificuldade == 'arrastar'
+                  ? TelaTarefaPodeEscrever(
+                      listaFrasesPalavras: listaFrasesPalavras,
+                      acertos: acertosFrasesPalavras,
+                    )
+                  : TelaTarefaPodeEscreverDuploToque(
+                      listaFrasesPalavras: listaFrasesPalavras,
+                      acertos: acertosFrasesPalavras,
+                    ),
+            ],
+          ),
+        ),
+        bottomNavigationBar: CustomBottomAppBar(
+            pagesQuantity: 4,
+            currentIndexPage: currentIndexPage,
+            pageController: _pageController) //bottomBar(),
+        );
   }
 
   Widget bottomBar() {

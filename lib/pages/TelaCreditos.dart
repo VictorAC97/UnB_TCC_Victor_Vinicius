@@ -40,7 +40,7 @@ class _TelaCreditosState extends State<TelaCreditos> {
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                '\tÉ um produto inédito no Brasil; visa apoiar um público muito vulnerável a humilhações e golpes quando do uso de redes sociais. Os requisitos foram levantados junto a professores especialistas da área de educação especial, para que o aplicativo atendesse às necessidades e às particularidades do público alvo.',
+                '\tÉ um produto inédito no Brasil; visa apoiar um público muito vulnerável quando do uso de redes sociais. Os requisitos foram levantados junto a professores especialistas da área de educação especial, para que o aplicativo atendesse às necessidades e às particularidades do público alvo.',
                 textAlign: TextAlign.justify,
                 style: TextStyle(fontSize: 16),
               ),

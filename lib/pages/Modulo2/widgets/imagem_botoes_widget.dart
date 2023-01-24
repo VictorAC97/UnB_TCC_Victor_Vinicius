@@ -40,7 +40,9 @@ class _ImagemBotoesWidgetState extends State<ImagemBotoesWidget> {
           children: [
             TextButton.icon(
               style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(Colors.black)),
+                  foregroundColor: visivel == true
+                      ? MaterialStateProperty.all(Colors.grey)
+                      : MaterialStateProperty.all(Colors.black)),
               icon: const Icon(Icons.comment),
               label: const Text("Comentar"),
               onPressed: () {
@@ -58,8 +60,9 @@ class _ImagemBotoesWidgetState extends State<ImagemBotoesWidget> {
                       label: const Text("Curtir"),
                       icon: const Icon(Icons.thumb_up),
                       style: ButtonStyle(
-                          foregroundColor:
-                              MaterialStateProperty.all(Colors.black)),
+                          foregroundColor: visivel == true
+                              ? MaterialStateProperty.all(Colors.black)
+                              : MaterialStateProperty.all(Colors.grey)),
                       onPressed: () {
                         setState(() {
                           visivel = !visivel;
@@ -69,9 +72,8 @@ class _ImagemBotoesWidgetState extends State<ImagemBotoesWidget> {
                     )
                   : TextButton.icon(
                       style: ButtonStyle(
-                          foregroundColor: visivel == true
-                              ? MaterialStateProperty.all(Colors.grey)
-                              : MaterialStateProperty.all(Colors.black)),
+                          foregroundColor:
+                              MaterialStateProperty.all(Colors.black)),
                       icon: const Icon(Icons.thumb_up),
                       label: const Text("Curtir"),
                       onPressed: () {
@@ -85,7 +87,9 @@ class _ImagemBotoesWidgetState extends State<ImagemBotoesWidget> {
               icon: const Icon(Icons.share),
               label: const Text("Compartilhar"),
               style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(Colors.black)),
+                  foregroundColor: visivel == true
+                      ? MaterialStateProperty.all(Colors.grey)
+                      : MaterialStateProperty.all(Colors.black)),
               onPressed: () {
                 setState(() {
                   if (visivel == false) {

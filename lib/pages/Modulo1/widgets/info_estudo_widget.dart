@@ -57,7 +57,14 @@ class _InfoEstudoState extends State<InfoEstudo> {
             children: listaSugestoes
                 .map((e) => CheckboxListTile(
                     activeColor: Colors.black,
-                    title: Text(e),
+                    title: FittedBox(
+                      alignment: Alignment.centerLeft,
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        e,
+                        style: const TextStyle(fontSize: 15),
+                      ),
+                    ),
                     value: widget.escolaridadeUser == e,
                     onChanged: (isChecked) {
                       setState(() {
