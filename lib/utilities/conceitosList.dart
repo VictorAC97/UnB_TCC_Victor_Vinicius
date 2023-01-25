@@ -62,7 +62,7 @@ List<Map<String, dynamic>> conceitosList = [
   },
   {
     'conceito': 'ENGRAÇADO',
-    'fotos': ['engracado.jpg', 'engracado2.jpeg', 'assistirFilme.jpg'],
+    'fotos': ['engracado.jpg', 'engracado2.jpeg', 'engracado3.jpg'],
     'emojis-corretos': [
       "caraSorridente1.png",
       "caraSorridente2.png",
@@ -70,7 +70,7 @@ List<Map<String, dynamic>> conceitosList = [
       "caraChorandoAlegria.png",
       "caraDandoRisada.png",
       "caraEngracada2.png",
-      "caraOlhosCoracoes1.png",
+      //"caraOlhosCoracoes1.png",
       "caraOlhosEstrela.png",
       "caraSorrindoComSuor.png",
     ],

@@ -38,7 +38,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                         .map(
                           (e) => Draggable<Map<String, dynamic>>(
                             feedback: SizedBox(
-                              height: 130,
+                              height: 150,
                               child: Image.asset(
                                   'assets/images/imagensPostar/${e["nome_foto"]}'),
                             ),
@@ -46,12 +46,15 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                                 ? const Icon(
                                     Icons.check,
                                     color: Colors.green,
-                                    size: 50,
+                                    size: 70,
                                   )
-                                : SizedBox(
-                                    height: 150,
-                                    child: Image.asset(
-                                        'assets/images/imagensPostar/${e["nome_foto"]}'),
+                                : FittedBox(
+                                    fit: BoxFit.fill,
+                                    child: SizedBox(
+                                      height: 100,
+                                      child: Image.asset(
+                                          'assets/images/imagensPostar/${e["nome_foto"]}'),
+                                    ),
                                   ),
                             childWhenDragging: Container(),
                             data: e,
@@ -84,8 +87,7 @@ class _TelaTarefaPodePostarFotoState extends State<TelaTarefaPodePostarFoto> {
                     return Container(
                       child: Center(
                           child: Text(
-                        "Toque na imagem correta e arraste até aqui."
-                            .toUpperCase(),
+                        "Arraste a imagem correta até aqui.".toUpperCase(),
                         style: const TextStyle(fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       )),

@@ -8,7 +8,6 @@ import 'package:projeto_final_unb/pages/Modulo3/pages/TelaTarefaPodePostarFotoDu
 import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarFotos.dart';
 import 'package:projeto_final_unb/pages/Modulo3/utilities/funcGerarPalavraFrase.dart';
 import 'package:projeto_final_unb/widgets/custom_bottom_app_bar_widget.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:provider/provider.dart';
 
 import '../../widgets/app_settings.dart';
@@ -79,72 +78,12 @@ class _Modulo3State extends State<Modulo3> {
           ),
         ),
         bottomNavigationBar: CustomBottomAppBar(
-            pagesQuantity: 4,
-            currentIndexPage: currentIndexPage,
-            pageController: _pageController) //bottomBar(),
+          pagesQuantity: 4,
+          currentIndexPage: currentIndexPage,
+          pageController: _pageController,
+          leftButtonText: 'Página Anterior',
+          rightButtonText: 'Próxima Página',
+        ) //bottomBar(),
         );
-  }
-
-  Widget bottomBar() {
-    return BottomAppBar(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          TextButton.icon(
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(Colors.black),
-            ),
-            label: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.arrow_back),
-                Text('Página Anterior'.toUpperCase()),
-              ],
-            ),
-            icon: const SizedBox(),
-            onPressed: () {
-              if (currentIndexPage > 0) {
-                currentIndexPage--;
-                _pageController.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.linear);
-              }
-            },
-          ),
-          SmoothPageIndicator(
-            controller: _pageController,
-            count: 4,
-            effect: SwapEffect(
-              dotWidth: 10,
-              dotHeight: 10,
-              activeDotColor: Colors.black,
-              dotColor: Colors.grey.shade300,
-            ),
-          ),
-          TextButton.icon(
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(Colors.black),
-            ),
-            label: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.arrow_forward),
-                Text('Próxima Página'.toUpperCase()),
-              ],
-            ),
-            icon: const SizedBox(),
-            onPressed: () {
-              if (currentIndexPage < 3) {
-                currentIndexPage++;
-                _pageController.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.linear);
-              }
-            },
-          ),
-        ],
-      ),
-    );
   }
 }

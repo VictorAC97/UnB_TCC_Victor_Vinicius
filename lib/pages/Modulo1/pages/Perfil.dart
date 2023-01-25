@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/models/Usuario.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/anexo_widget.dart';
-import 'package:projeto_final_unb/pages/Modulo1/widgets/obter_informacoes_widget.dart';
+import 'package:projeto_final_unb/pages/Modulo1/pages/TelaCadastroInformacoes.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/perfil_privado_widget.dart';
 import 'package:projeto_final_unb/pages/Modulo1/widgets/perfil_publico_widget.dart';
 
@@ -42,14 +42,14 @@ class _PerfilState extends State<Perfil> {
               const Padding(padding: EdgeInsets.all(4)),
               ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
                 ),
                 onPressed: () async {
                   widget.user = await Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: ((context) =>
-                            ObterInformacoes(user: widget.user!)),
+                            CadastroInformacoes(user: widget.user!)),
                       ));
                   //carrega a foto na tela de perfil
                   setState(() {});

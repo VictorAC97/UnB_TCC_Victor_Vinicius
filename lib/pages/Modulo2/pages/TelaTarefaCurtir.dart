@@ -47,50 +47,60 @@ class _TelaTarefaCurtirState extends State<TelaTarefaCurtir> {
                     controller: _scrollController,
                     itemCount: conceitosList.length,
                     itemBuilder: (context, index) {
-                      return Card(
-                        elevation: 6,
-                        margin: const EdgeInsets.all(10),
-                        color: Colors.grey[300],
-                        child: ListTile(
-                          title: FittedBox(
-                            fit: BoxFit.scaleDown,
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "${conceitosList[index]["conceito"]}",
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                      return GestureDetector(
+                        child: Card(
+                          elevation: 6,
+                          margin: const EdgeInsets.all(10),
+                          color: Colors.grey[300],
+                          child: ListTile(
+                            title: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "${conceitosList[index]["conceito"]}",
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
                               ),
                             ),
-                          ),
-                          subtitle: Text(
-                              "LIÇÕES: ${conceitosList[index]["fotos"].length}"),
-                          leading: CircleAvatar(
-                            child: Text(
-                              (index + 1).toString(),
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 22),
+                            subtitle: Text(
+                                "LIÇÕES: ${conceitosList[index]["fotos"].length}"),
+                            leading: CircleAvatar(
+                              child: Text(
+                                (index + 1).toString(),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 22),
+                              ),
+                              backgroundColor: Colors.white,
+                              foregroundColor: Colors.black,
+                              radius: 25,
                             ),
-                            backgroundColor: Colors.white,
-                            foregroundColor: Colors.black,
-                            radius: 25,
-                          ),
-                          trailing: ElevatedButton.icon(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => TelaCurtirFoto(
-                                            index: index,
-                                          )));
-                            },
-                            icon: const Icon(Icons.thumb_up),
-                            label: const Text("Curtir"),
-                            style: ButtonStyle(
-                                backgroundColor:
-                                    MaterialStateProperty.all(Colors.black)),
+                            trailing: ElevatedButton.icon(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => TelaCurtirFoto(
+                                              index: index,
+                                            )));
+                              },
+                              icon: const Icon(Icons.thumb_up),
+                              label: const Text("Curtir"),
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all(Colors.black)),
+                            ),
                           ),
                         ),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TelaCurtirFoto(
+                                        index: index,
+                                      )));
+                        },
                       );
                     },
                   ),

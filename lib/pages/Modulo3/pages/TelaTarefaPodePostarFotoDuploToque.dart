@@ -42,12 +42,15 @@ class _TelaTarefaPodePostarFotoDuploToqueState
                                 ? const Icon(
                                     Icons.check,
                                     color: Colors.green,
-                                    size: 50,
+                                    size: 70,
                                   )
-                                : SizedBox(
-                                    height: 150,
-                                    child: Image.asset(
-                                        'assets/images/imagensPostar/${e["nome_foto"]}'),
+                                : FittedBox(
+                                    fit: BoxFit.fill,
+                                    child: SizedBox(
+                                      height: 150,
+                                      child: Image.asset(
+                                          'assets/images/imagensPostar/${e["nome_foto"]}'),
+                                    ),
                                   ),
                             onDoubleTap: () {
                               if (e.containsValue(true)) {

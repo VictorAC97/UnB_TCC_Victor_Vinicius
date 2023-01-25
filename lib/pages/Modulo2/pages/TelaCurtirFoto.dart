@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_final_unb/utilities/conceitosList.dart';
 import 'package:projeto_final_unb/widgets/custom_bottom_app_bar_widget.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../widgets/imagem_botoes_widget.dart';
+import '../widgets/botoes_tarefa_curtir_widget.dart';
 
 class TelaCurtirFoto extends StatefulWidget {
   int index;
@@ -65,70 +64,9 @@ class _TelaCurtirFotoState extends State<TelaCurtirFoto> {
           pagesQuantity: 3,
           currentIndexPage: currentIndexPage,
           pageController: _controller,
+          leftButtonText: 'Imagem Anterior',
+          rightButtonText: 'Próxima Imagem',
         ) //bottomBar(),
         );
-  }
-
-  Widget bottomBar() {
-    return BottomAppBar(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          TextButton.icon(
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(Colors.black),
-            ),
-            label: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.arrow_back),
-                Text('Imagem Anterior'.toUpperCase()),
-              ],
-            ),
-            icon: const SizedBox(),
-            onPressed: () {
-              if (currentIndexPage > 0) {
-                currentIndexPage--;
-                _controller.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.linear);
-              }
-            },
-          ),
-          SmoothPageIndicator(
-            controller: _controller,
-            count: 3,
-            effect: SwapEffect(
-              dotWidth: 10,
-              dotHeight: 10,
-              activeDotColor: Colors.black,
-              dotColor: Colors.grey.shade300,
-            ),
-          ),
-          TextButton.icon(
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all(Colors.black),
-            ),
-            label: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.arrow_forward),
-                Text('Próxima Imagem'.toUpperCase()),
-              ],
-            ),
-            icon: const SizedBox(),
-            onPressed: () {
-              if (currentIndexPage < 2) {
-                currentIndexPage++;
-                _controller.animateToPage(currentIndexPage,
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.linear);
-              }
-            },
-          ),
-        ],
-      ),
-    );
   }
 }

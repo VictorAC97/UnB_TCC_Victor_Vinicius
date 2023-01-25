@@ -5,12 +5,16 @@ class CustomBottomAppBar extends StatefulWidget {
   final int pagesQuantity;
   int currentIndexPage;
   PageController pageController;
-  CustomBottomAppBar(
-      {Key? key,
-      required this.pagesQuantity,
-      required this.currentIndexPage,
-      required this.pageController})
-      : super(key: key);
+  String leftButtonText;
+  String rightButtonText;
+  CustomBottomAppBar({
+    Key? key,
+    required this.pagesQuantity,
+    required this.currentIndexPage,
+    required this.pageController,
+    required this.leftButtonText,
+    required this.rightButtonText,
+  }) : super(key: key);
 
   @override
   State<CustomBottomAppBar> createState() => _CustomBottomAppBarState();
@@ -35,7 +39,7 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Icon(Icons.arrow_back),
-                Text('Página Anterior'.toUpperCase()),
+                Text(widget.leftButtonText.toUpperCase()),
               ],
             ),
             icon: const SizedBox(),
@@ -71,7 +75,7 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Icon(Icons.arrow_forward),
-                Text('Próxima Página'.toUpperCase()),
+                Text(widget.rightButtonText.toUpperCase()),
               ],
             ),
             icon: const SizedBox(),
